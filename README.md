@@ -47,12 +47,19 @@ A curated list of **slop cities**: browser city simulations in the spirit of [mr
 
 ## Contents
 
-- [Featured](#featured)
-- [The original](#the-original)
-- [Cities](#cities)
-- [New York remixes](#new-york-remixes)
-- [Other maps, games and racing](#other-maps-games-and-racing)
-- [Contributing](#contributing)
+- [Awesome Slop Cities](#awesome-slop-cities)
+  - [Featured](#featured)
+  - [Contents](#contents)
+  - [The original](#the-original)
+  - [Cities](#cities)
+    - [Africa](#africa)
+    - [Asia](#asia)
+    - [Europe](#europe)
+    - [North America](#north-america)
+    - [South America](#south-america)
+  - [New York remixes](#new-york-remixes)
+  - [Other maps, games and racing](#other-maps-games-and-racing)
+  - [Contributing](#contributing)
 
 ## The original
 
@@ -66,6 +73,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally.
 
 - **Abuja, Nigeria** - [Play](https://abujatour.site/) · [Tweet](https://x.com/0xkodesage/status/2113449044206920085) - by [@0xkodesage](https://x.com/0xkodesage). Nigeria's capital: 37,373 buildings, Aso Rock at full height, place search and turn-by-turn directions.
 - **Kaduna, Nigeria** - [Play](https://kaduna-need-for-speed.vercel.app) · [Source](https://github.com/Akay-mighty/Kaduna-need-for-speed-) - by [Akay-mighty](https://github.com/Akay-mighty). Kaduna Need for Speed: a Cybertruck around a low-poly Kaduna circuit, borrowing Slop New York's car physics and chase camera.
+- **Nairobi, Kenya** - [Play](https://briankariuki.github.io/slop-nairobi/) · [Source](https://github.com/briankariuki/slop-nairobi) · [Tweet](https://x.com/briankariuki/status/2115157292685635881?a=DhV9f18XhJjrBrfKI7U&s=20) - by [@briankariuki](https://x.com/briankariuki). Kenya's capital
 
 ### Asia
 
