@@ -50,7 +50,7 @@
      "authorUrl": "https://github.com/midagedev",
      "desc": "Arcade dino-outbreak car shooter in Midtown.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-extinction-avenue.jpg",
      "pick": false
     },
     {
@@ -63,7 +63,7 @@
      "authorUrl": "https://x.com/josephzhangai",
      "desc": "Fly a Roadster over 1:1 Manhattan with live traffic.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-flying-car-simulator.jpg",
      "pick": false
     },
     {
@@ -76,7 +76,7 @@
      "authorUrl": "https://github.com/ceogenz",
      "desc": "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-gen-z-quant-unfinished-business.jpg",
      "pick": false
     },
     {
@@ -117,7 +117,7 @@
      "authorUrl": "https://github.com/Denzy7",
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-low-end-gpu-fork.jpg",
      "pick": false
     },
     {
@@ -129,7 +129,7 @@
      "authorUrl": "https://x.com/mattiadmr",
      "desc": "A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-make-it-anywhere.jpg",
      "pick": false
     },
     {
@@ -170,7 +170,7 @@
      "authorUrl": "https://github.com/pablo-mayrgundter",
      "desc": "Drives the city over Manhattan's real ground.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-real-terrain.jpg",
      "pick": false
     },
     {
@@ -183,7 +183,7 @@
      "authorUrl": "https://github.com/mattiaongit",
      "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-slop-new-york-mini.jpg",
      "pick": false
     },
     {
@@ -196,7 +196,7 @@
      "authorUrl": "https://github.com/jnaranj09",
      "desc": "Web-swing through Manhattan on your phone with a one-thumb swinging controller.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-spider-man-slop-new-york.jpg",
      "pick": false
     },
     {
@@ -209,7 +209,7 @@
      "authorUrl": "https://github.com/mrubens",
      "desc": "Drive taxi fares against the clock.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-taxi-fares.jpg",
      "pick": false
     },
     {
@@ -235,7 +235,7 @@
      "authorUrl": "https://x.com/mkturkcan",
      "desc": "A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-valdrada.jpg",
      "pick": false
     }
    ],
@@ -319,7 +319,7 @@
      "authorUrl": "https://x.com/briankariuki",
      "desc": "Kenya's capital.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/nairobi.jpg",
      "pick": false,
      "tag": null
     }
@@ -380,7 +380,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/daejeon.jpg",
      "pick": false,
      "tag": null
     }
@@ -407,7 +407,7 @@
      "authorUrl": "https://x.com/kayf2010",
      "desc": "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/dubai.jpg",
      "pick": false,
      "tag": null
     }
@@ -453,7 +453,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/hong-kong-night-patrol.jpg",
      "pick": false,
      "tag": "Night Patrol"
     }
@@ -513,7 +513,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/riyadh.jpg",
      "pick": false,
      "tag": null
     }
@@ -542,7 +542,7 @@
       "isometric",
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/seoul.jpg",
      "pick": false,
      "tag": null
     }
@@ -569,7 +569,7 @@
      "authorUrl": "https://github.com/YakirLove",
      "desc": "Shanghai Roam: the Huangpu, the Bund and Lujiazui.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/shanghai.jpg",
      "pick": false,
      "tag": null
     }
@@ -642,7 +642,7 @@
      "authorUrl": "https://github.com/hebe13579",
      "desc": "Taipei Basin with rivers and bridges.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/taipei-hebe13579.jpg",
      "pick": false,
      "tag": "hebe13579"
     },
@@ -656,7 +656,7 @@
      "authorUrl": "https://github.com/sc0Vu",
      "desc": "",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/taipei-sc0vu.jpg",
      "pick": false,
      "tag": "sc0Vu"
     }
@@ -743,7 +743,7 @@
      "authorUrl": "https://github.com/martincollignon",
      "desc": "A city twin with real building data and Skråfoto facade textures.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/copenhagen.jpg",
      "pick": false,
      "tag": null
     }
@@ -801,7 +801,7 @@
      "authorUrl": "https://github.com/mhmmd5225",
      "desc": "SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/kahramanmaras.jpg",
      "pick": false,
      "tag": null
     }
@@ -877,7 +877,7 @@
       "isometric",
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/london-tiny-london.jpg",
      "pick": false,
      "tag": "tiny.london"
     }
@@ -906,7 +906,7 @@
      "authorUrl": "https://github.com/germanpadua",
      "desc": "",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/madrid.jpg",
      "pick": false,
      "tag": null
     }
@@ -935,7 +935,7 @@
      "authorUrl": "https://x.com/bchapuis",
      "desc": "Montreux Drift, with real relief down to Lake Geneva.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/montreux.jpg",
      "pick": false,
      "tag": null
     }
@@ -996,7 +996,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/seville.jpg",
      "pick": false,
      "tag": null
     }
@@ -1053,7 +1053,7 @@
      "authorUrl": "https://x.com/berttemme",
      "desc": "Domtoren, Oudegracht and Centraal Station.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/utrecht.jpg",
      "pick": false,
      "tag": null
     }
@@ -1099,7 +1099,7 @@
       "isometric",
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/warsaw-isometric-warsaw.jpg",
      "pick": false,
      "tag": "Isometric Warsaw"
     },
@@ -1143,7 +1143,7 @@
      "authorUrl": "https://github.com/colorfield",
      "desc": "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/zurich.jpg",
      "pick": false,
      "tag": null
     }
@@ -1216,7 +1216,7 @@
      "authorUrl": null,
      "desc": "",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/san-francisco-sweep-sf.jpg",
      "pick": false,
      "tag": "Sweep SF"
     }
@@ -1245,7 +1245,7 @@
      "authorUrl": "https://github.com/treycausey",
      "desc": "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/seattle.jpg",
      "pick": false,
      "tag": null
     }
@@ -1410,7 +1410,7 @@
       "own engine",
       "WIP"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/goiania.jpg",
      "pick": false,
      "tag": null
     }

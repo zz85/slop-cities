@@ -52,6 +52,7 @@ cities:
             tweet: https://x.com/briankariuki/status/2115157292685635881
             by: "@briankariuki"
             desc: Kenya's capital.
+            screenshot: screenshots/nairobi.jpg
 
     Asia:
       - city: Bangkok
@@ -72,6 +73,7 @@ cities:
             by: "@ggybbo220913"
             desc: "abirdcity: the whole city from OpenStreetMap in PlayCanvas. Drive a Roadster up a skyscraper wall, fly a pteranodon over Hanbit Tower, or jump to Daejeon in the year 2300."
             flags: [own engine]
+            screenshot: screenshots/daejeon.jpg
 
       - city: Dubai
         country: UAE
@@ -81,6 +83,7 @@ cities:
             tweet: https://x.com/kayf2010/status/2114050750074548626
             by: "@kayf2010"
             desc: "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina."
+            screenshot: screenshots/dubai.jpg
 
       - city: Hong Kong
         coords: [22.2988, 114.1722]
@@ -95,6 +98,7 @@ cities:
             by: linxichen
             desc: Kid-friendly third-person street game on Nathan Road, Yau Tsim Mong.
             flags: [own engine]
+            screenshot: screenshots/hong-kong-night-patrol.jpg
 
       - city: Niseko
         country: Japan
@@ -115,6 +119,7 @@ cities:
             by: Aymn74
             desc: "Riyadh 360: 3D city explorer and virtual tours from OpenStreetMap."
             flags: [own engine]
+            screenshot: screenshots/riyadh.jpg
 
       - city: Seoul
         country: South Korea
@@ -124,6 +129,7 @@ cities:
             by: bitjaru
             desc: "HypeSeoul: all of Seoul (603 km²) as one isometric painting, repainted tile by tile by a fine-tuned image model from a three.js render of OSM and building-register data. A three.js layer on top runs day and night on Seoul time, and subway Lines 1–3 and Gyeongui–Jungang follow the city's live train-position feed (a few minutes behind)."
             flags: [isometric, own engine]
+            screenshot: screenshots/seoul.jpg
 
       - city: Shanghai
         country: China
@@ -133,6 +139,7 @@ cities:
             source: https://github.com/YakirLove/ShangHai
             by: YakirLove
             desc: "Shanghai Roam: the Huangpu, the Bund and Lujiazui."
+            screenshot: screenshots/shanghai.jpg
 
       - city: Singapore
         coords: [1.2834, 103.8607]
@@ -158,10 +165,12 @@ cities:
             source: https://github.com/hebe13579/slop-taipei
             by: hebe13579
             desc: Taipei Basin with rivers and bridges.
+            screenshot: screenshots/taipei-hebe13579.jpg
           - tag: sc0Vu
             play: https://sc0vu.github.io/slop-taipei/
             source: https://github.com/sc0Vu/slop-taipei
             by: sc0Vu
+            screenshot: screenshots/taipei-sc0vu.jpg
 
     Europe:
       - city: Barcelona
@@ -192,6 +201,7 @@ cities:
             source: https://github.com/martincollignon/copenhagen-twin
             by: martincollignon
             desc: A city twin with real building data and Skråfoto facade textures.
+            screenshot: screenshots/copenhagen.jpg
 
       - city: Donostia / San Sebastián
         country: Spain
@@ -210,6 +220,7 @@ cities:
             source: https://github.com/mhmmd5225/SLOPMARAS
             by: mhmmd5225
             desc: "SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore."
+            screenshot: screenshots/kahramanmaras.jpg
 
       - city: Kazan
         country: Russia
@@ -236,6 +247,7 @@ cities:
             by: "@ktoya_me"
             desc: "All of Greater London as one isometric pixel-art map, about 14 billion pixels: zoom from the whole city to single streets, and search any place, station or postcode."
             flags: [isometric, own engine]
+            screenshot: screenshots/london-tiny-london.jpg
 
       - city: Madrid
         country: Spain
@@ -244,6 +256,7 @@ cities:
           - play: https://germanpadua.github.io/slop-madrid/
             source: https://github.com/germanpadua/slop-madrid
             by: germanpadua
+            screenshot: screenshots/madrid.jpg
 
       - city: Montreux
         country: Switzerland
@@ -253,6 +266,7 @@ cities:
             tweet: https://x.com/bchapuis/status/2114778049204129827
             by: "@bchapuis"
             desc: Montreux Drift, with real relief down to Lake Geneva.
+            screenshot: screenshots/montreux.jpg
 
       - city: Oslo
         country: Norway
@@ -272,6 +286,7 @@ cities:
             by: rnachoc
             desc: "Sevilla Sim: old town and Triana with IGN orthophotos, Sevici bikes and horse carriages."
             flags: [own engine]
+            screenshot: screenshots/seville.jpg
 
       - city: Terrassa
         country: Spain
@@ -290,6 +305,7 @@ cities:
             source: https://github.com/bertt/slop-utrecht
             by: "@berttemme"
             desc: Domtoren, Oudegracht and Centraal Station.
+            screenshot: screenshots/utrecht.jpg
 
       - city: Warsaw
         country: Poland
@@ -307,6 +323,7 @@ cities:
             by: "@bedcodes"
             desc: The whole city as an isometric pixel-art map from OSM and GUGiK data, with real sun, seasons and Vistula levels, and trams and trains running to their timetables.
             flags: [isometric, own engine]
+            screenshot: screenshots/warsaw-isometric-warsaw.jpg
           - tag: Szczęśliwe Bielany
             source: https://github.com/keymaker2005/szczesliwe-bielany
             by: keymaker2005
@@ -321,6 +338,7 @@ cities:
             source: https://github.com/colorfield/slop-zurich
             by: colorfield
             desc: "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter."
+            screenshot: screenshots/zurich.jpg
 
     North America:
       - city: Ciudad Obregón
@@ -343,6 +361,7 @@ cities:
             desc: Waymo rides, helicopters, real hills and marine fog.
           - tag: Sweep SF
             play: https://sweepsf.nicolas.dev/
+            screenshot: screenshots/san-francisco-sweep-sf.jpg
 
       - city: Seattle
         country: USA
@@ -352,6 +371,7 @@ cities:
             source: https://github.com/treycausey/slop-seattle
             by: treycausey
             desc: "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries."
+            screenshot: screenshots/seattle.jpg
 
       - city: Tepic
         country: Mexico
@@ -407,6 +427,7 @@ cities:
             by: "@xthomasms"
             desc: "tinygyn: Goiânia, Goiás, redrawn frame by frame as an isometric pixel-art map from the city's 3D model, inspired by isometric.nyc and tiny.london."
             flags: [isometric, own engine, WIP]
+            screenshot: screenshots/goiania.jpg
 
 # New York remixes: same Manhattan, new game, platform or engine. Shown on New York's card on the map.
 remixes:
@@ -422,16 +443,19 @@ remixes:
       source: https://github.com/midagedev/extinction-avenue
       by: midagedev
       desc: Arcade dino-outbreak car shooter in Midtown.
+      screenshot: screenshots/new-york-extinction-avenue.jpg
     - name: Flying Car Simulator
       play: https://flyingcarsimulator.io
       tweet: https://x.com/josephzhangai/status/2114743491196850426
       by: "@josephzhangai"
       desc: Fly a Roadster over 1:1 Manhattan with live traffic.
+      screenshot: screenshots/new-york-flying-car-simulator.jpg
     - name: "GEN Z QUANT: Unfinished Business"
       play: https://genzquant.com/
       source: https://github.com/ceogenz/gen-z-quant
       by: ceogenz
       desc: "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home."
+      screenshot: screenshots/new-york-gen-z-quant-unfinished-business.jpg
     - name: Handbrake drift
       source: https://github.com/tiborsaas/slop-newyork
       by: tiborsaas
@@ -447,10 +471,12 @@ remixes:
       source: https://github.com/Denzy7/slop-newyork
       by: Denzy7
       desc: Performance rewrite for weak GPUs and browsers without WebGPU.
+      screenshot: screenshots/new-york-low-end-gpu-fork.jpg
     - name: Make it anywhere
       play: https://makeitanywhere.xyz
       by: "@mattiadmr"
       desc: A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.
+      screenshot: screenshots/new-york-make-it-anywhere.jpg
     - name: "NYC Spin-off: EUC Thrills"
       play: https://vibezzzcoder.github.io/euc-nyc/
       source: https://github.com/VibezZzCoder/euc-nyc
@@ -467,21 +493,25 @@ remixes:
       source: https://github.com/pablo-mayrgundter/slop-newyork
       by: pablo-mayrgundter
       desc: Drives the city over Manhattan's real ground.
+      screenshot: screenshots/new-york-real-terrain.jpg
     - name: Slop New York Mini
       play: https://mattiaongit.github.io/slop-newyork-mini/
       source: https://github.com/mattiaongit/slop-newyork-mini
       by: mattiaongit
       desc: "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; `?phone` forces phone mode."
+      screenshot: screenshots/new-york-slop-new-york-mini.jpg
     - name: Spider-Man · Slop New York
       play: https://jnaranj09.github.io/claude-spiderman-game/
       source: https://github.com/jnaranj09/claude-spiderman-game
       by: jnaranj09
       desc: Web-swing through Manhattan on your phone with a one-thumb swinging controller.
+      screenshot: screenshots/new-york-spider-man-slop-new-york.jpg
     - name: Taxi fares
       play: https://mrubens.github.io/new-york/
       source: https://github.com/mrubens/new-york
       by: mrubens
       desc: Drive taxi fares against the clock.
+      screenshot: screenshots/new-york-taxi-fares.jpg
     - name: Unity port
       source: https://github.com/jdlp2442/port-slop-newyork
       by: jdlp2442
@@ -515,6 +545,7 @@ other:
       by: "@mkturkcan"
       desc: A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.
       card: new-york
+      screenshot: screenshots/new-york-valdrada.jpg
     - name: Zero to Gone
       play: https://zero-to-gone.vercel.app/
       tweet: https://x.com/AugustCastilIo/status/2114423589340377206

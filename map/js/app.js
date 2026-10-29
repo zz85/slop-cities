@@ -162,6 +162,12 @@ $('#search').addEventListener('keydown', (e) => {
 function linkBtns(l) {
   return [['play', 'Play'], ['source', 'Source'], ['tweet', 'Tweet']].filter(([k]) => l[k]).map(([k, t]) => `<a class="btn ${k}" href="${esc(l[k])}" target="_blank" rel="noopener">${t}</a>`).join('');
 }
+// A take's own screenshot, beside its links; the card's top picture is the first take that has one.
+function thumb(e) {
+  if (!e.screenshot) return '';
+  return `<a class="thumb" href="${esc(e.links.play || e.links.source || e.links.tweet)}" target="_blank" rel="noopener"><img src="../${esc(e.screenshot)}" alt="${esc(e.title)} screenshot" loading="lazy"></a>`;
+}
+
 function renderCard() {
   const p = byId.get(state.selected);
   const card = $('#card');
@@ -186,10 +192,11 @@ function renderCard() {
         <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.status.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}</div>
         ${e.desc ? `<p>${esc(e.desc)}</p>` : ''}
         <div class="links">${linkBtns(e.links)}</div>
+        ${e !== shot ? thumb(e) : ''}
       </li>`).join('')}
     </ul>
     ${p.remixes.length ? `<h4>New York remixes</h4><ul class="takes remixes">${p.remixes.map((e) => `
-      <li><div class="who"><b>${esc(e.title)}</b>${e.author ? ` · by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : ''}</div>${e.desc ? `<p>${esc(e.desc)}</p>` : ''}<div class="links">${linkBtns(e.links)}</div></li>`).join('')}</ul>` : ''}`;
+      <li><div class="who"><b>${esc(e.title)}</b>${e.author ? ` · by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : ''}</div>${e.desc ? `<p>${esc(e.desc)}</p>` : ''}<div class="links">${linkBtns(e.links)}</div>${thumb(e)}</li>`).join('')}</ul>` : ''}`;
   card.hidden = false;
   card.scrollTop = 0;
 }
@@ -201,6 +208,7 @@ $('#card').addEventListener('click', (e) => {
 
 // ---------- selection ----------
 bus.on('select', ({ id, source }) => {
+  $('#peek').hidden = true;
   if (id === state.selected && id) { focusSelected(source); return; }
   state.selected = id;
   map.setSelected(id);
@@ -223,9 +231,37 @@ function focusSelected(source) {
   if (lead !== 'map' && state.mode !== '2d') ensureGlobe().then((g) => g.flyTo(p.lon, p.lat, Math.min(6, Math.max(g.getView().zoom, 1.5)), 1300));
 }
 
-bus.on('hover', ({ id }) => {
+// Hovering a pin or a list row shows a preview: the city's picture and its takes.
+let pointer = [0, 0];
+addEventListener('pointermove', (e) => { pointer = [e.clientX, e.clientY]; placePeek(); }, { passive: true });
+function placePeek() {
+  const el = $('#peek');
+  if (el.hidden) return;
+  const w = el.offsetWidth, h = el.offsetHeight;
+  let x = pointer[0] + 18, y = pointer[1] + 18;
+  if (x + w > innerWidth - 10) x = pointer[0] - w - 18;
+  if (y + h > innerHeight - 10) y = pointer[1] - h - 18;
+  el.style.transform = `translate(${Math.max(10, x)}px, ${Math.max(10, y)}px)`;
+}
+function showPeek(id, source) {
+  const el = $('#peek');
+  const p = byId.get(id);
+  if (!p || id === state.selected || matchMedia('(hover: none)').matches) { el.hidden = true; return; }
+  const shot = p.entries.find((e) => e.screenshot);
+  const n = p.entries.length + (p.original ? p.remixes.length : 0);
+  el.innerHTML = `${shot ? `<img src="../${esc(shot.screenshot)}" alt="">` : ''}<div><b>${esc(p.city)}</b><span>${esc(p.country || '')}${n > 1 ? ` · ${n} takes` : ''}</span></div>`;
+  el.hidden = false;
+  if (source === 'list') {
+    const r = document.querySelector(`#list button[data-id="${id}"]`)?.getBoundingClientRect();
+    if (r) pointer = [r.right - 10, r.top - 6];
+  }
+  placePeek();
+}
+
+bus.on('hover', ({ id, source }) => {
   if (id === state.hovered) return;
   state.hovered = id;
+  showPeek(id, source);
   map.setHovered(id);
   globe?.setHovered(id);
   for (const b of document.querySelectorAll('#list button[data-id]')) b.classList.toggle('hover', b.dataset.id === id);
