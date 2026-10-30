@@ -91,6 +91,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   const st = { mode: 'race', h: H_START, hWant: H_START, size: L, alt: 0, ground: 1, speed: CRUISE, bank: 0, pitch: 0, prop: 0, t: 0, legT: 0, view: 'chase', warn: 0, shake: 0 };
   let target = null, visited = new Set(), legs = 0, running = false, toastTimer = 0, below = null;
   try { if (localStorage.getItem('slop-cities.flight') === 'explore') st.mode = 'explore'; } catch {}
+  try { st.north = localStorage.getItem('slop-cities.flight-north') === 'on'; } catch {}
   const camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), camUp = new THREE.Vector3();
   const keys = new Set();
   let drag = null; // pointer steering: { x0, y0, dx, dy }
@@ -118,6 +119,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
           <button class="mode-btn" role="tab" data-fm="explore" title="Fly anywhere over the globe (E)">Explore</button>
           <button class="mode-btn" role="tab" data-fm="race" title="Fly from city to city (R)">Race</button>
         </div>
+        <button class="tool-btn fl-north" aria-pressed="false" title="Keep north at the top, as on the globe (V)">North up <kbd>V</kbd></button>
         <button class="tool-btn fl-open" title="Open the card of the city below (Enter)">Open <kbd>Enter</kbd></button>
         <button class="tool-btn fl-view" title="Cockpit or chase camera (V)">Cockpit <kbd>V</kbd></button>
         <button class="tool-btn fl-boost" title="Full throttle (Space)">Boost <kbd>Space</kbd></button>
@@ -144,6 +146,14 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   for (const t of ['pointerup', 'pointerleave', 'pointercancel']) boostBtn.addEventListener(t, () => { keys.delete('boost'); boostBtn.setAttribute('aria-pressed', 'false'); });
   $('.fl-skip').addEventListener('click', () => nextTarget(true));
   $('.fl-open').addEventListener('click', openBelow);
+  $('.fl-north').addEventListener('click', toggleNorth);
+  $('.fl-north').setAttribute('aria-pressed', String(st.north));
+  // Explore's camera: behind the plane, turning with it, or north up over it.
+  function toggleNorth() {
+    st.north = !st.north;
+    $('.fl-north').setAttribute('aria-pressed', String(st.north));
+    try { localStorage.setItem('slop-cities.flight-north', st.north ? 'on' : 'off'); } catch {}
+  }
   for (const b of hud.querySelectorAll('[data-fm]')) b.addEventListener('click', () => setMode(b.dataset.fm));
   $('.fl-land').addEventListener('click', () => onExit());
 
@@ -168,7 +178,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
     const k = KEYMAP[e.key];
     if (e.type === 'keydown') {
       if (k) { keys.add(k); e.preventDefault(); }
-      else if (e.key === 'v' || e.key === 'V' || e.key === 'c' || e.key === 'C') toggleView();
+      else if (e.key === 'v' || e.key === 'V' || e.key === 'c' || e.key === 'C') { if (st.mode === 'explore') toggleNorth(); else toggleView(); }
       else if ((e.key === 'n' || e.key === 'N') && st.mode === 'race') nextTarget(true);
       else if (e.key === 'e' || e.key === 'E') setMode('explore');
       else if (e.key === 'r' || e.key === 'R') setMode('race');
@@ -478,11 +488,21 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
       // so the globe turns under you as a map does.
       // High up, the plane sits nearer the middle, so the whole globe shows.
       const lean = 1 / (1 + st.h * 1.5);
-      tmp.copy(at).addScaledVector(p, st.h).addScaledVector(f, -st.h * 0.45 * lean);
       const k = 1 - Math.exp(-dt * (st.t < 2.5 ? 1.6 + st.t : 4));
-      camPos.lerp(tmp, k);
-      camLook.lerp(at.addScaledVector(f, st.h * 0.3 * lean), k);
-      camUp.lerp(tmp.copy(f).addScaledVector(p, 0.3).normalize(), k).normalize();
+      if (st.north) {
+        // Straight over the plane, looking at the globe's centre, north at the
+        // top as in the Globe view: the plane turns on screen, the map doesn't.
+        frameAt(p);
+        tmp.copy(at).addScaledVector(p, st.h);
+        camPos.lerp(tmp, k);
+        camLook.lerp(at, k);
+        camUp.lerp(north, k).normalize();
+      } else {
+        tmp.copy(at).addScaledVector(p, st.h).addScaledVector(f, -st.h * 0.45 * lean);
+        camPos.lerp(tmp, k);
+        camLook.lerp(at.addScaledVector(f, st.h * 0.3 * lean), k);
+        camUp.lerp(tmp.copy(f).addScaledVector(p, 0.3).normalize(), k).normalize();
+      }
       camera.position.copy(camPos);
       camera.up.copy(camUp);
       camera.lookAt(camLook);

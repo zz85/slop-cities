@@ -537,7 +537,7 @@ kbd {
 .flight[data-fm="explore"] .fl-xkeys.fl-keys { display: inline !important; }
 @media (hover: none) { .flight[data-fm="explore"] .fl-xkeys.fl-keys { display: none !important; } .flight[data-fm="explore"] .fl-xkeys.fl-touch { display: inline !important; } }
 .flight[data-fm="explore"] .fl-skip, .flight[data-fm="explore"] .fl-view, .flight[data-fm="explore"] .fl-arrow, .flight[data-fm="explore"] .fl-pullup, .flight[data-fm="explore"] .fl-toast { display: none; }
-.flight[data-fm="race"] .fl-open { display: none; }
+.flight[data-fm="race"] .fl-open, .flight[data-fm="race"] .fl-north { display: none; }
 .fl-open:disabled { opacity: 0.4; cursor: default; }
 .flight[data-fm="explore"] .fl-goal.far .fl-sign { background: rgba(255, 255, 255, 0.1); outline-color: rgba(255, 255, 255, 0.3); color: var(--text-2); }
 .flight[data-fm="explore"] .fl-goal { transition: opacity 0.2s; }
