@@ -65,7 +65,7 @@ const STATUS = /^(source only|wip|unverified)$/i;
 const PICK_FLAG = /^editor'?s pick$/i;
 const rankOf = (e) => (e.pick ? 0 : 1);
 for (const p of places) {
-  p.entries.forEach((e, i) => {
+  [...p.entries, ...(p.remixes || [])].forEach((e, i) => {
     const flags = e.flags.flatMap((f) => f.split(/\s*,\s*/));
     e.status = flags.filter((f) => STATUS.test(f));
     e.pick = e.pick || flags.some((f) => PICK_FLAG.test(f));
@@ -89,10 +89,22 @@ const TAGS = [
   { id: 'wip', label: 'WIP', test: (e) => e.flags.some((f) => /wip/i.test(f)) },
   ...LABELS.map((l) => ({ id: labelKey(l), label: l[0].toUpperCase() + l.slice(1), test: (e) => e.labels.some((x) => x.toLowerCase() === l.toLowerCase()), label_: true })),
 ];
+// Every take of a city, New York's remixes among them.
+const takesOf = (p) => [...p.entries, ...(p.remixes || [])];
 for (const p of places) {
-  p.tags = TAGS.filter((t) => (t.place ? t.place(p) : p.entries.some(t.test))).map((t) => t.id);
-  for (const e of p.entries) e.tags = TAGS.filter((t) => t.test && t.test(e)).map((t) => t.id);
+  for (const e of takesOf(p)) e.tags = TAGS.filter((t) => t.test && t.test(e)).map((t) => t.id);
+  p.tags = TAGS.filter((t) => (t.place ? t.place(p) : takesOf(p).some((e) => e.tags.includes(t.id)))).map((t) => t.id);
 }
+// The filter and the search, for one take: the list shows a city with a take
+// that matches, and its card shows those takes first.
+const hasQ = (q, ...xs) => xs.some((x) => x && String(x).toLowerCase().includes(q));
+function takeMatches(p, e) {
+  if (state.tag && !e.tags.includes(state.tag)) return false;
+  const q = state.query.trim().toLowerCase();
+  return !q || hasQ(q, p.city, p.country, p.region) || hasQ(q, e.title, e.author, e.tag, e.desc, ...e.labels);
+}
+const placeMatches = (p) => takesOf(p).some((e) => takeMatches(p, e));
+const filtering = () => !!(state.tag || state.query.trim());
 const tagLabel = Object.fromEntries(TAGS.map((t) => [t.id, t.label]));
 function renderChips() {
   $('#chips').innerHTML = TAGS.map((t) => {
@@ -117,14 +129,15 @@ $('#chips').addEventListener('click', (e) => {
   state.tag = state.tag === b.dataset.tag ? null : b.dataset.tag;
   renderChips();
   renderList();
+  state.cardAll = false;
+  renderCard();
   const ids = state.tag ? new Set(places.filter((p) => p.tags.includes(state.tag)).map((p) => p.id)) : null;
   map.setFilter(ids);
   globe?.setFilter(ids);
 });
 
 function renderList() {
-  const q = state.query.trim().toLowerCase();
-  const match = (p) => (!state.tag || p.tags.includes(state.tag)) && (!q || [p.city, p.country, p.region, ...p.entries.flatMap((e) => [e.author, e.tag, e.desc])].some((s) => s && s.toLowerCase().includes(q)));
+  const match = placeMatches;
   let html = '';
   for (const r of REGIONS) {
     const items = places.filter((p) => p.region === r && match(p)).sort((a, b) => (b.original - a.original) || a.city.localeCompare(b.city));
@@ -152,10 +165,15 @@ $('#list').addEventListener('pointerover', (e) => {
   bus.emit('hover', { id: b ? b.dataset.id : null, source: 'list' });
 });
 $('#list').addEventListener('pointerleave', () => bus.emit('hover', { id: null, source: 'list' }));
-$('#search').addEventListener('input', (e) => { state.query = e.target.value; renderList(); });
+// The card follows the search too, after a short pause in the typing.
+let cardTimer = 0;
+$('#search').addEventListener('input', (e) => {
+  state.query = e.target.value; renderList();
+  clearTimeout(cardTimer); cardTimer = setTimeout(() => { state.cardAll = false; renderCard(true); }, 180);
+});
 $('#search').addEventListener('keydown', (e) => {
   if (e.key === 'Enter') { const b = $('#list button[data-id]'); if (b) bus.emit('select', { id: b.dataset.id, source: 'list' }); }
-  if (e.key === 'Escape') { e.target.value = ''; state.query = ''; renderList(); e.target.blur(); }
+  if (e.key === 'Escape') { e.target.value = ''; state.query = ''; renderList(); renderCard(true); e.target.blur(); }
 });
 
 // ---------- card ----------
@@ -168,10 +186,20 @@ function thumb(e) {
   return `<a class="thumb" href="${esc(e.links.play || e.links.source || e.links.tweet)}" target="_blank" rel="noopener"><img src="../${esc(e.screenshot)}" alt="${esc(e.title)} screenshot" loading="lazy"></a>`;
 }
 
-function renderCard() {
+function renderCard(keepScroll) {
   const p = byId.get(state.selected);
   const card = $('#card');
   if (!p) { card.hidden = true; return; }
+  // With a filter or a search on, the card lists the takes that match it, and
+  // says how many it leaves out, with a button to show them all. A city with
+  // none that match (one picked on the map) shows every take.
+  const fit = (e) => takeMatches(p, e);
+  const anyFit = takesOf(p).some(fit);
+  const narrow = filtering() && anyFit && !state.cardAll;
+  const entries = narrow ? p.entries.filter(fit) : p.entries;
+  const remixes = narrow ? p.remixes.filter(fit) : p.remixes;
+  const hidden = takesOf(p).length - entries.length - remixes.length;
+  const why = [state.tag && tagLabel[state.tag], state.query.trim() && `“${state.query.trim()}”`].filter(Boolean).join(' and ');
   const parents = p.parents.map((id) => byId.get(id));
   const km = `${Math.round(distanceKm(ny.lon, ny.lat, p.lon, p.lat)).toLocaleString()} km from New York`;
   const lineage = p.original
@@ -180,13 +208,16 @@ function renderCard() {
     ? `Built on its own engine, not on Slop New York's code · ${km}`
     : `Remixed from ${parents.map((q) => `<a href="#" data-id="${q.id}">Slop ${esc(q.city)}</a>`).join(' and ')} · ${Math.round(distanceKm(ny.lon, ny.lat, p.lon, p.lat)).toLocaleString()} km from New York`;
   const children = places.filter((q) => q.parents.includes(p.id) && p.id !== 'new-york');
-  const shot = p.entries.find((e) => e.screenshot);
+  const shot = entries.find((e) => e.screenshot) || (narrow ? null : p.entries.find((e) => e.screenshot));
   card.innerHTML = `
     <button class="close" aria-label="Close">×</button>
     ${shot ? `<a class="shot" href="${esc(shot.links.play)}" target="_blank" rel="noopener"><img src="../${esc(shot.screenshot)}" alt="${esc(p.city)} screenshot" loading="lazy"></a>` : ''}
     <header><h2>${esc(p.city)}</h2><p>${esc([p.country, p.region].filter(Boolean).join(' · '))}</p></header>
     <p class="lineage">${lineage}${children.length ? `<br>Inspired ${children.map((q) => `<a href="#" data-id="${q.id}">${esc(q.city)}</a>`).join(', ')}` : ''}</p>
-    <ul class="takes">${p.entries.map((e) => `
+    ${filtering() ? `<p class="card-filter">${narrow
+      ? `${entries.length + remixes.length} of ${takesOf(p).length} take${takesOf(p).length > 1 ? 's' : ''} match ${esc(why)}.${hidden ? ` <button class="linkish" data-card-all>Show all</button>` : ''}`
+      : anyFit ? `Showing all ${takesOf(p).length} takes. <button class="linkish" data-card-fit>Only ${esc(why)}</button>` : `No take here matches ${esc(why)}.`}</p>` : ''}
+    <ul class="takes">${entries.map((e) => `
       <li${rankOf(e) === 0 ? ' class="pick"' : ''}>
         ${e.pick || e.labels.length ? `<div class="labels">${e.pick ? '<span class="label-badge pick">Pick</span>' : ''}${e.labels.map((l) => `<span class="label-badge">${esc(l)}</span>`).join('')}</div>` : ''}
         <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.status.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}</div>
@@ -195,13 +226,15 @@ function renderCard() {
         ${e !== shot ? thumb(e) : ''}
       </li>`).join('')}
     </ul>
-    ${p.remixes.length ? `<h4>New York remixes</h4><ul class="takes remixes">${p.remixes.map((e) => `
+    ${remixes.length ? `<h4>New York remixes${narrow && remixes.length < p.remixes.length ? ` <span>${remixes.length} of ${p.remixes.length}</span>` : ''}</h4><ul class="takes remixes">${remixes.map((e) => `
       <li><div class="who"><b>${esc(e.title)}</b>${e.author ? ` · by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : ''}</div>${e.desc ? `<p>${esc(e.desc)}</p>` : ''}<div class="links">${linkBtns(e.links)}</div>${thumb(e)}</li>`).join('')}</ul>` : ''}`;
   card.hidden = false;
-  card.scrollTop = 0;
+  if (!keepScroll) card.scrollTop = 0;
 }
 $('#card').addEventListener('click', (e) => {
   if (e.target.closest('.close')) { bus.emit('select', { id: null, source: 'card' }); return; }
+  if (e.target.closest('[data-card-all]')) { state.cardAll = true; renderCard(true); return; }
+  if (e.target.closest('[data-card-fit]')) { state.cardAll = false; renderCard(true); return; }
   const a = e.target.closest('a[data-id]');
   if (a) { e.preventDefault(); bus.emit('select', { id: a.dataset.id, source: 'card' }); }
 });
@@ -211,6 +244,7 @@ bus.on('select', ({ id, source }) => {
   $('#peek').hidden = true;
   if (id === state.selected && id) { focusSelected(source); return; }
   state.selected = id;
+  state.cardAll = false;
   map.setSelected(id);
   globe?.setSelected(id);
   renderCard();
