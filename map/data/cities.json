@@ -29,15 +29,16 @@
     {
      "title": "City Life Simulator",
      "links": {
+      "play": "https://raw.githack.com/desurfofficial-ship-it/slop-newyork/main/index.html",
       "source": "https://github.com/desurfofficial-ship-it/slop-newyork"
      },
      "author": "desurfofficial-ship-it",
      "authorUrl": "https://github.com/desurfofficial-ship-it",
      "desc": "Subway, money, apartments, jobs and New Yorkers on top of the original.",
      "flags": [
-      "source only"
+      "preview"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-city-life-simulator.jpg",
      "pick": false
     },
     {
@@ -51,6 +52,21 @@
      "desc": "Arcade dino-outbreak car shooter in Midtown.",
      "flags": [],
      "screenshot": "screenshots/new-york-extinction-avenue.jpg",
+     "pick": false
+    },
+    {
+     "title": "Film-set studio",
+     "links": {
+      "play": "https://raw.githack.com/pulsybkr/slop-newyork/main/index.html",
+      "source": "https://github.com/pulsybkr/slop-newyork"
+     },
+     "author": "pulsybkr",
+     "authorUrl": "https://github.com/pulsybkr",
+     "desc": "Two fictional neighbourhoods built as film sets inside Manhattan parks, with houses you can walk into, a school, a medical centre and a police station; pick one to load, or the whole city. In French.",
+     "flags": [
+      "preview"
+     ],
+     "screenshot": "screenshots/new-york-film-set-studio.jpg",
      "pick": false
     },
     {
@@ -82,13 +98,14 @@
     {
      "title": "Handbrake drift",
      "links": {
+      "play": "https://raw.githack.com/tiborsaas/slop-newyork/main/index.html",
       "source": "https://github.com/tiborsaas/slop-newyork"
      },
      "author": "tiborsaas",
      "authorUrl": "https://github.com/tiborsaas",
      "desc": "Adds a handbrake to the car, with rear-wheel drift.",
      "flags": [
-      "source only"
+      "preview"
      ],
      "screenshot": null,
      "pick": false
@@ -341,15 +358,16 @@
     {
      "title": "Bangkok, Thailand",
      "links": {
+      "play": "https://raw.githack.com/olivalcf/slop-bangkok/main/index.html",
       "source": "https://github.com/olivalcf/slop-bangkok"
      },
      "author": "olivalcf",
      "authorUrl": "https://github.com/olivalcf",
      "desc": "A stylized Bangkok around Sukhumvit, with meter taxis.",
      "flags": [
-      "source only"
+      "preview"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/bangkok.jpg",
      "pick": false,
      "tag": null
     }
@@ -458,13 +476,14 @@
     {
      "title": "Hong Kong",
      "links": {
+      "play": "https://raw.githack.com/keithligh/slop-hongkong/main/index.html",
       "source": "https://github.com/keithligh/slop-hongkong"
      },
      "author": "keithligh",
      "authorUrl": "https://github.com/keithligh",
      "desc": "Hong Kong Island and Kowloon from LandsD buildings and OSM.",
      "flags": [
-      "source only"
+      "preview"
      ],
      "screenshot": null,
      "pick": false,
@@ -491,6 +510,35 @@
    "parents": [
     "new-york"
    ]
+  },
+  {
+   "id": "indore",
+   "city": "Indore",
+   "country": "India",
+   "region": "Asia",
+   "lat": 22.7196,
+   "lon": 75.8577,
+   "original": false,
+   "entries": [
+    {
+     "title": "Indore, India",
+     "links": {
+      "source": "https://github.com/animishraa05/slop-indore"
+     },
+     "author": "animishraa05",
+     "authorUrl": "https://github.com/animishraa05",
+     "desc": "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design; run it with npm run dev.",
+     "flags": [
+      "own engine",
+      "source only"
+     ],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
   },
   {
    "id": "niseko",
@@ -1045,13 +1093,14 @@
     {
      "title": "Oslo, Norway",
      "links": {
+      "play": "https://raw.githack.com/yymir/virtual-oslo/main/index.html",
       "source": "https://github.com/yymir/virtual-oslo"
      },
      "author": "yymir",
      "authorUrl": "https://github.com/yymir",
      "desc": "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees.",
      "flags": [
-      "source only"
+      "preview"
      ],
      "screenshot": null,
      "pick": false,
@@ -1104,15 +1153,16 @@
     {
      "title": "Terrassa, Spain",
      "links": {
+      "play": "https://raw.githack.com/oegea/slop-egara/main/index.html",
       "source": "https://github.com/oegea/slop-egara"
      },
      "author": "oegea",
      "authorUrl": "https://github.com/oegea",
      "desc": "Grand Theft Ègara: Terrassa at 1:1 with real relief.",
      "flags": [
-      "source only"
+      "preview"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/terrassa.jpg",
      "pick": false,
      "tag": null
     }
@@ -1194,13 +1244,14 @@
     {
      "title": "Warsaw, Poland (Szczęśliwe Bielany)",
      "links": {
+      "play": "https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html",
       "source": "https://github.com/keymaker2005/szczesliwe-bielany"
      },
      "author": "keymaker2005",
      "authorUrl": "https://github.com/keymaker2005",
      "desc": "Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.",
      "flags": [
-      "source only"
+      "preview"
      ],
      "screenshot": null,
      "pick": false,
@@ -1253,13 +1304,14 @@
     {
      "title": "Ciudad Obregón, Mexico",
      "links": {
+      "play": "https://raw.githack.com/JuanittoSantana/SlopSonora/obregon/obregon.html",
       "source": "https://github.com/JuanittoSantana/SlopSonora"
      },
      "author": "JuanittoSantana",
      "authorUrl": "https://github.com/JuanittoSantana",
-     "desc": "Ciudad Obregón, Sonora; open obregon.html.",
+     "desc": "Ciudad Obregón, Sonora.",
      "flags": [
-      "source only"
+      "preview"
      ],
      "screenshot": null,
      "pick": false,

@@ -41,6 +41,7 @@ Also:
   - Status: `source only` (no live demo yet), `WIP`, `unverified` (you couldn't check it loads).
   - `own engine`: the city isn't built on Slop New York's code, so the map draws no arc to it from New York.
   - `isometric`: isometric pixel-art or painted maps.
+  - `preview`: the author hasn't published a demo, so `play` runs the code straight from the repo through raw.githack.com, as `https://raw.githack.com/OWNER/REPO/BRANCH/index.html`. Use it only when the page loads that way (no build step, no server).
   - Any other label, such as `tiny`, shows as a badge on the map's city card.
 - **Picks:** `pick: true` on a take marks it as one of the list's highlights. On the map it gets a Pick badge, comes first on its city's card, and shows under the Picks filter. It doesn't change the README line; the Featured table at the top is still chosen by hand.
 - **Lineage:** `remix_of: [singapore]` on a city draws an arc to it from another city it adapts, beside the one from New York.

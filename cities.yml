@@ -19,7 +19,7 @@ original:
 
 # Cities by region; the build lists them alphabetically, and each city's takes in the order given.
 cities:
-  intro: Entries marked *(source only)* have no live demo yet; clone and serve locally. *(own engine)* means the city is built on its own code rather than on Slop New York's (some of them are inspired by it), and *(isometric)* marks isometric pixel-art and painted maps.
+  intro: Entries marked *(source only)* have no live demo yet; clone and serve locally. *(preview)* means the Play link runs the code straight from its GitHub repo through raw.githack.com, since its author hasn't published a demo; the first visit shows raw.githack's "Open the page" step. *(own engine)* means the city is built on its own code rather than on Slop New York's (some of them are inspired by it), and *(isometric)* marks isometric pixel-art and painted maps.
   regions:
     Africa:
       - city: Abuja
@@ -59,10 +59,12 @@ cities:
         country: Thailand
         coords: [13.7367, 100.5608]
         takes:
-          - source: https://github.com/olivalcf/slop-bangkok
+          - play: https://raw.githack.com/olivalcf/slop-bangkok/main/index.html
+            source: https://github.com/olivalcf/slop-bangkok
             by: olivalcf
             desc: A stylized Bangkok around Sukhumvit, with meter taxis.
-            flags: [source only]
+            flags: [preview]
+            screenshot: screenshots/bangkok.jpg
 
       - city: Daejeon
         country: South Korea
@@ -97,10 +99,11 @@ cities:
       - city: Hong Kong
         coords: [22.2988, 114.1722]
         takes:
-          - source: https://github.com/keithligh/slop-hongkong
+          - play: https://raw.githack.com/keithligh/slop-hongkong/main/index.html
+            source: https://github.com/keithligh/slop-hongkong
             by: keithligh
             desc: Hong Kong Island and Kowloon from LandsD buildings and OSM.
-            flags: [source only]
+            flags: [preview]
           - tag: Night Patrol
             play: https://hkpolice.9chives.com/
             source: https://github.com/linxichen/sdu-night-patrol
@@ -108,6 +111,15 @@ cities:
             desc: Kid-friendly third-person street game on Nathan Road, Yau Tsim Mong.
             flags: [own engine]
             screenshot: screenshots/hong-kong-night-patrol.jpg
+
+      - city: Indore
+        country: India
+        coords: [22.7196, 75.8577]
+        takes:
+          - source: https://github.com/animishraa05/slop-indore
+            by: animishraa05
+            desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design; run it with npm run dev."
+            flags: [own engine, source only]
 
       - city: Niseko
         country: Japan
@@ -301,10 +313,11 @@ cities:
         country: Norway
         coords: [59.9139, 10.7522]
         takes:
-          - source: https://github.com/yymir/virtual-oslo
+          - play: https://raw.githack.com/yymir/virtual-oslo/main/index.html
+            source: https://github.com/yymir/virtual-oslo
             by: yymir
             desc: "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees."
-            flags: [source only]
+            flags: [preview]
 
       - city: Seville
         country: Spain
@@ -321,10 +334,12 @@ cities:
         country: Spain
         coords: [41.5632, 2.0089]
         takes:
-          - source: https://github.com/oegea/slop-egara
+          - play: https://raw.githack.com/oegea/slop-egara/main/index.html
+            source: https://github.com/oegea/slop-egara
             by: oegea
             desc: "Grand Theft Ègara: Terrassa at 1:1 with real relief."
-            flags: [source only]
+            flags: [preview]
+            screenshot: screenshots/terrassa.jpg
 
       - city: Utrecht
         country: Netherlands
@@ -354,10 +369,11 @@ cities:
             flags: [isometric, own engine]
             screenshot: screenshots/warsaw-isometric-warsaw.jpg
           - tag: Szczęśliwe Bielany
+            play: https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html
             source: https://github.com/keymaker2005/szczesliwe-bielany
             by: keymaker2005
             desc: Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.
-            flags: [source only]
+            flags: [preview]
 
       - city: Zürich
         country: Switzerland
@@ -374,10 +390,11 @@ cities:
         country: Mexico
         coords: [27.4828, -109.9304]
         takes:
-          - source: https://github.com/JuanittoSantana/SlopSonora
+          - play: https://raw.githack.com/JuanittoSantana/SlopSonora/obregon/obregon.html
+            source: https://github.com/JuanittoSantana/SlopSonora
             by: JuanittoSantana
-            desc: Ciudad Obregón, Sonora; open `obregon.html`.
-            flags: [source only]
+            desc: Ciudad Obregón, Sonora.
+            flags: [preview]
 
       - city: San Francisco
         country: USA
@@ -463,16 +480,25 @@ remixes:
   intro: Same Manhattan, new game, platform or engine.
   entries:
     - name: City Life Simulator
+      play: https://raw.githack.com/desurfofficial-ship-it/slop-newyork/main/index.html
       source: https://github.com/desurfofficial-ship-it/slop-newyork
       by: desurfofficial-ship-it
       desc: Subway, money, apartments, jobs and New Yorkers on top of the original.
-      flags: [source only]
+      flags: [preview]
+      screenshot: screenshots/new-york-city-life-simulator.jpg
     - name: Extinction Avenue
       play: https://midagedev.github.io/extinction-avenue/
       source: https://github.com/midagedev/extinction-avenue
       by: midagedev
       desc: Arcade dino-outbreak car shooter in Midtown.
       screenshot: screenshots/new-york-extinction-avenue.jpg
+    - name: Film-set studio
+      play: https://raw.githack.com/pulsybkr/slop-newyork/main/index.html
+      source: https://github.com/pulsybkr/slop-newyork
+      by: pulsybkr
+      desc: "Two fictional neighbourhoods built as film sets inside Manhattan parks, with houses you can walk into, a school, a medical centre and a police station; pick one to load, or the whole city. In French."
+      flags: [preview]
+      screenshot: screenshots/new-york-film-set-studio.jpg
     - name: Flying Car Simulator
       play: https://flyingcarsimulator.io
       tweet: https://x.com/josephzhangai/status/2114743491196850426
@@ -486,10 +512,11 @@ remixes:
       desc: "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home."
       screenshot: screenshots/new-york-gen-z-quant-unfinished-business.jpg
     - name: Handbrake drift
+      play: https://raw.githack.com/tiborsaas/slop-newyork/main/index.html
       source: https://github.com/tiborsaas/slop-newyork
       by: tiborsaas
       desc: Adds a handbrake to the car, with rear-wheel drift.
-      flags: [source only]
+      flags: [preview]
     - name: LLM residents
       source: https://github.com/trippuroskie/slop-newyork
       by: trippuroskie
