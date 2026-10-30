@@ -442,7 +442,7 @@ kbd {
 @media (prefers-reduced-motion: reduce) { #music .eq i { animation: none; height: 9px; } #music .eq i:nth-child(odd) { height: 6px; } }
 
 /* ---------- Fly: the biplane game ---------- */
-.flying .side, .flying:not(.explore) .card, .flying .peek, .flying .map-zoom, .flying .view-3d .caption { display: none !important; }
+.flying .side, .flying:not(.explore):not(.fl-paused) .card, .flying .peek, .flying .map-zoom, .flying .view-3d .caption { display: none !important; }
 .flying .globe-labels { pointer-events: none; }
 .flying .view-3d .stage { left: 0 !important; top: 0 !important; }
 .flight[hidden] { display: none; }
@@ -541,7 +541,8 @@ kbd {
 .flight[data-fm="explore"] .fl-keys:not(.fl-xkeys), .flight[data-fm="explore"] .fl-touch:not(.fl-xkeys) { display: none !important; }
 .flight[data-fm="explore"] .fl-xkeys.fl-keys { display: inline !important; }
 @media (hover: none) { .flight[data-fm="explore"] .fl-xkeys.fl-keys { display: none !important; } .flight[data-fm="explore"] .fl-xkeys.fl-touch { display: inline !important; } }
-.flight[data-fm="explore"] .fl-skip, .flight[data-fm="explore"] .fl-view, .flight[data-fm="explore"] .fl-arrow, .flight[data-fm="explore"] .fl-pullup, .flight[data-fm="explore"] .fl-toast { display: none; }
+.flight[data-fm="explore"] .fl-skip, .flight[data-fm="explore"] .fl-view, .flight[data-fm="explore"] .fl-arrow, .flight[data-fm="explore"] .fl-pullup { display: none; }
+body:not(.fl-paused) .flight[data-fm="explore"] .fl-toast { display: none; }
 .flight[data-fm="race"] .fl-open, .flight[data-fm="race"] .fl-north { display: none; }
 .fl-open:disabled { opacity: 0.4; cursor: default; }
 .flight[data-fm="explore"] .fl-goal.far .fl-sign { background: rgba(255, 255, 255, 0.1); outline-color: rgba(255, 255, 255, 0.3); color: var(--text-2); }
@@ -707,4 +708,20 @@ body:has(.player.tip) .pl-ball .pc-tip { display: block; }
   .player.tip .pc-bar .pc-tip { display: none; }
   .pc-bar .pc-acts .icon-btn { width: 32px; }
   .pc-bar .pc-map { padding: 0 4px; }
+}
+
+/* Arrived: the flight waits over the city, its card open, for Fly on. */
+.fl-paused .fl-arrow, .fl-paused .fl-pullup, .fl-paused .fl-goal { display: none !important; }
+.fl-paused .fl-toast {
+  right: auto; left: 50%; top: max(var(--edge), env(safe-area-inset-top)); transform: translateX(-50%);
+  width: 330px; text-align: center; animation: fl-drop 0.4s var(--ease-out);
+}
+@keyframes fl-drop { from { opacity: 0; transform: translate(-50%, -10px); } }
+.fl-paused .fl-toast .links { justify-content: center; }
+.fl-toast .fl-on kbd { margin-left: 6px; color: rgba(23, 20, 10, 0.6); background: rgba(23, 20, 10, 0.1); box-shadow: none; }
+@media (max-width: 820px) {
+  .fl-paused .fl-toast { top: calc(max(var(--edge), env(safe-area-inset-top)) + 104px); bottom: auto; left: 50%; right: auto; width: calc(100% - 2 * var(--edge)); display: block; }
+  .fl-paused .fl-toast p { display: none; }
+  .fl-paused .fl-gauges { display: none; }
+  .fl-toast .fl-on kbd { display: none; }
 }

@@ -453,7 +453,9 @@ async function startFlight() {
       sound: () => swooshOpt.checked,
       onExit: stopFlight,
       // Land here: stop flying and open the city's card.
-      onArrive: (c, land) => { if (land) { stopFlight(); bus.emit('select', { id: c.id, source: 'fly' }); } },
+      // Arrived: the card opens while the plane circles; Land here stops flying there.
+      onArrive: (c, land) => { if (land) stopFlight(); bus.emit('select', { id: c.id, source: 'fly' }); if (land) focusSelected('fly'); },
+      onResume: () => bus.emit('select', { id: null, source: 'fly' }),
       // Explore: the city below opens its card, and the plane flies on.
       onOpen: (c) => bus.emit('select', { id: c.id, source: 'fly' }),
       onEscape: () => { if (!state.selected) return false; bus.emit('select', { id: null, source: 'key' }); return true; },
@@ -487,7 +489,7 @@ let musicWasOn = false;
 const player = createPlayer({
   onOpen: ({ place }) => {
     stopTour();
-    if (flight?.running) stopFlight();
+    if (flight?.running && !flight.paused) stopFlight();
     musicWasOn = music.playing;
     if (music.playing) toggleMusic();
     globe?.setRunning(false);
