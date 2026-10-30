@@ -1,6 +1,9 @@
 // Fly: a little game on the globe. A low-poly open-cockpit biplane, in the
 // spirit of the 1930s and 40s, flies from one slop city to the next. The
 // HUD names the next city; reach it to log it and get the next one.
+// Explore is the other way to fly: no destination, the camera high over the
+// plane, a way to get around the globe. Climb to see more of it, dive to see
+// a country; the city below you is named, and Enter opens its card.
 //
 // Units are the globe's: 1 = Earth's radius, and heights use the globe's
 // relief (x50), so the altimeter reads in the same metres as the terrain.
@@ -12,8 +15,11 @@ const CRUISE = 0.008, BOOST = 0.02, SLOW = 0.004; // ground speed, radians a sec
 const KMH = 290 / CRUISE; // what the airspeed indicator reads, for the plane's size
 const ARRIVE_KM = 160;
 const MAX_ALT = 12000 * RELIEF, CLEAR = 180 * RELIEF;
+// Explore: the camera's height over the ground, in Earth radii, and the
+// plane drawn big enough to see from there.
+const H_MIN = 0.03, H_MAX = 1.6, H_START = 0.45;
 
-export function createFlight({ globe, world, places, onArrive, onExit, sound }) {
+export function createFlight({ globe, world, places, onArrive, onExit, onOpen, onEscape, sound }) {
   const { THREE, scene, camera, geometry } = globe.engine;
   const $ = (s) => hud.querySelector(s);
   const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -82,8 +88,9 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
 
   // ---------- state ----------
   const p = new THREE.Vector3(), f = new THREE.Vector3(), up = new THREE.Vector3(0, 1, 0);
-  const st = { alt: 0, ground: 1, speed: CRUISE, bank: 0, pitch: 0, prop: 0, t: 0, legT: 0, view: 'chase', warn: 0, shake: 0 };
-  let target = null, visited = new Set(), legs = 0, running = false, toastTimer = 0;
+  const st = { mode: 'race', h: H_START, hWant: H_START, size: L, alt: 0, ground: 1, speed: CRUISE, bank: 0, pitch: 0, prop: 0, t: 0, legT: 0, view: 'chase', warn: 0, shake: 0 };
+  let target = null, visited = new Set(), legs = 0, running = false, toastTimer = 0, below = null;
+  try { if (localStorage.getItem('slop-cities.flight') === 'explore') st.mode = 'explore'; } catch {}
   const camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), camUp = new THREE.Vector3();
   const keys = new Set();
   let drag = null; // pointer steering: { x0, y0, dx, dy }
@@ -94,7 +101,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
   hud.hidden = true;
   hud.innerHTML = `
     <div class="panel fl-goal">
-      <div class="fl-kicker">Fly to</div>
+      <div class="fl-kicker"><span class="fl-goal-k">Fly to</span></div>
       <div class="fl-dest"><b class="fl-sign"></b><span class="fl-country"></span></div>
       <div class="fl-dist"></div>
       <div class="fl-compass"><div class="fl-tape"></div><i class="fl-caret"></i><i class="fl-mark"></i></div>
@@ -107,12 +114,17 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
       <div class="fl-g"><span>Heading</span><b class="fl-hdg">0</b><small>°</small></div>
       <div class="fl-g"><span>Log</span><b class="fl-log">0</b><small class="fl-of"></small></div>
       <div class="fl-btns">
+        <div class="fl-modes" role="tablist" aria-label="Flight mode">
+          <button class="mode-btn" role="tab" data-fm="explore" title="Fly anywhere over the globe (E)">Explore</button>
+          <button class="mode-btn" role="tab" data-fm="race" title="Fly from city to city (R)">Race</button>
+        </div>
+        <button class="tool-btn fl-open" title="Open the card of the city below (Enter)">Open <kbd>Enter</kbd></button>
         <button class="tool-btn fl-view" title="Cockpit or chase camera (V)">Cockpit <kbd>V</kbd></button>
         <button class="tool-btn fl-boost" title="Full throttle (Space)">Boost <kbd>Space</kbd></button>
         <button class="tool-btn fl-skip" title="Another city (N)">Skip <kbd>N</kbd></button>
         <button class="tool-btn fl-land" title="Back to the globe (Esc)">Land <kbd>Esc</kbd></button>
       </div>
-      <div class="fl-help"><span class="fl-keys">←→ or A D turn · ↑↓ or W S climb and dive · or drag on the sky</span><span class="fl-touch">Drag to steer: sideways turns, up climbs</span></div>
+      <div class="fl-help"><span class="fl-keys">←→ or A D turn · ↑↓ or W S climb and dive · or drag on the sky</span><span class="fl-touch">Drag to steer: sideways turns, up climbs</span><span class="fl-keys fl-xkeys">←→ or A D turn · ↑↓ or W S climb and descend, or scroll · drag to steer · click a city</span><span class="fl-touch fl-xkeys">Drag to steer: sideways turns, up climbs · tap a city</span></div>
     </div>
     <div class="panel fl-toast" hidden></div>`;
   document.body.appendChild(hud);
@@ -131,13 +143,21 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
   for (const t of ['pointerdown']) boostBtn.addEventListener(t, (e) => { e.preventDefault(); keys.add('boost'); boostBtn.setAttribute('aria-pressed', 'true'); });
   for (const t of ['pointerup', 'pointerleave', 'pointercancel']) boostBtn.addEventListener(t, () => { keys.delete('boost'); boostBtn.setAttribute('aria-pressed', 'false'); });
   $('.fl-skip').addEventListener('click', () => nextTarget(true));
+  $('.fl-open').addEventListener('click', openBelow);
+  for (const b of hud.querySelectorAll('[data-fm]')) b.addEventListener('click', () => setMode(b.dataset.fm));
   $('.fl-land').addEventListener('click', () => onExit());
 
   function toggleView() {
     st.view = st.view === 'chase' ? 'cockpit' : 'chase';
     $('.fl-view').firstChild.textContent = st.view === 'chase' ? 'Cockpit ' : 'Chase ';
     plane.pilot.visible = st.view === 'chase';
-    camera.fov = st.view === 'chase' ? 58 : 66;
+    // From the seat the upper wing, its struts and wires would fill the top
+    // of the view: leave them out there and keep the nose, the windscreen,
+    // the dials and the lower wing's tips.
+    for (const m of plane.upper) m.visible = st.view === 'chase';
+    // A blade a frame flickers from the seat; the blurred disc alone reads better.
+    for (const m of plane.blades) m.visible = st.view === 'chase';
+    camera.fov = st.view === 'chase' ? 58 : 70;
     camera.updateProjectionMatrix();
   }
 
@@ -149,14 +169,23 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     if (e.type === 'keydown') {
       if (k) { keys.add(k); e.preventDefault(); }
       else if (e.key === 'v' || e.key === 'V' || e.key === 'c' || e.key === 'C') toggleView();
-      else if (e.key === 'n' || e.key === 'N') nextTarget(true);
-      else if (e.key === 'Escape') { e.stopImmediatePropagation(); onExit(); }
+      else if ((e.key === 'n' || e.key === 'N') && st.mode === 'race') nextTarget(true);
+      else if (e.key === 'e' || e.key === 'E') setMode('explore');
+      else if (e.key === 'r' || e.key === 'R') setMode('race');
+      else if (e.key === 'Enter' && st.mode === 'explore') { e.preventDefault(); openBelow(); }
+      else if (e.key === 'Escape') { e.stopImmediatePropagation(); if (!onEscape()) onExit(); }
     } else if (k) keys.delete(k);
   }
   addEventListener('keydown', onKey, true);
   addEventListener('keyup', onKey, true);
   addEventListener('blur', () => keys.clear());
   const canvas = globe.renderer.domElement;
+  // In Explore, the wheel climbs and descends.
+  canvas.addEventListener('wheel', (e) => {
+    if (!running || st.mode !== 'explore') return;
+    e.preventDefault();
+    st.hWant = Math.max(H_MIN, Math.min(H_MAX, st.hWant * Math.exp(e.deltaY * 0.0012)));
+  }, { passive: false });
   canvas.addEventListener('pointerdown', (e) => {
     if (!running) return;
     drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, dx: 0, dy: 0 };
@@ -290,6 +319,41 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     nextTarget(false);
   }
 
+  // ---------- Race or Explore ----------
+  function setMode(m) {
+    if (m === st.mode && hud.dataset.fm === m) return;
+    st.mode = m;
+    hud.dataset.fm = m;
+    for (const b of hud.querySelectorAll('[data-fm]')) b.setAttribute('aria-selected', String(b.dataset.fm === m));
+    document.body.classList.toggle('explore', m === 'explore');
+    try { localStorage.setItem('slop-cities.flight', m); } catch {}
+    globe.setGamePick(m === 'explore');
+    if (m === 'explore') {
+      target = null; beacon.visible = false; globe.setTarget(null);
+      $('.fl-goal-k').textContent = 'Below';
+      st.h = st.hWant = Math.max(st.h, 0.12);
+      if (st.view === 'cockpit') toggleView();
+    } else {
+      $('.fl-goal-k').textContent = 'Fly to';
+      below = null;
+      if (running) nextTarget(false);
+    }
+  }
+  // The city nearest the point under the plane, within a reach that grows with height.
+  function nearest() {
+    let best = null, bd = 1e9;
+    for (const c of places) {
+      c.v ||= xyz(c.lon, c.lat);
+      const d = Math.acos(Math.max(-1, Math.min(1, p.dot(c.v)))) * 6371;
+      if (d < bd) { bd = d; best = c; }
+    }
+    return { city: best, km: bd };
+  }
+  function openBelow() {
+    if (st.mode !== 'explore' || !below) return;
+    onOpen(below);
+  }
+
   // ---------- start and stop ----------
   function start(from) {
     const c = from || places.find((x) => x.original) || places[0];
@@ -300,15 +364,19 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     st.alt = st.ground + 2600 * RELIEF;
     st.speed = CRUISE; st.bank = 0; st.pitch = 0; st.t = 0;
     visited = new Set([c.id]); legs = 0;
-    target = null;
-    nextTarget(false);
-    // Face the first city, so the game starts heading somewhere.
-    const b = bearingTo(target.v);
-    f.copy(north).multiplyScalar(Math.cos(b)).addScaledVector(east, Math.sin(b)).normalize();
+    target = null; below = null;
+    hud.dataset.fm = '';
+    setMode(st.mode);
+    if (st.mode === 'race') {
+      nextTarget(false);
+      // Face the first city, so the game starts heading somewhere.
+      const b = bearingTo(target.v);
+      f.copy(north).multiplyScalar(Math.cos(b)).addScaledVector(east, Math.sin(b)).normalize();
+    }
     // The camera swoops in from wherever the globe was looking.
     camPos.copy(camera.position); camLook.set(0, 0, 0); camUp.copy(camera.up);
     camera.near = L * 0.03; camera.far = 90;
-    st.view = 'cockpit'; toggleView();
+    if (st.view !== 'chase') { st.view = 'cockpit'; toggleView(); }
     plane.group.visible = true;
     hud.hidden = false;
     running = true;
@@ -323,6 +391,8 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     for (const q of puffs) { q.m.visible = false; q.age = 9; }
     hud.hidden = true;
     $('.fl-toast').hidden = true;
+    document.body.classList.remove('explore');
+    globe.setGamePick(false);
     stopSound();
     globe.endGame();
   }
@@ -335,13 +405,21 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     let roll = (keys.has('right') ? 1 : 0) - (keys.has('left') ? 1 : 0);
     let climb = (keys.has('up') ? 1 : 0) - (keys.has('down') ? 1 : 0);
     if (drag) { roll = roll || drag.dx; climb = climb || drag.dy; }
-    const wantSpeed = keys.has('boost') ? BOOST : keys.has('slow') ? SLOW : CRUISE;
+    const explore = st.mode === 'explore';
+    // Explore: up and down change the height, and the plane's size and speed follow it.
+    if (explore) {
+      if (climb) st.hWant = Math.max(H_MIN, Math.min(H_MAX, st.hWant * Math.exp(climb * dt * 0.55)));
+      st.h += (st.hWant - st.h) * (1 - Math.exp(-dt * 3));
+      climb = 0;
+    }
+    const zoom = explore ? st.h / H_START : 1;
+    const wantSpeed = (keys.has('boost') ? BOOST : keys.has('slow') ? SLOW : CRUISE) * (explore ? 5 * Math.sqrt(zoom) : 1);
     st.speed += (wantSpeed - st.speed) * (1 - Math.exp(-dt * (wantSpeed > st.speed ? 1.2 : 0.8)));
     st.bank += (roll * 55 * D2R - st.bank) * (1 - Math.exp(-dt * 3));
     st.pitch += (climb * 22 * D2R - st.pitch) * (1 - Math.exp(-dt * 2.5));
 
     // Turn with the bank, then fly on along the great circle.
-    const yaw = Math.tan(st.bank) * 0.9 * (CRUISE / Math.max(SLOW, st.speed)) ** 0.3;
+    const yaw = Math.tan(st.bank) * 0.9 * (explore ? 1.3 : (CRUISE / Math.max(SLOW, st.speed)) ** 0.3);
     f.applyAxisAngle(p, -yaw * dt);
     axis.crossVectors(p, f).normalize();
     const ang = st.speed * dt;
@@ -357,6 +435,11 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     if (st.alt < floor) { st.alt = floor; if (st.pitch < 0) st.pitch *= 0.5; st.shake = 0.25; st.warn = 1.2; }
     st.alt = Math.min(st.alt, 1 + MAX_ALT);
     st.shake = Math.max(0, st.shake - dt);
+    // Explore draws the plane at the size of a small country, a little above the ground.
+    st.size += ((explore ? st.h * 0.06 : L) - st.size) * (1 - Math.exp(-dt * 4));
+    plane.group.scale.setScalar(st.size);
+    if (explore) { st.warn = 0; st.alt = Math.max(st.alt, st.ground + st.size * 0.8); }
+    const drawAlt = explore ? Math.max(st.ground, 1) + st.size * 0.9 : st.alt;
 
     // The plane: on the globe's tangent frame, pitched and banked.
     right.crossVectors(f, p).normalize();
@@ -364,11 +447,12 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     qBasis.setFromRotationMatrix(mBasis);
     qLocal.setFromEuler(eul.set(st.pitch + 0.03 * Math.sin(st.t * 1.3), 0, -st.bank, 'XZY'));
     plane.group.quaternion.copy(qBasis).multiply(qLocal);
-    plane.group.position.copy(p).multiplyScalar(st.alt);
+    plane.group.position.copy(p).multiplyScalar(drawAlt);
     if (st.shake) plane.group.position.addScaledVector(p, Math.sin(st.t * 90) * L * 0.08 * st.shake);
-    st.prop += dt * (30 + 40 * st.speed / CRUISE);
+    const thr = explore ? (keys.has('boost') ? 2.3 : keys.has('slow') ? 0.6 : 1) : st.speed / CRUISE;
+    st.prop += dt * (30 + 40 * thr);
     plane.prop.rotation.z = st.prop;
-    plane.animate(st.t, st.speed / CRUISE);
+    plane.animate(st.t, thr);
 
     // Smoke puffs from the exhaust, thicker at full throttle.
     puffAt -= dt;
@@ -383,19 +467,34 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
       if (q.age > q.life) { q.m.visible = false; continue; }
       q.age += dt;
       const u = q.age / q.life;
-      q.m.scale.setScalar(L * (0.025 + 0.1 * u));
+      q.m.scale.setScalar(st.size * (0.025 + 0.1 * u));
       q.m.material.opacity = 0.4 * (1 - u) * (1 - u);
     }
 
     // The camera: chasing behind, or the pilot's seat.
-    if (st.view === 'chase') {
-      tmp.copy(p).multiplyScalar(st.alt).addScaledVector(f, -L * 7).addScaledVector(p, L * 2.1);
+    const at = tdir.copy(p).multiplyScalar(drawAlt);
+    if (explore) {
+      // High over the plane and a little behind it, looking down the way it flies,
+      // so the globe turns under you as a map does.
+      // High up, the plane sits nearer the middle, so the whole globe shows.
+      const lean = 1 / (1 + st.h * 1.5);
+      tmp.copy(at).addScaledVector(p, st.h).addScaledVector(f, -st.h * 0.45 * lean);
+      const k = 1 - Math.exp(-dt * (st.t < 2.5 ? 1.6 + st.t : 4));
+      camPos.lerp(tmp, k);
+      camLook.lerp(at.addScaledVector(f, st.h * 0.3 * lean), k);
+      camUp.lerp(tmp.copy(f).addScaledVector(p, 0.3).normalize(), k).normalize();
+      camera.position.copy(camPos);
+      camera.up.copy(camUp);
+      camera.lookAt(camLook);
+    } else if (st.view === 'chase') {
+      // Above and behind, high enough to see the ground ahead past the plane.
+      tmp.copy(at).addScaledVector(f, -L * 8.5).addScaledVector(p, L * 4.2);
       // Never under the ground.
       const tl = tmp.length(), tg = groundAt(tmp.clone().normalize()) + L * 0.6;
       if (tl < tg) tmp.multiplyScalar(tg / tl);
       const k = 1 - Math.exp(-dt * (st.t < 2.5 ? 1.6 + st.t : 5));
       camPos.lerp(tmp, k);
-      camLook.lerp(tdir.copy(p).multiplyScalar(st.alt).addScaledVector(f, L * 3), k);
+      camLook.lerp(at.addScaledVector(f, L * 6), k);
       camUp.lerp(tmp.copy(p).applyAxisAngle(f, st.bank * 0.35), k).normalize();
       camera.position.copy(camPos);
       camera.up.copy(camUp);
@@ -403,15 +502,28 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
     } else {
       plane.group.updateMatrixWorld();
       camera.position.copy(plane.eye).applyMatrix4(plane.group.matrixWorld);
-      camera.quaternion.copy(plane.group.quaternion).multiply(qLocal.setFromEuler(eul.set(-0.09, 0, 0)));
+      camera.quaternion.copy(plane.group.quaternion).multiply(qLocal.setFromEuler(eul.set(-0.02, 0, 0)));
       camera.up.copy(p);
       camPos.copy(camera.position); camUp.copy(p);
       camLook.copy(camera.position).add(tmp.set(0, 0, -1).applyQuaternion(camera.quaternion));
     }
 
-    // Arrived?
+    // Arrived? Or, exploring, which city is below.
     const km = target ? Math.acos(Math.max(-1, Math.min(1, p.dot(target.v)))) * 6371 : 1e9;
     if (km < ARRIVE_KM) arrive();
+    if (explore) {
+      const n = nearest();
+      const reach = Math.max(250, st.h * 6371 * 0.35);
+      const now = n.km < reach ? n.city : null;
+      if (now !== below) {
+        below = now;
+        if (below && !visited.has(below.id)) { visited.add(below.id); legs++; }
+        globe.setTarget(below?.id ?? null);
+        $('.fl-sign').textContent = below ? below.city : n.city.city;
+        $('.fl-country').textContent = (below ? below.country : n.city.country) || '';
+      }
+      st.nearest = n;
+    }
     beamMat.opacity = 0.32 + 0.18 * Math.sin(now / 260);
     ringMat.opacity = km < 600 ? 0.75 : 0.45;
 
@@ -423,18 +535,29 @@ export function createFlight({ globe, world, places, onArrive, onExit, sound }) 
   const v3 = new THREE.Vector3(), goalEl = $('.fl-goal'), gaugesEl = $('.fl-gauges');
   function drawHud(km) {
     const hdg = ((heading() / D2R) + 360) % 360;
-    $('.fl-speed').textContent = Math.round(st.speed * KMH);
-    $('.fl-alt').textContent = Math.round(((st.alt - 1) / RELIEF) / 10) * 10;
+    const explore = st.mode === 'explore';
+    // Explore reads its ground speed and the camera's height, Race the plane's own.
+    $('.fl-speed').textContent = Math.round(st.speed * (explore ? 6371 * 3600 : KMH)).toLocaleString('en');
+    $('.fl-alt').textContent = explore ? Math.round(st.h * 6371).toLocaleString('en') : Math.round(((st.alt - 1) / RELIEF) / 10) * 10;
+    $('.fl-alt + small').textContent = explore ? 'km' : 'm';
     $('.fl-hdg').textContent = String(Math.round(hdg) % 360).padStart(3, '0');
     $('.fl-log').textContent = legs;
-    $('.fl-dist').textContent = km >= 1e8 ? '' : `${Math.round(km).toLocaleString('en')} km · ${Math.floor(st.legT / 60)}:${String(Math.floor(st.legT % 60)).padStart(2, '0')}`;
     $('.fl-tape').style.transform = `translateX(${-hdg * 2}px)`;
-    const brg = bearingTo(target.v) / D2R;
+    const goal = explore ? st.nearest?.city : target;
+    const gkm = explore ? st.nearest?.km ?? 0 : km;
+    $('.fl-dist').textContent = explore
+      ? (below ? `${below.entries.length} take${below.entries.length > 1 ? 's' : ''} · Enter to open` : `nearest ${Math.round(gkm).toLocaleString('en')} km`)
+      : km >= 1e8 ? '' : `${Math.round(km).toLocaleString('en')} km · ${Math.floor(st.legT / 60)}:${String(Math.floor(st.legT % 60)).padStart(2, '0')}`;
+    goalEl.classList.toggle('far', explore && !below);
+    $('.fl-open').disabled = !below;
+    if (!goal) return;
+    const brg = bearingTo(goal.v) / D2R;
     const rel = ((brg - hdg + 540) % 360) - 180;
     const mark = $('.fl-mark');
     mark.style.transform = `translateX(${Math.max(-118, Math.min(118, rel * 2))}px)`;
     mark.classList.toggle('edge', Math.abs(rel) > 59);
     $('.fl-pullup').classList.toggle('on', st.warn > 0);
+    if (explore) return;
 
     // A marker on the destination: over it while it is in sight, else an
     // arrow at the edge of the screen pointing the way to turn.
@@ -491,23 +614,31 @@ function buildPlane(THREE) {
   // Propeller.
   const prop = new THREE.Group(); prop.position.z = -0.54; group.add(prop);
   const hub = new THREE.Mesh(new THREE.ConeGeometry(0.035, 0.07, 8), metal); hub.rotation.x = -Math.PI / 2; hub.position.z = -0.03; prop.add(hub);
-  for (const s of [1, -1]) { const b = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.22, 0.012), dark); b.position.y = 0.11 * s; b.rotation.y = 0.35 * s; prop.add(b); }
+  const blades = [];
+  for (const s of [1, -1]) { const b = new THREE.Mesh(new THREE.BoxGeometry(0.035, 0.22, 0.012), dark); b.position.y = 0.11 * s; b.rotation.y = 0.35 * s; prop.add(b); blades.push(b); }
   const disc = new THREE.Mesh(new THREE.CircleGeometry(0.23, 20), new THREE.MeshBasicMaterial({ color: 0xffffff, transparent: true, opacity: 0.08, depthWrite: false, side: THREE.DoubleSide }));
   prop.add(disc);
 
   // Wings: the upper one on cabane struts, the lower through the fuselage.
+  // `upper` holds what the cockpit view leaves out.
+  const upper = [];
+  const n0 = group.children.length;
   box(1.32, 0.026, 0.21, linen, 0, 0.25, -0.24);
+  upper.push(group.children[n0]);
   box(1.18, 0.024, 0.19, linen, 0, -0.075, -0.19);
+  const n1 = group.children.length;
   for (const x of [-0.46, 0.46]) for (const z of [-0.3, -0.15]) box(0.014, 0.32, 0.014, dark, x, 0.087, z);
   for (const x of [-0.07, 0.07]) for (const z of [-0.3, -0.18]) { const s = box(0.007, 0.19, 0.007, dark, x, 0.16, z); s.rotation.z = x > 0 ? 0.35 : -0.35; }
   // Bracing wires, crossed between the struts.
   for (const x of [-0.46, 0.46]) { const w = box(0.003, 0.5, 0.003, dark, x * 0.55, 0.087, -0.22); w.rotation.z = x > 0 ? -0.95 : 0.95; }
+  upper.push(...group.children.slice(n1));
   // Roundels (yellow, blue, white, red) on the top wing and the lower wing's underside.
   const ringM = (c) => new THREE.MeshBasicMaterial({ color: c });
   for (const [y, flip] of [[0.264, false], [-0.088, true]]) for (const x of [-0.45, 0.45]) {
     [[0.075, 0xffc21a], [0.062, 0x24356b], [0.042, 0xf4f1e8], [0.022, 0xb3262b]].forEach(([r, c], i) => {
       const d = new THREE.Mesh(new THREE.CircleGeometry(r, 16), ringM(c));
       d.rotation.x = flip ? Math.PI / 2 : -Math.PI / 2; d.position.set(x, y + (flip ? -i : i) * 0.0008, flip ? -0.19 : -0.24); group.add(d);
+      if (!flip) upper.push(d);
     });
   }
   // Tail.
@@ -564,10 +695,10 @@ function buildPlane(THREE) {
     }
     sGeo.attributes.position.needsUpdate = true;
     sGeo.computeVertexNormals();
-    disc.material.opacity = 0.05 + 0.05 * speed;
+    disc.material.opacity = (blades[0].visible ? 0.05 : 0.03) + 0.03 * speed;
   }
 
   // Where the pilot's eyes are, for the cockpit camera.
-  const eye = new THREE.Vector3(0, 0.168, CZ + 0.025);
-  return { group, prop, pilot, eye, animate };
+  const eye = new THREE.Vector3(0, 0.2, CZ + 0.03);
+  return { group, prop, pilot, eye, upper, blades, animate };
 }

@@ -222,7 +222,7 @@ bus.on('select', ({ id, source }) => {
 });
 function focusSelected(source) {
   const p = byId.get(state.selected);
-  if (!p) return;
+  if (!p || flight?.running) return; // the plane keeps the camera
   const linked = state.mode === 'compare' && $('#opt-link').checked;
   // Linked: fly one view and let the link carry the other along.
   const lead = linked ? (source === '2d' ? 'map' : 'globe') : 'both';
@@ -412,6 +412,9 @@ async function startFlight() {
       onExit: stopFlight,
       // Land here: stop flying and open the city's card.
       onArrive: (c, land) => { if (land) { stopFlight(); bus.emit('select', { id: c.id, source: 'fly' }); } },
+      // Explore: the city below opens its card, and the plane flies on.
+      onOpen: (c) => bus.emit('select', { id: c.id, source: 'fly' }),
+      onEscape: () => { if (!state.selected) return false; bus.emit('select', { id: null, source: 'key' }); return true; },
     });
   }
   if (flight.running) return;
@@ -450,7 +453,7 @@ function writeHash() {
   const h = new URLSearchParams();
   if (state.mode !== '3d') h.set('view', state.mode === '2d' ? 'map' : 'compare');
   if (state.selected) h.set('city', state.selected);
-  if (flight?.running) h.set('fly', '1');
+  if (flight?.running) h.set('fly', document.body.classList.contains('explore') ? 'explore' : 'race');
   if (projectionId !== 'patterson') h.set('proj', projectionId);
   const s = h.toString();
   history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
@@ -462,7 +465,10 @@ function readHash() {
   if (h.get('proj') && PROJECTIONS[h.get('proj')]) applyProjection(h.get('proj'));
   const c = h.get('city');
   if (c && byId.has(c)) bus.emit('select', { id: c, source: 'hash' });
-  if (h.has('fly') && !flight?.running) startFlight();
+  if (h.has('fly') && !flight?.running) {
+    if (['explore', 'race'].includes(h.get('fly'))) try { localStorage.setItem('slop-cities.flight', h.get('fly')); } catch {}
+    startFlight();
+  }
 }
 readHash();
 window.addEventListener('hashchange', readHash);

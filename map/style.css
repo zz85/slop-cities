@@ -437,7 +437,7 @@ kbd {
 @media (prefers-reduced-motion: reduce) { #music .eq i { animation: none; height: 9px; } #music .eq i:nth-child(odd) { height: 6px; } }
 
 /* ---------- Fly: the biplane game ---------- */
-.flying .side, .flying .card, .flying .peek, .flying .map-zoom, .flying .view-3d .caption { display: none !important; }
+.flying .side, .flying:not(.explore) .card, .flying .peek, .flying .map-zoom, .flying .view-3d .caption { display: none !important; }
 .flying .globe-labels { pointer-events: none; }
 .flying .view-3d .stage { left: 0 !important; top: 0 !important; }
 .flight[hidden] { display: none; }
@@ -527,3 +527,22 @@ kbd {
   .fl-toast-body { padding: 10px; }
   .fl-toast p { display: none; }
 }
+
+/* Flight mode switch, and what each mode shows. */
+.fl-modes { position: relative; display: flex; padding: 2px; margin-right: 6px; border-radius: var(--r-ctl); background: rgba(255, 255, 255, 0.06); }
+.fl-modes .mode-btn { height: 30px; padding: 0 11px; border-radius: 8px; }
+.fl-modes .mode-btn[aria-selected="true"] { background: var(--taxi); color: var(--taxi-ink); }
+.fl-xkeys { display: none !important; }
+.flight[data-fm="explore"] .fl-keys:not(.fl-xkeys), .flight[data-fm="explore"] .fl-touch:not(.fl-xkeys) { display: none !important; }
+.flight[data-fm="explore"] .fl-xkeys.fl-keys { display: inline !important; }
+@media (hover: none) { .flight[data-fm="explore"] .fl-xkeys.fl-keys { display: none !important; } .flight[data-fm="explore"] .fl-xkeys.fl-touch { display: inline !important; } }
+.flight[data-fm="explore"] .fl-skip, .flight[data-fm="explore"] .fl-view, .flight[data-fm="explore"] .fl-arrow, .flight[data-fm="explore"] .fl-pullup, .flight[data-fm="explore"] .fl-toast { display: none; }
+.flight[data-fm="race"] .fl-open { display: none; }
+.fl-open:disabled { opacity: 0.4; cursor: default; }
+.flight[data-fm="explore"] .fl-goal.far .fl-sign { background: rgba(255, 255, 255, 0.1); outline-color: rgba(255, 255, 255, 0.3); color: var(--text-2); }
+.flight[data-fm="explore"] .fl-goal { transition: opacity 0.2s; }
+@media (max-width: 820px) {
+  .flying.explore .card { bottom: calc(var(--edge) + 170px); max-height: 38%; }
+  .fl-modes { margin-right: 0; }
+}
+.flight[data-fm="explore"] .fl-g:has(.fl-speed) { display: none; }

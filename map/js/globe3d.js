@@ -227,13 +227,13 @@ export async function createGlobe3D(container, world, bus) {
   let downAt = null;
   renderer.domElement.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; });
   renderer.domElement.addEventListener('pointerup', (e) => {
-    if (game) return;
+    if (game && !gamePick) return;
     if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
     const id = pick(e);
     bus.emit('select', { id, source: '3d' });
   });
   renderer.domElement.addEventListener('pointermove', (e) => {
-    if (e.buttons || game) return;
+    if (e.buttons || (game && !gamePick)) return;
     const id = pick(e);
     if (id !== hovered) bus.emit('hover', { id, source: '3d' });
     renderer.domElement.style.cursor = id ? 'pointer' : '';
@@ -249,7 +249,7 @@ export async function createGlobe3D(container, world, bus) {
 
   // ---- state ----
   let selected = null, hovered = null, relatives = new Set();
-  let game = null, target = null; // the flight game's step function and destination
+  let game = null, target = null, gamePick = false; // the flight game's step function and destination
   let filter = null; // ids to show, or null for every city
   const opts = { arcs: false, labels: true, spin: true, clouds: true };
   let W = 1, H = 1;
@@ -424,10 +424,12 @@ export async function createGlobe3D(container, world, bus) {
     flyTo(v.lon, v.lat, 3, 1400);
   }
   function setTarget(id) { target = id; }
+  // Explore lets you click a city while flying.
+  function setGamePick(on) { gamePick = on; }
   function setRunning(on) { running = on; if (on) clock.getDelta(); }
 
   return {
     setFilter, setSelected, setHovered, setOptions, flyTo, getView, setView, resize, zoomBy, reset, setRunning, stats, el: container, renderer,
-    startGame, endGame, setTarget, engine: { THREE, scene, camera, globe, geometry },
+    startGame, endGame, setTarget, setGamePick, engine: { THREE, scene, camera, globe, geometry },
   };
 }
