@@ -4,6 +4,7 @@ import { loadWorld, distanceKm, setProjection, projectionId, PROJECTIONS } from 
 import { createMap2D } from './map2d.js';
 import { createMusic } from './music.js';
 import { createSfx } from './sfx.js';
+import { createPlayer } from './player.js';
 
 const $ = (s) => document.querySelector(s);
 const esc = (s) => String(s ?? '').replace(/[&<>"']/g, (c) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' })[c]);
@@ -14,7 +15,12 @@ const bus = {
   emit(t, d) { for (const f of this.h[t] || []) f(d); },
 };
 
-const world = await loadWorld('./data/');
+const [world, noEmbed] = await Promise.all([
+  loadWorld('./data/'),
+  // Play links whose sites refuse a frame (build/check-embed.mjs): they open in a new tab.
+  fetch('./data/no-embed.json').then((r) => (r.ok ? r.json() : [])).then((l) => new Set(l.map((x) => x.url))).catch(() => new Set()),
+]);
+const framed = (url) => !!url && !noEmbed.has(url);
 const places = world.cities;
 const byId = new Map(places.map((p) => [p.id, p]));
 const ny = byId.get('new-york');
@@ -178,12 +184,14 @@ $('#search').addEventListener('keydown', (e) => {
 
 // ---------- card ----------
 function linkBtns(l) {
-  return [['play', 'Play'], ['source', 'Source'], ['tweet', 'Tweet']].filter(([k]) => l[k]).map(([k, t]) => `<a class="btn ${k}" href="${esc(l[k])}" target="_blank" rel="noopener">${t}</a>`).join('');
+  return [['play', 'Play'], ['source', 'Source'], ['tweet', 'Tweet']].filter(([k]) => l[k]).map(([k, t]) => k === 'play' && !framed(l.play)
+    ? `<a class="btn play" href="${esc(l.play)}" target="_blank" rel="noopener" title="Opens in a new tab: this site can't be shown inside the map">Play ↗</a>`
+    : `<a class="btn ${k}" href="${esc(l[k])}" target="_blank" rel="noopener"${k === 'play' ? ' data-play' : ''}>${t}</a>`).join('');
 }
 // A take's own screenshot, beside its links; the card's top picture is the first take that has one.
 function thumb(e) {
   if (!e.screenshot) return '';
-  return `<a class="thumb" href="${esc(e.links.play || e.links.source || e.links.tweet)}" target="_blank" rel="noopener"><img src="../${esc(e.screenshot)}" alt="${esc(e.title)} screenshot" loading="lazy"></a>`;
+  return `<a class="thumb" href="${esc(e.links.play || e.links.source || e.links.tweet)}" target="_blank" rel="noopener"${framed(e.links.play) ? ' data-play' : ''}><img src="../${esc(e.screenshot)}" alt="${esc(e.title)} screenshot" loading="lazy"></a>`;
 }
 
 function renderCard(keepScroll) {
@@ -211,7 +219,7 @@ function renderCard(keepScroll) {
   const shot = entries.find((e) => e.screenshot) || (narrow ? null : p.entries.find((e) => e.screenshot));
   card.innerHTML = `
     <button class="close" aria-label="Close">×</button>
-    ${shot ? `<a class="shot" href="${esc(shot.links.play)}" target="_blank" rel="noopener"><img src="../${esc(shot.screenshot)}" alt="${esc(p.city)} screenshot" loading="lazy"></a>` : ''}
+    ${shot ? `<a class="shot" href="${esc(shot.links.play || shot.links.source || shot.links.tweet)}" target="_blank" rel="noopener"${framed(shot.links.play) ? ' data-play' : ''}><img src="../${esc(shot.screenshot)}" alt="${esc(p.city)} screenshot" loading="lazy"></a>` : ''}
     <header><h2>${esc(p.city)}</h2><p>${esc([p.country, p.region].filter(Boolean).join(' · '))}</p></header>
     <p class="lineage">${lineage}${children.length ? `<br>Inspired ${children.map((q) => `<a href="#" data-id="${q.id}">${esc(q.city)}</a>`).join(', ')}` : ''}</p>
     ${filtering() ? `<p class="card-filter">${narrow
@@ -470,9 +478,43 @@ function stopFlight() {
 function toggleFlight() { if (flight?.running) stopFlight(); else startFlight(); }
 $('#fly').addEventListener('click', toggleFlight);
 
+// ---------- play in place ----------
+// Play opens the game in a frame over the map; see player.js. Only the play
+// links of cities.yml are framed, also from a link's #play=.
+const playIndex = new Map();
+for (const p of places) for (const e of takesOf(p)) if (framed(e.links.play)) playIndex.set(e.links.play, { place: p, entry: e });
+let musicWasOn = false;
+const player = createPlayer({
+  onOpen: ({ place }) => {
+    stopTour();
+    if (flight?.running) stopFlight();
+    musicWasOn = music.playing;
+    if (music.playing) toggleMusic();
+    globe?.setRunning(false);
+    $('#peek').hidden = true;
+    if (place && state.selected !== place.id) bus.emit('select', { id: place.id, source: 'play' });
+    writeHash();
+  },
+  onShowMap: () => { if (state.mode !== '2d') globe?.setRunning(true); writeHash(); },
+  onClose: () => {
+    if (state.mode !== '2d') globe?.setRunning(true);
+    if (musicWasOn && !music.playing) toggleMusic();
+    writeHash();
+  },
+});
+document.addEventListener('click', (e) => {
+  const a = e.target.closest('a[data-play]');
+  if (!a || e.defaultPrevented || e.button !== 0 || e.metaKey || e.ctrlKey || e.shiftKey || e.altKey) return;
+  const hit = playIndex.get(a.getAttribute('href'));
+  if (!hit) return;
+  e.preventDefault();
+  player.open(a.getAttribute('href'), hit.place, hit.entry);
+});
+
 // ---------- keyboard, panel, hash ----------
 document.addEventListener('keydown', (e) => {
   if (e.target.matches('input[type=search], input[type=text]')) return;
+  if (player.shown) return;
   if (e.key === '/') { e.preventDefault(); $('#search').focus(); }
   else if (e.key === 'Escape') bus.emit('select', { id: null, source: 'key' });
   else if (e.key === '1') setMode('3d');
@@ -487,6 +529,7 @@ function writeHash() {
   const h = new URLSearchParams();
   if (state.mode !== '3d') h.set('view', state.mode === '2d' ? 'map' : 'compare');
   if (state.selected) h.set('city', state.selected);
+  if (player.playing) h.set('play', player.now.url);
   if (flight?.running) h.set('fly', document.body.classList.contains('explore') ? 'explore' : 'race');
   if (projectionId !== 'patterson') h.set('proj', projectionId);
   const s = h.toString();
@@ -499,7 +542,9 @@ function readHash() {
   if (h.get('proj') && PROJECTIONS[h.get('proj')]) applyProjection(h.get('proj'));
   const c = h.get('city');
   if (c && byId.has(c)) bus.emit('select', { id: c, source: 'hash' });
-  if (h.has('fly') && !flight?.running) {
+  const pl = h.get('play');
+  if (pl && playIndex.has(pl) && player.now?.url !== pl) { const { place, entry } = playIndex.get(pl); player.open(pl, place, entry); }
+  if (h.has('fly') && !flight?.running && !pl) {
     if (['explore', 'race'].includes(h.get('fly'))) try { localStorage.setItem('slop-cities.flight', h.get('fly')); } catch {}
     startFlight();
   }

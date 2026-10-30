@@ -346,7 +346,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
       <div class="fl-toast-body"><div class="fl-kicker">Landed · ${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, '0')}</div>
       <b class="fl-sign">${esc(c.city)}</b>
       <p>${c.entries.length} take${c.entries.length > 1 ? 's' : ''} of ${esc(c.city)}${c.original ? ', the original' : ''}.</p>
-      <div class="links">${play ? `<a class="btn play" href="${esc(play)}" target="_blank" rel="noopener">Play ↗</a>` : ''}<button class="btn fl-more" title="Stop flying and open the city's card">Land here</button></div></div>`;
+      <div class="links">${play ? `<a class="btn play" href="${esc(play)}" target="_blank" rel="noopener" data-play>Play</a>` : ''}<button class="btn fl-more" title="Stop flying and open the city's card">Land here</button></div></div>`;
     t.querySelector('.fl-more').addEventListener('click', () => onArrive(c, true));
     t.hidden = false;
     clearTimeout(toastTimer);

@@ -1,0 +1,10 @@
+[
+ {
+  "url": "https://blessxu.cn/project/zhujiang-city/",
+  "why": "X-Frame-Options: sameorigin"
+ },
+ {
+  "url": "https://huggingface.co/spaces/mehmetkeremturkcan/valdrada",
+  "why": "X-Frame-Options: deny"
+ }
+]

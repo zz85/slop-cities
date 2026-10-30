@@ -35,6 +35,8 @@ To add an entry:
 
    It rewrites the lists in README.md and `map/data/cities.json`, and stops with a message naming the entry and the field if something is missing or wrong. Commit `cities.yml`, README.md and `map/data/cities.json` together. `node map/build/build.mjs --check` changes nothing and says whether the two built files are up to date.
 
+   The map opens a take's Play in a frame over the map. A few sites refuse to be framed; `node map/build/check-embed.mjs` (it needs network) asks each play link and writes the ones that refuse to `map/data/no-embed.json`, which the map opens in a new tab instead. Run it when you add a play link, and commit that file too.
+
 Also:
 
 - **Flags** go in `flags`, and each becomes a filter on the map:
