@@ -36,7 +36,7 @@
      "authorUrl": "https://github.com/desurfofficial-ship-it",
      "desc": "Subway, money, apartments, jobs and New Yorkers on top of the original.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": "screenshots/new-york-city-life-simulator.jpg",
      "pick": false
@@ -64,7 +64,7 @@
      "authorUrl": "https://github.com/pulsybkr",
      "desc": "Two fictional neighbourhoods built as film sets inside Manhattan parks, with houses you can walk into, a school, a medical centre and a police station; pick one to load, or the whole city. In French.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": "screenshots/new-york-film-set-studio.jpg",
      "pick": false
@@ -105,7 +105,7 @@
      "authorUrl": "https://github.com/tiborsaas",
      "desc": "Adds a handbrake to the car, with rear-wheel drift.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": null,
      "pick": false
@@ -365,7 +365,7 @@
      "authorUrl": "https://github.com/olivalcf",
      "desc": "A stylized Bangkok around Sukhumvit, with meter taxis.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": "screenshots/bangkok.jpg",
      "pick": false,
@@ -483,7 +483,7 @@
      "authorUrl": "https://github.com/keithligh",
      "desc": "Hong Kong Island and Kowloon from LandsD buildings and OSM.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": null,
      "pick": false,
@@ -1100,7 +1100,7 @@
      "authorUrl": "https://github.com/yymir",
      "desc": "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": null,
      "pick": false,
@@ -1160,7 +1160,7 @@
      "authorUrl": "https://github.com/oegea",
      "desc": "Grand Theft Ègara: Terrassa at 1:1 with real relief.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": "screenshots/terrassa.jpg",
      "pick": false,
@@ -1251,7 +1251,7 @@
      "authorUrl": "https://github.com/keymaker2005",
      "desc": "Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": null,
      "pick": false,
@@ -1311,7 +1311,7 @@
      "authorUrl": "https://github.com/JuanittoSantana",
      "desc": "Ciudad Obregón, Sonora.",
      "flags": [
-      "preview"
+      "githack"
      ],
      "screenshot": null,
      "pick": false,

@@ -19,7 +19,7 @@ original:
 
 # Cities by region; the build lists them alphabetically, and each city's takes in the order given.
 cities:
-  intro: Entries marked *(source only)* have no live demo yet; clone and serve locally. *(preview)* means the Play link runs the code straight from its GitHub repo through raw.githack.com, since its author hasn't published a demo; the first visit shows raw.githack's "Open the page" step. *(own engine)* means the city is built on its own code rather than on Slop New York's (some of them are inspired by it), and *(isometric)* marks isometric pixel-art and painted maps.
+  intro: Entries marked *(source only)* have no live demo yet; clone and serve locally. *(githack)* means the Play link runs the code straight from its GitHub repo through raw.githack.com, since its author hasn't published a demo; the first visit shows raw.githack's "Open the page" step. *(own engine)* means the city is built on its own code rather than on Slop New York's (some of them are inspired by it), and *(isometric)* marks isometric pixel-art and painted maps.
   regions:
     Africa:
       - city: Abuja
@@ -63,7 +63,7 @@ cities:
             source: https://github.com/olivalcf/slop-bangkok
             by: olivalcf
             desc: A stylized Bangkok around Sukhumvit, with meter taxis.
-            flags: [preview]
+            flags: [githack]
             screenshot: screenshots/bangkok.jpg
 
       - city: Daejeon
@@ -103,7 +103,7 @@ cities:
             source: https://github.com/keithligh/slop-hongkong
             by: keithligh
             desc: Hong Kong Island and Kowloon from LandsD buildings and OSM.
-            flags: [preview]
+            flags: [githack]
           - tag: Night Patrol
             play: https://hkpolice.9chives.com/
             source: https://github.com/linxichen/sdu-night-patrol
@@ -317,7 +317,7 @@ cities:
             source: https://github.com/yymir/virtual-oslo
             by: yymir
             desc: "Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees."
-            flags: [preview]
+            flags: [githack]
 
       - city: Seville
         country: Spain
@@ -338,7 +338,7 @@ cities:
             source: https://github.com/oegea/slop-egara
             by: oegea
             desc: "Grand Theft Ègara: Terrassa at 1:1 with real relief."
-            flags: [preview]
+            flags: [githack]
             screenshot: screenshots/terrassa.jpg
 
       - city: Utrecht
@@ -373,7 +373,7 @@ cities:
             source: https://github.com/keymaker2005/szczesliwe-bielany
             by: keymaker2005
             desc: Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day.
-            flags: [preview]
+            flags: [githack]
 
       - city: Zürich
         country: Switzerland
@@ -394,7 +394,7 @@ cities:
             source: https://github.com/JuanittoSantana/SlopSonora
             by: JuanittoSantana
             desc: Ciudad Obregón, Sonora.
-            flags: [preview]
+            flags: [githack]
 
       - city: San Francisco
         country: USA
@@ -484,7 +484,7 @@ remixes:
       source: https://github.com/desurfofficial-ship-it/slop-newyork
       by: desurfofficial-ship-it
       desc: Subway, money, apartments, jobs and New Yorkers on top of the original.
-      flags: [preview]
+      flags: [githack]
       screenshot: screenshots/new-york-city-life-simulator.jpg
     - name: Extinction Avenue
       play: https://midagedev.github.io/extinction-avenue/
@@ -497,7 +497,7 @@ remixes:
       source: https://github.com/pulsybkr/slop-newyork
       by: pulsybkr
       desc: "Two fictional neighbourhoods built as film sets inside Manhattan parks, with houses you can walk into, a school, a medical centre and a police station; pick one to load, or the whole city. In French."
-      flags: [preview]
+      flags: [githack]
       screenshot: screenshots/new-york-film-set-studio.jpg
     - name: Flying Car Simulator
       play: https://flyingcarsimulator.io
@@ -516,7 +516,7 @@ remixes:
       source: https://github.com/tiborsaas/slop-newyork
       by: tiborsaas
       desc: Adds a handbrake to the car, with rear-wheel drift.
-      flags: [preview]
+      flags: [githack]
     - name: LLM residents
       source: https://github.com/trippuroskie/slop-newyork
       by: trippuroskie
