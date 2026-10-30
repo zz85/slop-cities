@@ -18,19 +18,25 @@ const store = {
   get(k, d) { try { return localStorage.getItem('slop-cities.' + k) ?? d; } catch { return d; } },
   set(k, v) { try { localStorage.setItem('slop-cities.' + k, v); } catch {} },
 };
-const DOCKS = [['top', 'Top bar'], ['side', 'Side'], ['ball', 'Ball']];
+const DOCKS = [['top', 'Top bar'], ['side', 'Side strip'], ['ball', 'Ball']];
 const ICON = {
   map: '<span class="mta-bullet" aria-hidden="true">SC</span>',
   reload: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11a8 8 0 1 0-2.3 5.7"/><path d="M20 4v7h-7"/></svg>',
   pop: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4h6v6"/><path d="M20 4 11 13"/><path d="M19 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1h5"/></svg>',
   close: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6 6 18"/></svg>',
   pin: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 4h6l-1 6 3 3H7l3-3z"/><path d="M12 13v7"/></svg>',
+  back: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15 6l-6 6 6 6"/></svg>',
+  // The three docks, each a window with its controls where that dock puts them.
+  top: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M3 9h18" /><path class="fill" d="M5.5 5.5h13v2h-13z"/></svg>',
+  side: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><path d="M9 4v16"/><path class="fill" d="M4.5 5.5h3v13h-3z"/></svg>',
+  ball: '<svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2.5"/><circle class="fill" cx="8" cy="14.5" r="2.6"/></svg>',
 };
 
 export function createPlayer({ onOpen, onClose, onShowMap }) {
   let dock = store.get('dock', 'top');
   if (!DOCKS.some(([d]) => d === dock)) dock = 'top';
-  let autoHide = store.get('dock-autohide', 'off') === 'on';
+  // The bar and the strip hide themselves unless pinned.
+  let pinned = store.get('dock-pin', 'off') === 'on';
   let now = null; // { url, place, entry, who }
   let shown = false; // the game in front (else the map, with the game waiting)
   const narrow = () => matchMedia('(max-width: 820px)').matches;
@@ -43,7 +49,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
     const d = dockNow();
     return `
       <div class="pc pc-${layout}">
-        <button class="pc-map" data-pl="map" title="Back to the map: the game keeps running (Esc)">${ICON.map}<span>Map</span></button>
+        <button class="pc-map" data-pl="map" title="Back to the world map: the game keeps running (Esc)">${ICON.back}${ICON.map}<span>World map</span></button>
         <div class="pc-now"><b class="pc-sign">${esc(now?.place?.city || '')}</b>${now?.who ? `<span class="pc-who">${esc(now.who)}</span>` : ''}</div>
         <span class="pc-tip">Blank? Some sites can't be shown here: pop it out.</span>
         <span class="pc-sp"></span>
@@ -53,8 +59,10 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
           <button class="icon-btn pc-close" data-pl="close" title="Close the game" aria-label="Close the game">${ICON.close}</button>
         </div>
         <div class="pc-dock" role="group" aria-label="Where the controls go">
-          ${DOCKS.filter(([k]) => !(k === 'side' && narrow())).map(([k, t]) => `<button data-pl-dock="${k}" aria-pressed="${k === d}"><span class="pc-long">${t}</span><span class="pc-short">${k === 'top' ? 'Bar' : t}</span></button>`).join('')}
-          ${layout !== 'menu' ? `<button class="pc-hide" data-pl="autohide" aria-pressed="${autoHide}" title="Hide the ${layout === 'bar' ? 'bar' : 'strip'} until the pointer reaches the ${layout === 'bar' ? 'top' : 'left'} edge">${ICON.pin}<span>Auto-hide</span></button>` : ''}
+          ${DOCKS.filter(([k]) => !(k === 'side' && narrow())).map(([k, t]) => `<button class="icon-btn" data-pl-dock="${k}" aria-pressed="${k === d}" title="${t}" aria-label="${t}">${ICON[k]}</button>`).join('')}
+          ${layout !== 'menu' ? `<button class="icon-btn pc-pin" data-pl="pin" aria-pressed="${pinned}" title="${pinned
+            ? `Pinned: the ${layout === 'bar' ? 'bar' : 'strip'} stays. Click to let it hide itself`
+            : `The ${layout === 'bar' ? 'bar' : 'strip'} hides itself and comes back at the ${layout === 'bar' ? 'top' : 'left'} edge. Click to pin it`}" aria-label="Pin">${ICON.pin}</button>` : ''}
         </div>
       </div>`;
   }
@@ -117,7 +125,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
   function layout() {
     const d = dockNow();
     for (const [k] of DOCKS) document.body.classList.toggle('dock-' + k, shown && d === k);
-    document.body.classList.toggle('dock-autohide', shown && autoHide && d !== 'ball');
+    document.body.classList.toggle('dock-autohide', shown && !pinned && d !== 'ball');
     $('.pl-top').innerHTML = d === 'top' ? controls('bar') : '';
     $('.pl-side-head').innerHTML = d === 'side' ? controls('side') : '';
     menu.innerHTML = d === 'ball' ? controls('menu') : '';
@@ -130,7 +138,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
       else if (card.parentElement !== document.body) document.body.appendChild(card);
     }
     placeBall();
-    if (shown && autoHide && d !== 'ball') reveal(2600);
+    if (shown && !pinned && d !== 'ball') reveal(2600);
   }
   function show() {
     if (!now) return;
@@ -160,7 +168,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
     onClose(was);
   }
   function setDock(d) { dock = d; store.set('dock', d); if (shown) layout(); }
-  function setAutoHide(on) { autoHide = on; store.set('dock-autohide', on ? 'on' : 'off'); if (shown) layout(); }
+  function setPinned(on) { pinned = on; store.set('dock-pin', on ? 'on' : 'off'); if (shown) layout(); }
 
   // ---------- auto-hide: away after a moment, back at the edge ----------
   let hideTimer = 0, over = false;
@@ -169,7 +177,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
     clearTimeout(hideTimer);
     if (!over) hideTimer = setTimeout(conceal, ms);
   }
-  function conceal() { if (!over && autoHide) el.classList.remove('reveal'); }
+  function conceal() { if (!over && !pinned) el.classList.remove('reveal'); }
   for (const s of ['.pl-hot-top', '.pl-hot-left']) {
     $(s).addEventListener('pointerenter', () => reveal(1800));
     $(s).addEventListener('pointerdown', () => reveal(4000)); // a tap on a touch screen
@@ -188,14 +196,15 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
     if (act === 'map') hide();
     else if (act === 'close') close();
     else if (act === 'reload') { const f = $('iframe'); if (f) f.src = now.url; }
-    else if (act === 'autohide') setAutoHide(!autoHide);
+    else if (act === 'pin') setPinned(!pinned);
     else if (act === 'pop') setTimeout(close, 0); // the link opens the tab itself
   });
   chip.addEventListener('click', (e) => { if (e.target.closest('.np-back, img, .np-play')) show(); });
 
   // ---------- the ball: drag it to either side; hover or tap for the menu ----------
-  let pos = { side: 'left', y: 0.86 };
-  try { pos = JSON.parse(store.get('ball', 'null')) || pos; } catch {}
+  // A third of the way up from the bottom, on the left, until you move it.
+  let pos = { side: 'left', y: 2 / 3 };
+  try { pos = JSON.parse(store.get('ball-pos', 'null')) || pos; } catch {}
   function placeBall() {
     const s = 56, m = 14, H = innerHeight;
     const y = Math.max(m, Math.min(H - s - m, pos.y * H - s / 2));
@@ -226,7 +235,7 @@ export function createPlayer({ onOpen, onClose, onShowMap }) {
       return;
     }
     pos = { side: e.clientX < innerWidth / 2 ? 'left' : 'right', y: e.clientY / innerHeight };
-    store.set('ball', JSON.stringify(pos));
+    store.set('ball-pos', JSON.stringify(pos));
     placeBall();
   });
   // Hovering opens the menu, and it stays open while the pointer is on the ball or the menu.

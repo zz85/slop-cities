@@ -611,12 +611,16 @@ kbd {
 .pc-acts .icon-btn { text-decoration: none; }
 .pc-close:hover { color: #fff; background: rgba(200, 32, 42, 0.7); }
 .pc-dock { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-ctl); background: rgba(255, 255, 255, 0.06); flex: none; }
-.pc-dock button { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.pc-dock .icon-btn { width: 32px; height: 28px; border-radius: 8px; }
+.pc-dock .icon .fill { fill: currentColor; stroke: none; opacity: 0.55; }
+.pc-dock [aria-pressed="true"] .icon .fill { opacity: 1; }
 .pc-dock button:hover { color: var(--text); }
-.pc-dock button[aria-pressed="true"] { background: var(--text); color: #121314; }
-.pc-dock .pc-hide { margin-left: 4px; }
-.pc-dock .pc-hide .icon { width: 14px; height: 14px; }
-.pc-dock .pc-hide[aria-pressed="true"] { background: var(--taxi); color: var(--taxi-ink); }
+.pc-dock button[data-pl-dock][aria-pressed="true"] { background: var(--text); color: #121314; }
+.pc-dock .pc-pin { margin-left: 4px; }
+.pc-dock .pc-pin .icon { width: 16px; height: 16px; transform: rotate(35deg); transition: transform 0.2s var(--ease-out); }
+.pc-dock .pc-pin[aria-pressed="true"] { background: var(--taxi); color: var(--taxi-ink); }
+.pc-dock .pc-pin[aria-pressed="true"] .icon { transform: none; fill: currentColor; }
+.pc-map > .icon { width: 16px; height: 16px; margin-right: -4px; color: var(--text-2); }
 
 /* In the strip: a column, the card under it. */
 .pc-side { flex-wrap: wrap; padding: 10px 10px 12px; border-bottom: 1px solid var(--divider); }
@@ -625,7 +629,7 @@ kbd {
 .pc-side .pc-sp { display: none; }
 .pc-side .pc-acts { margin-left: auto; }
 .pc-side .pc-dock { order: 4; flex: 1 1 100%; }
-.pc-side .pc-dock button { flex: 1; justify-content: center; }
+.pc-side .pc-dock { justify-content: flex-start; flex: none; }
 .pc-side .pc-tip { order: 5; flex-basis: 100%; white-space: normal; padding: 0 4px; }
 .pl-side-card { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
 .pl-side-card .card { position: static; width: auto; max-height: none; overflow: visible; background: none; border: 0; box-shadow: none; border-radius: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
@@ -667,7 +671,7 @@ div.pl-ball.dragging { transition: none; }
 .pc-menu .pc-map { grid-column: 1; grid-row: 2; }
 .pc-menu .pc-acts { grid-column: 2; grid-row: 2; }
 .pc-menu .pc-dock { grid-column: 1 / -1; grid-row: 3; }
-.pc-menu .pc-dock button { flex: 1; justify-content: center; }
+.pc-menu .pc-dock { justify-self: start; }
 .pc-menu .pc-sp { display: none; }
 .pc-menu .pc-tip { grid-column: 1 / -1; white-space: normal; }
 .pl-ball .pc-tip { display: none; }
@@ -693,20 +697,13 @@ body:has(.player.tip) .pl-ball .pc-tip { display: block; }
   .player { padding: max(8px, env(safe-area-inset-top)) 8px 8px; gap: 6px; }
   .pc-bar .pc-who, .pc-bar .pc-tip, .pc-bar .pc-map > span:not(.mta-bullet) { display: none; }
   .pc-bar { gap: 4px; }
-  .pc-bar .pc-dock button { padding: 0 7px; }
-  .pc-bar .pc-hide span { display: none; }
   .pc-bar .pc-sign { overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 0 1 auto; }
   .pc-bar .pc-now { flex: 0 1 auto; }
   .db-menu { width: min(300px, calc(100vw - 100px)); }
   .now-playing { bottom: auto; top: calc(max(var(--edge), env(safe-area-inset-top)) + 108px); width: calc(100% - 2 * var(--edge)); max-width: none; }
   .np-back { flex: 1; }
 }
-.pc-side .pc-dock .pc-hide, .pc-menu .pc-dock .pc-hide { flex: none; padding: 0 8px; }
-.pc-side .pc-dock .pc-hide span { display: none; }
-.pc-short { display: none; }
 @media (max-width: 820px) {
-  .pc-bar .pc-long { display: none; }
-  .pc-bar .pc-short { display: inline; }
   .player.tip .pc-bar .pc-tip { display: none; }
   .pc-bar .pc-acts .icon-btn { width: 32px; }
   .pc-bar .pc-map { padding: 0 4px; }
