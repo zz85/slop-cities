@@ -276,6 +276,7 @@ bus.on('view', (v) => {
 
 // ---------- modes ----------
 function setMode(mode) {
+  if (flight?.running && mode !== '3d') stopFlight();
   state.mode = mode;
   document.body.className = 'mode-' + mode;
   for (const b of document.querySelectorAll('.modes button')) b.setAttribute('aria-selected', b.dataset.mode === mode);
@@ -397,6 +398,41 @@ if (musicWanted()) {
   else for (const t of GESTURES) addEventListener(t, onFirstGesture, true);
 }
 
+// ---------- fly: the biplane game ----------
+let flight = null;
+async function startFlight() {
+  if (state.mode !== '3d') setMode('3d');
+  stopTour();
+  const g = await ensureGlobe();
+  if (!flight) {
+    const { createFlight } = await import('./flight.js');
+    flight = createFlight({
+      globe: g, world, places,
+      sound: () => swooshOpt.checked,
+      onExit: stopFlight,
+      // Land here: stop flying and open the city's card.
+      onArrive: (c, land) => { if (land) { stopFlight(); bus.emit('select', { id: c.id, source: 'fly' }); } },
+    });
+  }
+  if (flight.running) return;
+  const from = byId.get(state.selected);
+  bus.emit('select', { id: null, source: 'fly' });
+  $('#peek').hidden = true;
+  document.body.classList.add('flying');
+  $('#fly').setAttribute('aria-pressed', 'true');
+  flight.start(from);
+  writeHash();
+}
+function stopFlight() {
+  if (!flight?.running) return;
+  flight.stop();
+  document.body.classList.remove('flying');
+  $('#fly').setAttribute('aria-pressed', 'false');
+  writeHash();
+}
+function toggleFlight() { if (flight?.running) stopFlight(); else startFlight(); }
+$('#fly').addEventListener('click', toggleFlight);
+
 // ---------- keyboard, panel, hash ----------
 document.addEventListener('keydown', (e) => {
   if (e.target.matches('input[type=search], input[type=text]')) return;
@@ -406,6 +442,7 @@ document.addEventListener('keydown', (e) => {
   else if (e.key === '2') setMode('2d');
   else if (e.key === '3') setMode('compare');
   else if (e.key === 'm' || e.key === 'M') toggleMusic();
+  else if ((e.key === 'f' || e.key === 'F') && !e.metaKey && !e.ctrlKey) toggleFlight();
 });
 $('#panel-handle').addEventListener('click', () => $('#panel').classList.toggle('collapsed'));
 
@@ -413,6 +450,7 @@ function writeHash() {
   const h = new URLSearchParams();
   if (state.mode !== '3d') h.set('view', state.mode === '2d' ? 'map' : 'compare');
   if (state.selected) h.set('city', state.selected);
+  if (flight?.running) h.set('fly', '1');
   if (projectionId !== 'patterson') h.set('proj', projectionId);
   const s = h.toString();
   history.replaceState(null, '', s ? '#' + s : location.pathname + location.search);
@@ -424,6 +462,7 @@ function readHash() {
   if (h.get('proj') && PROJECTIONS[h.get('proj')]) applyProjection(h.get('proj'));
   const c = h.get('city');
   if (c && byId.has(c)) bus.emit('select', { id: c, source: 'hash' });
+  if (h.has('fly') && !flight?.running) startFlight();
 }
 readHash();
 window.addEventListener('hashchange', readHash);
@@ -432,4 +471,4 @@ if (matchMedia('(max-width: 820px)').matches) $('#panel').classList.add('collaps
 bus.on('select', ({ id }) => { if (id && matchMedia('(max-width: 820px)').matches) $('#panel').classList.add('collapsed'); });
 $('#boot').remove();
 // For checks and the console.
-window.slopMap = { world, get map() { return map; }, get globe() { return globe; }, bus, state, setMode, ensureGlobe };
+window.slopMap = { world, get map() { return map; }, get globe() { return globe; }, get flight() { return flight; }, bus, state, setMode, ensureGlobe, startFlight, stopFlight };

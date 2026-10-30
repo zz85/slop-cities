@@ -227,12 +227,13 @@ export async function createGlobe3D(container, world, bus) {
   let downAt = null;
   renderer.domElement.addEventListener('pointerdown', (e) => { downAt = [e.clientX, e.clientY]; });
   renderer.domElement.addEventListener('pointerup', (e) => {
+    if (game) return;
     if (!downAt || Math.hypot(e.clientX - downAt[0], e.clientY - downAt[1]) > 5) return;
     const id = pick(e);
     bus.emit('select', { id, source: '3d' });
   });
   renderer.domElement.addEventListener('pointermove', (e) => {
-    if (e.buttons) return;
+    if (e.buttons || game) return;
     const id = pick(e);
     if (id !== hovered) bus.emit('hover', { id, source: '3d' });
     renderer.domElement.style.cursor = id ? 'pointer' : '';
@@ -248,6 +249,7 @@ export async function createGlobe3D(container, world, bus) {
 
   // ---- state ----
   let selected = null, hovered = null, relatives = new Set();
+  let game = null, target = null; // the flight game's step function and destination
   let filter = null; // ids to show, or null for every city
   const opts = { arcs: false, labels: true, spin: true, clouds: true };
   let W = 1, H = 1;
@@ -314,12 +316,13 @@ export async function createGlobe3D(container, world, bus) {
     camDir.copy(camera.position).normalize();
     const placed = [];
     const order = [...pins].sort((a, b) => score(b) - score(a));
-    function score(p) { return (p.place.id === selected ? 1000 : 0) + (p.place.id === hovered ? 900 : 0) + (p.place.original ? 100 : 0) + p.place.entries.length * 10; }
+    function score(p) { return (p.place.id === target ? 2000 : 0) + (p.place.id === selected ? 1000 : 0) + (p.place.id === hovered ? 900 : 0) + (p.place.original ? 100 : 0) + p.place.entries.length * 10; }
     const dist = camera.position.length();
     for (const p of order) {
       const facing = p.up.dot(camDir);
       // Pin scale: constant-ish on screen, a little bigger when zoomed out.
-      const s = 0.0075 * p.size * Math.pow(dist - 0.95, 0.75) * (p.place.id === selected ? 1.35 : 1);
+      // In flight, a size on screen from the pin's own distance, small beside the plane.
+      const s = (game ? 0.0035 * p.size * Math.min(0.5, tmp.copy(p.g.position).distanceTo(camera.position)) : 0.0075 * p.size * Math.pow(dist - 0.95, 0.75)) * (p.place.id === selected || p.place.id === target ? 1.35 : 1);
       p.stem.scale.set(s * 1.4, s * 4.5, s * 1.4);
       p.head.position.set(0, s * 4.5, 0);
       p.head.scale.setScalar(s * 1.25);
@@ -328,21 +331,23 @@ export async function createGlobe3D(container, world, bus) {
       const filteredOut = !!filter && !filter.has(p.place.id) && p.place.id !== selected;
       p.g.visible = !filteredOut;
       const dim = !!selected && p.place.id !== selected && !relatives.has(p.place.id);
-      p.mat.color.copy(p.place.id === selected ? colSel : p.place.original ? colOrig : colPin);
+      p.mat.color.copy(p.place.id === selected || p.place.id === target ? colSel : p.place.original ? colOrig : colPin);
       p.mat.opacity = dim ? 0.35 : 1; p.mat.transparent = dim;
       tmp.set(0, s * 5.6, 0); p.g.localToWorld(tmp);
       tmp.project(camera);
       const x = (tmp.x * 0.5 + 0.5) * W, y = (-tmp.y * 0.5 + 0.5) * H;
-      const force = p.place.id === selected || p.place.id === hovered;
+      const force = p.place.id === selected || p.place.id === hovered || p.place.id === target;
       const w = p.place.city.length * 6.8 + (p.place.entries.length > 1 ? 18 : 0) + 12;
       const box = [x - w / 2, y - 22, x + w / 2, y - 4];
-      const visible = !filteredOut && facing > 0.12 && x > -40 && x < W + 40 && y > -20 && y < H + 30;
+      // In flight, low over the ground, hide what is past the horizon.
+      const horizon = game ? 1 / dist - 0.004 : 0.12;
+      const visible = !filteredOut && facing > horizon && x > -40 && x < W + 40 && y > -20 && y < H + 30;
       const show = visible && (force || (opts.labels && !placed.some((b) => box[0] < b[2] && box[2] > b[0] && box[1] < b[3] && box[3] > b[1])));
       if (show) placed.push(box);
       p.label.style.display = show ? '' : 'none';
       if (show) {
         p.label.style.transform = `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px) translate(-50%, -100%)`;
-        p.label.style.opacity = Math.min(1, (facing - 0.12) * 6);
+        p.label.style.opacity = Math.min(1, (facing - horizon) * (game ? 60 : 6));
         p.label.classList.toggle('strong', force);
         p.label.classList.toggle('dim', dim);
       }
@@ -356,10 +361,13 @@ export async function createGlobe3D(container, world, bus) {
     requestAnimationFrame(frame);
     if (!running || container.offsetParent === null) return;
     const dt = Math.min(0.05, clock.getDelta());
-    stepFly(now);
-    // Slower rotation when zoomed in.
-    controls.rotateSpeed = Math.max(0.12, Math.min(1, (camera.position.length() - 1) * 0.6));
-    controls.update();
+    if (game) game(dt, now);
+    else {
+      stepFly(now);
+      // Slower rotation when zoomed in.
+      controls.rotateSpeed = Math.max(0.12, Math.min(1, (camera.position.length() - 1) * 0.6));
+      controls.update();
+    }
     if (opts.clouds) cloudLayer.rotation.y += dt * 0.01;
     cloudLayer.visible = opts.clouds;
     arcsGroup.visible = opts.arcs;
@@ -372,7 +380,7 @@ export async function createGlobe3D(container, world, bus) {
     drawLabels();
     const v = getView();
     const key = `${v.lon.toFixed(3)},${v.lat.toFixed(3)},${v.zoom.toFixed(3)}`;
-    if (key !== lastView && (userDriving || fly || controls.autoRotate)) bus.emit('view', { source: '3d', ...v });
+    if (!game && key !== lastView && (userDriving || fly || controls.autoRotate)) bus.emit('view', { source: '3d', ...v });
     lastView = key;
   }
   requestAnimationFrame(frame);
@@ -395,7 +403,31 @@ export async function createGlobe3D(container, world, bus) {
     fly = { from: camera.position.clone().normalize(), to: camera.position.clone().normalize(), d0: d, d1: nd, start: performance.now(), ms: 350 };
   }
   function reset() { flyTo(10, 20, 1); }
+
+  // The flight game takes over the camera: step(dt, now) runs each frame in
+  // place of the orbit controls, and the globe goes on drawing pins and labels.
+  function startGame(step) {
+    game = step;
+    cancelFly();
+    controls.enabled = false; controls.autoRotate = false;
+    clearTimeout(idleTimer);
+  }
+  function endGame() {
+    if (!game) return;
+    game = null; target = null;
+    camera.up.set(0, 1, 0);
+    camera.near = 0.01; camera.far = 200;
+    resize();
+    const v = getView();
+    camera.lookAt(0, 0, 0);
+    controls.enabled = true;
+    flyTo(v.lon, v.lat, 3, 1400);
+  }
+  function setTarget(id) { target = id; }
   function setRunning(on) { running = on; if (on) clock.getDelta(); }
 
-  return { setFilter, setSelected, setHovered, setOptions, flyTo, getView, setView, resize, zoomBy, reset, setRunning, stats, el: container, renderer };
+  return {
+    setFilter, setSelected, setHovered, setOptions, flyTo, getView, setView, resize, zoomBy, reset, setRunning, stats, el: container, renderer,
+    startGame, endGame, setTarget, engine: { THREE, scene, camera, globe, geometry },
+  };
 }
