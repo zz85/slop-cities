@@ -554,81 +554,160 @@ kbd {
 .flying canvas.fl-aiming { cursor: crosshair; }
 
 /* ---------- Play in place: the game over the map ---------- */
-.playing .hud, .playing .side, .playing .map-zoom, .playing .caption, .playing .peek, .playing .flight, .playing.dock-ball .card { display: none !important; }
+.playing .hud, .playing .side, .playing .map-zoom, .playing .caption, .playing .peek, .playing .flight { display: none !important; }
+.playing:not(.dock-side) .card { display: none !important; }
+.playing .views { filter: brightness(0.3) saturate(0.6); }
 .player[hidden] { display: none; }
 .player {
-  position: fixed; z-index: 30; inset: max(10px, env(safe-area-inset-top)) max(10px, env(safe-area-inset-right)) max(10px, env(safe-area-inset-bottom)) max(10px, env(safe-area-inset-left));
-  display: flex; flex-direction: column; gap: 8px;
+  --pl-m: max(10px, env(safe-area-inset-top));
+  position: fixed; z-index: 30; inset: 0;
+  display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto 1fr; gap: 8px; padding: 10px;
   animation: pl-in 0.32s var(--ease-out);
 }
 @keyframes pl-in { from { opacity: 0; transform: scale(0.985); } }
-.dock-side .player { left: calc(340px + 20px); }
-.pl-bar { display: flex; align-items: center; gap: 10px; height: 44px; padding: 0 6px 0 6px; flex: none; }
-.pl-map { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 4px; border-radius: var(--r-ctl); font-weight: 650; }
-.pl-map:hover { background: var(--hover); }
-.pl-map .mta-bullet { width: 26px; height: 26px; font-size: 11px; }
-.pl-sign {
-  padding: 5px 10px 3px; border-radius: 5px; white-space: nowrap;
+.pl-frame { grid-column: 2; grid-row: 2; min-height: 0; border-radius: var(--r-panel); overflow: hidden; background: #000; border: 1px solid var(--glass-border); box-shadow: var(--shadow); }
+.pl-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+.pl-top { grid-column: 1 / -1; grid-row: 1; display: none; }
+.pl-side { grid-column: 1; grid-row: 1 / -1; display: none; width: 340px; min-height: 0; overflow: hidden; flex-direction: column; background: var(--grain), var(--glass-strong); }
+.dock-top .pl-top { display: block; }
+.dock-side .pl-side { display: flex; }
+.dock-top .pl-frame, .dock-ball .pl-frame { grid-column: 1 / -1; }
+.dock-ball .pl-frame, .dock-side .pl-frame { grid-row: 1 / -1; }
+
+/* Auto-hide: the bar or the strip lies over the game, slides away, and comes
+   back when the pointer reaches the edge (a strip there catches it, since the
+   game's frame keeps its own pointer). */
+.pl-hot { position: absolute; z-index: 3; display: none; }
+.pl-hot-top { left: 0; right: 0; top: 0; height: 12px; }
+.pl-hot-left { left: 0; top: 0; bottom: 0; width: 12px; }
+.dock-autohide.dock-top .pl-hot-top, .dock-autohide.dock-side .pl-hot-left { display: block; }
+.dock-autohide .pl-frame { grid-column: 1 / -1; grid-row: 1 / -1; }
+.dock-autohide .pl-top { position: absolute; z-index: 4; top: 10px; left: 10px; right: 10px; transition: transform 0.3s var(--ease-out), opacity 0.3s; }
+.dock-autohide .pl-side { position: absolute; z-index: 4; top: 10px; bottom: 10px; left: 10px; transition: transform 0.3s var(--ease-out), opacity 0.3s; }
+.dock-autohide .player:not(.reveal) .pl-top { transform: translateY(calc(-100% - 14px)); opacity: 0; pointer-events: none; }
+.dock-autohide .player:not(.reveal) .pl-side { transform: translateX(calc(-100% - 14px)); opacity: 0; pointer-events: none; }
+.dock-autohide .player .pl-hot { background: linear-gradient(180deg, rgba(255, 194, 26, 0.35), transparent); opacity: 0; transition: opacity 0.2s; }
+.dock-autohide .player .pl-hot-left { background: linear-gradient(90deg, rgba(255, 194, 26, 0.35), transparent); }
+.dock-autohide .player .pl-hot:hover { opacity: 1; }
+
+/* ---------- the controls, the same in every dock ---------- */
+.pc { display: flex; align-items: center; gap: 8px; min-width: 0; }
+.pc-bar { height: 44px; padding: 0 6px; }
+.pc-map { display: flex; align-items: center; gap: 8px; height: 32px; padding: 0 12px 0 4px; border-radius: var(--r-ctl); font-weight: 650; flex: none; }
+.pc-map:hover { background: var(--hover); }
+.pc-map .mta-bullet { width: 26px; height: 26px; font-size: 11px; }
+.pc-now { display: flex; align-items: center; gap: 10px; min-width: 0; }
+.pc-sign {
+  flex: none; padding: 5px 10px 3px; border-radius: 5px; white-space: nowrap;
   font-family: var(--font-sign); font-size: 14px; font-weight: 700; color: #fff;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0) 55%), var(--sign-green);
   outline: 1.5px solid rgba(255, 255, 255, 0.92); outline-offset: -3px;
 }
-.pl-who { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12.5px; color: var(--text-2); }
-.pl-tip { white-space: nowrap; font-size: 12px; color: var(--taxi); opacity: 0; transition: opacity 0.4s; }
-.pl-tip.on { opacity: 0.9; }
-.pl-sp { flex: 1; }
-.pl-dock { display: flex; padding: 2px; border-radius: var(--r-ctl); background: rgba(255, 255, 255, 0.06); }
-.pl-dock button { height: 28px; padding: 0 10px; border-radius: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-2); }
-.pl-dock button[aria-pressed="true"] { background: var(--text); color: #121314; }
-.pl-close { font-size: 20px; }
-.pl-frame { flex: 1; min-height: 0; border-radius: var(--r-panel); overflow: hidden; background: #000; border: 1px solid var(--glass-border); box-shadow: var(--shadow); }
-.pl-frame iframe { display: block; width: 100%; height: 100%; border: 0; background: #000; }
+.pc-who { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 12.5px; color: var(--text-2); }
+.pc-tip { display: none; white-space: nowrap; font-size: 12px; color: var(--taxi); }
+.player.tip .pc-tip { display: inline; }
+.pc-sp { flex: 1; }
+.pc-acts { display: flex; gap: 2px; flex: none; }
+.pc-acts .icon-btn { text-decoration: none; }
+.pc-close:hover { color: #fff; background: rgba(200, 32, 42, 0.7); }
+.pc-dock { display: flex; gap: 2px; padding: 2px; border-radius: var(--r-ctl); background: rgba(255, 255, 255, 0.06); flex: none; }
+.pc-dock button { display: flex; align-items: center; gap: 5px; height: 28px; padding: 0 10px; border-radius: 8px; font-size: 12.5px; font-weight: 600; color: var(--text-2); }
+.pc-dock button:hover { color: var(--text); }
+.pc-dock button[aria-pressed="true"] { background: var(--text); color: #121314; }
+.pc-dock .pc-hide { margin-left: 4px; }
+.pc-dock .pc-hide .icon { width: 14px; height: 14px; }
+.pc-dock .pc-hide[aria-pressed="true"] { background: var(--taxi); color: var(--taxi-ink); }
 
-/* Side: the city's card in a strip at the left, to switch takes while playing. */
-.dock-side .card {
-  display: block !important; top: max(10px, env(safe-area-inset-top)); bottom: max(10px, env(safe-area-inset-bottom)); left: max(10px, env(safe-area-inset-left)); right: auto;
-  width: 340px; max-height: none; z-index: 31;
-}
+/* In the strip: a column, the card under it. */
+.pc-side { flex-wrap: wrap; padding: 10px 10px 12px; border-bottom: 1px solid var(--divider); }
+.pc-side .pc-now { flex: 1 1 100%; order: 3; flex-wrap: wrap; gap: 6px 10px; padding: 4px 4px 0; }
+.pc-side .pc-who { white-space: normal; }
+.pc-side .pc-sp { display: none; }
+.pc-side .pc-acts { margin-left: auto; }
+.pc-side .pc-dock { order: 4; flex: 1 1 100%; }
+.pc-side .pc-dock button { flex: 1; justify-content: center; }
+.pc-side .pc-tip { order: 5; flex-basis: 100%; white-space: normal; padding: 0 4px; }
+.pl-side-card { flex: 1; min-height: 0; overflow: auto; overscroll-behavior: contain; scrollbar-width: thin; }
+.pl-side-card .card { position: static; width: auto; max-height: none; overflow: visible; background: none; border: 0; box-shadow: none; border-radius: 0; -webkit-backdrop-filter: none; backdrop-filter: none; }
+.pl-side-card .card .shot img { border-radius: 0; }
+.pl-side-card .card .close { display: none; }
 
-/* Ball: the map folded into a round widget over the game, draggable to either side. */
-.dock-ball[hidden] { display: none; }
-button.dock-ball {
-  position: fixed; left: 0; top: 0; z-index: 40; width: 56px; height: 56px; border-radius: 50%;
-  display: grid; place-items: center; touch-action: none;
+/* ---------- the ball, and its menu ---------- */
+.pl-ball[hidden] { display: none; }
+div.pl-ball { position: fixed; left: 0; top: 0; z-index: 40; width: 56px; height: 56px; transition: transform 0.35s var(--ease-out); }
+div.pl-ball.dragging { transition: none; }
+.db-core {
+  position: relative; width: 56px; height: 56px; border-radius: 50%; display: grid; place-items: center; touch-action: none;
   background: var(--grain), var(--glass-strong); border: 1px solid var(--glass-border);
   box-shadow: inset 0 1px 0 var(--glass-highlight), 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 0 4px rgba(255, 194, 26, 0.18);
-  transition: transform 0.35s var(--ease-out), box-shadow 0.2s;
+  transition: box-shadow 0.2s;
 }
-button.dock-ball:hover { box-shadow: inset 0 1px 0 var(--glass-highlight), 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 0 5px rgba(255, 194, 26, 0.4); }
-button.dock-ball.dragging { transition: none; cursor: grabbing; }
-button.dock-ball .mta-bullet { width: 34px; height: 34px; font-size: 13px; }
-.dock-ball-globe { position: absolute; right: 3px; bottom: 3px; width: 16px; height: 16px; border-radius: 50%;
+.pl-ball.open .db-core, .db-core:hover { box-shadow: inset 0 1px 0 var(--glass-highlight), 0 12px 30px -10px rgba(0, 0, 0, 0.8), 0 0 0 5px rgba(255, 194, 26, 0.45); }
+.pl-ball.dragging .db-core { cursor: grabbing; }
+.db-core .mta-bullet { width: 34px; height: 34px; font-size: 13px; }
+.db-globe { position: absolute; right: 3px; bottom: 3px; width: 16px; height: 16px; border-radius: 50%;
   background: radial-gradient(circle at 35% 35%, #8fd18a, #3d8a4a 45%, #2a5f9e 46%, #1b3f6e); box-shadow: 0 0 0 2px #121316; }
+/* The menu opens beside the ball, toward the middle of the screen; a margin
+   of padding keeps the hover alive across the gap. */
+.db-menu {
+  position: absolute; width: 300px; padding: 8px; background: var(--grain), var(--glass-strong);
+  opacity: 0; pointer-events: none; transform: scale(0.94); transition: opacity 0.18s, transform 0.22s var(--ease-out);
+}
+.pl-ball[data-side="left"] .db-menu { left: 66px; transform-origin: left center; }
+.pl-ball[data-side="right"] .db-menu { right: 66px; transform-origin: right center; }
+.pl-ball[data-half="low"] .db-menu { bottom: 0; }
+.pl-ball[data-half="high"] .db-menu { top: 0; }
+.db-menu::before { content: ''; position: absolute; top: 0; bottom: 0; width: 14px; }
+.pl-ball[data-side="left"] .db-menu::before { right: 100%; }
+.pl-ball[data-side="right"] .db-menu::before { left: 100%; }
+.pl-ball.open .db-menu { opacity: 1; pointer-events: auto; transform: none; }
+.pc-menu { display: grid; grid-template-columns: 1fr auto; gap: 8px; }
+.pc-menu .pc-now { grid-column: 1 / -1; grid-row: 1; flex-wrap: wrap; gap: 6px 8px; padding: 2px 2px 4px; }
+.pc-menu .pc-who { white-space: normal; }
+.pc-menu .pc-map { grid-column: 1; grid-row: 2; }
+.pc-menu .pc-acts { grid-column: 2; grid-row: 2; }
+.pc-menu .pc-dock { grid-column: 1 / -1; grid-row: 3; }
+.pc-menu .pc-dock button { flex: 1; justify-content: center; }
+.pc-menu .pc-sp { display: none; }
+.pc-menu .pc-tip { grid-column: 1 / -1; white-space: normal; }
+.pl-ball .pc-tip { display: none; }
+body:has(.player.tip) .pl-ball .pc-tip { display: block; }
 
-/* Now playing: the game waiting while the map is in front. */
+/* ---------- Now playing: the game, waiting while the map is in front ---------- */
 .now-playing[hidden] { display: none; }
 .now-playing {
   position: fixed; z-index: 25; left: 50%; transform: translateX(-50%); bottom: max(var(--edge), env(safe-area-inset-bottom));
-  display: flex; align-items: center; gap: 10px; padding: 6px 6px 6px 6px; max-width: min(440px, calc(100% - 2 * var(--edge)));
+  display: flex; align-items: center; gap: 6px; padding: 6px; max-width: min(460px, calc(100% - 2 * var(--edge)));
   background: var(--grain), var(--glass-strong); animation: fl-in 0.3s var(--ease-out);
 }
-.now-playing img { width: 72px; height: 40px; object-fit: cover; border-radius: 8px; flex: none; }
-.np-play { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--taxi); color: var(--taxi-ink); flex: none; }
-.np-back { display: grid; text-align: left; min-width: 0; padding: 2px 6px; border-radius: 8px; }
+.now-playing img { width: 72px; height: 40px; object-fit: cover; border-radius: 8px; flex: none; cursor: pointer; }
+.now-playing .icon-btn { text-decoration: none; flex: none; }
+.np-play { display: grid; place-items: center; width: 40px; height: 40px; border-radius: 50%; background: var(--taxi); color: var(--taxi-ink); flex: none; cursor: pointer; }
+.np-back { display: grid; text-align: left; min-width: 0; padding: 2px 8px; border-radius: 8px; }
 .np-back:hover { background: var(--hover); }
 .np-k { font-size: 10px; font-weight: 650; letter-spacing: 0.1em; text-transform: uppercase; color: var(--taxi); }
 .np-back b { font-size: 14px; }
 .np-back small { font-size: 11.5px; color: var(--text-3); white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-.np-close { font-size: 18px; flex: none; }
 
 @media (max-width: 820px) {
-  .player { gap: 6px; }
-  .pl-dock, .pl-who, .pl-tip, .pl-map-t { display: none; }
-  .pl-bar { gap: 6px; }
-  .pl-sign { overflow: hidden; text-overflow: ellipsis; min-width: 0; }
+  .player { padding: max(8px, env(safe-area-inset-top)) 8px 8px; gap: 6px; }
+  .pc-bar .pc-who, .pc-bar .pc-tip, .pc-bar .pc-map > span:not(.mta-bullet) { display: none; }
+  .pc-bar { gap: 4px; }
+  .pc-bar .pc-dock button { padding: 0 7px; }
+  .pc-bar .pc-hide span { display: none; }
+  .pc-bar .pc-sign { overflow: hidden; text-overflow: ellipsis; min-width: 0; flex: 0 1 auto; }
+  .pc-bar .pc-now { flex: 0 1 auto; }
+  .db-menu { width: min(300px, calc(100vw - 100px)); }
   .now-playing { bottom: auto; top: calc(max(var(--edge), env(safe-area-inset-top)) + 108px); width: calc(100% - 2 * var(--edge)); max-width: none; }
   .np-back { flex: 1; }
 }
-.playing .views { filter: brightness(0.3) saturate(0.6); }
-.dock-side .card .close { display: none; }
-a.pl-pop { text-decoration: none; }
+.pc-side .pc-dock .pc-hide, .pc-menu .pc-dock .pc-hide { flex: none; padding: 0 8px; }
+.pc-side .pc-dock .pc-hide span { display: none; }
+.pc-short { display: none; }
+@media (max-width: 820px) {
+  .pc-bar .pc-long { display: none; }
+  .pc-bar .pc-short { display: inline; }
+  .player.tip .pc-bar .pc-tip { display: none; }
+  .pc-bar .pc-acts .icon-btn { width: 32px; }
+  .pc-bar .pc-map { padding: 0 4px; }
+}
