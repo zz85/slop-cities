@@ -8,7 +8,7 @@
 // Each dock has the same controls: back to the map (the game keeps running,
 // in a "now playing" chip), the city and the author, reload, pop out to a new
 // tab, close, and the switch between the three. The bar and the strip can hide
-// themselves: they slide away and come back when the pointer reaches that edge.
+// themselves once unpinned: they slide away and come back at that edge.
 // A click with a modifier key (or the middle button) still opens a new tab.
 // A site may refuse to be framed and the frame can't tell us so: the controls
 // say to pop it out if it stays blank.
@@ -35,8 +35,8 @@ const ICON = {
 export function createPlayer({ onOpen, onClose, onShowMap }) {
   let dock = store.get('dock', 'top');
   if (!DOCKS.some(([d]) => d === dock)) dock = 'top';
-  // The bar and the strip hide themselves unless pinned.
-  let pinned = store.get('dock-pin', 'off') === 'on';
+  // The bar and the strip stay pinned unless you unpin them, and then hide themselves.
+  let pinned = store.get('dock-pin', 'on') !== 'off';
   let now = null; // { url, place, entry, who }
   let shown = false; // the game in front (else the map, with the game waiting)
   const narrow = () => matchMedia('(max-width: 820px)').matches;
