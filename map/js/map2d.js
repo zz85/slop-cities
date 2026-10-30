@@ -132,8 +132,16 @@ export function createMap2D(container, world, bus) {
     label.textContent = p.city;
     g.addEventListener('click', (e) => { e.stopPropagation(); bus.emit('select', { id: p.id, source: '2d' }); });
     g.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); bus.emit('select', { id: p.id, source: '2d' }); } });
-    g.addEventListener('pointerenter', () => bus.emit('hover', { id: p.id, source: '2d' }));
-    g.addEventListener('pointerleave', () => bus.emit('hover', { id: null, source: '2d' }));
+    // The city's name hovers and selects like its pin does. The stylesheet keeps
+    // labels out of hit-testing, so turn it back on here; the label's dark halo
+    // (its stroke) counts as part of it, which gives a comfortable target.
+    label.style.pointerEvents = 'visiblePainted';
+    label.style.cursor = 'pointer';
+    for (const t of [g, label]) {
+      t.addEventListener('pointerenter', () => bus.emit('hover', { id: p.id, source: '2d' }));
+      t.addEventListener('pointerleave', () => bus.emit('hover', { id: null, source: '2d' }));
+    }
+    label.addEventListener('click', (e) => { e.stopPropagation(); bus.emit('select', { id: p.id, source: '2d' }); });
     return { place: p, x: x * S, y: y * S, g, label, badge, w: p.city.length * 6.6 + 4 };
   });
   const arcs = [];
@@ -256,7 +264,7 @@ export function createMap2D(container, world, bus) {
   const pointers = new Map();
   let lastPinch = 0, moved = 0, anim = 0;
   overlay.addEventListener('pointerdown', (e) => {
-    if (e.target.closest('.pin')) return;
+    if (e.target.closest('.pin, .label')) return;
     overlay.setPointerCapture(e.pointerId);
     pointers.set(e.pointerId, { x: e.clientX, y: e.clientY });
     moved = 0;
@@ -290,7 +298,7 @@ export function createMap2D(container, world, bus) {
   overlay.addEventListener('pointerup', (e) => {
     const wasClick = pointers.size === 1 && moved < 4;
     up(e);
-    if (wasClick && !e.target.closest('.pin')) {
+    if (wasClick && !e.target.closest('.pin, .label')) {
       // Click on the map: pick the nearest pin within 18 px, else clear.
       const rect = overlay.getBoundingClientRect();
       const px = e.clientX - rect.left, py = e.clientY - rect.top;
