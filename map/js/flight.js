@@ -91,10 +91,15 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   const st = { mode: 'race', h: H_START, hWant: H_START, size: L, alt: 0, ground: 1, speed: CRUISE, bank: 0, pitch: 0, prop: 0, t: 0, legT: 0, view: 'chase', warn: 0, shake: 0 };
   let target = null, visited = new Set(), legs = 0, running = false, toastTimer = 0, below = null;
   try { if (localStorage.getItem('slop-cities.flight') === 'explore') st.mode = 'explore'; } catch {}
-  try { st.north = localStorage.getItem('slop-cities.flight-north') === 'on'; } catch {}
+  st.north = true; // north up unless you turned it off
+  try { st.north = localStorage.getItem('slop-cities.flight-north') !== 'off'; } catch {}
   const camPos = new THREE.Vector3(), camLook = new THREE.Vector3(), camUp = new THREE.Vector3();
   const keys = new Set();
   let drag = null; // pointer steering: { x0, y0, dx, dy }
+  // North up: the plane flies toward the cursor (a mouse over the globe, or a
+  // finger held on it), faster the further away it points.
+  let aim = null; // { x, y, id, touch }
+  const following = () => running && st.mode === 'explore' && st.north;
 
   // ---------- HUD ----------
   const hud = document.createElement('div');
@@ -126,7 +131,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
         <button class="tool-btn fl-skip" title="Another city (N)">Skip <kbd>N</kbd></button>
         <button class="tool-btn fl-land" title="Back to the globe (Esc)">Land <kbd>Esc</kbd></button>
       </div>
-      <div class="fl-help"><span class="fl-keys">←→ or A D turn · ↑↓ or W S climb and dive · or drag on the sky</span><span class="fl-touch">Drag to steer: sideways turns, up climbs</span><span class="fl-keys fl-xkeys">←→ or A D turn · ↑↓ or W S climb and descend, or scroll · drag to steer · click a city</span><span class="fl-touch fl-xkeys">Drag to steer: sideways turns, up climbs · tap a city</span></div>
+      <div class="fl-help"><span class="fl-keys">←→ or A D turn · ↑↓ or W S climb and dive · or drag on the sky</span><span class="fl-touch">Drag to steer: sideways turns, up climbs</span><span class="fl-keys fl-xkeys"></span><span class="fl-touch fl-xkeys"></span></div>
     </div>
     <div class="panel fl-toast" hidden></div>`;
   document.body.appendChild(hud);
@@ -152,6 +157,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   function toggleNorth() {
     st.north = !st.north;
     $('.fl-north').setAttribute('aria-pressed', String(st.north));
+    showHelp();
     try { localStorage.setItem('slop-cities.flight-north', st.north ? 'on' : 'off'); } catch {}
   }
   for (const b of hud.querySelectorAll('[data-fm]')) b.addEventListener('click', () => setMode(b.dataset.fm));
@@ -198,16 +204,36 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   }, { passive: false });
   canvas.addEventListener('pointerdown', (e) => {
     if (!running) return;
+    if (following()) { if (e.pointerType !== 'mouse') aim = { x: e.clientX, y: e.clientY, id: e.pointerId, touch: true }; return; }
     drag = { id: e.pointerId, x0: e.clientX, y0: e.clientY, dx: 0, dy: 0 };
     canvas.setPointerCapture?.(e.pointerId);
   });
   canvas.addEventListener('pointermove', (e) => {
+    if (following()) {
+      if (e.pointerType === 'mouse') aim = { x: e.clientX, y: e.clientY, id: e.pointerId };
+      else if (aim && aim.id === e.pointerId) { aim.x = e.clientX; aim.y = e.clientY; }
+      return;
+    }
     if (!drag || e.pointerId !== drag.id) return;
     const k = Math.min(innerWidth, innerHeight) * 0.18;
     drag.dx = Math.max(-1, Math.min(1, (e.clientX - drag.x0) / k));
     drag.dy = Math.max(-1, Math.min(1, (drag.y0 - e.clientY) / k));
   });
-  for (const t of ['pointerup', 'pointercancel']) canvas.addEventListener(t, (e) => { if (drag && e.pointerId === drag.id) drag = null; });
+  for (const t of ['pointerup', 'pointercancel']) canvas.addEventListener(t, (e) => {
+    if (drag && e.pointerId === drag.id) drag = null;
+    if (aim?.touch && aim.id === e.pointerId) aim = null;
+  });
+  // The mouse leaving the globe, over a panel or out of the window, lets the plane fly straight on.
+  canvas.addEventListener('pointerleave', (e) => { if (aim && !aim.touch) aim = null; });
+  function showHelp() {
+    $('.fl-keys.fl-xkeys').textContent = st.north
+      ? 'Point where to fly: the plane follows the cursor, faster the further it points · scroll or W S to climb · click a city'
+      : '←→ or A D turn · ↑↓ or W S climb and descend, or scroll · drag to steer · click a city';
+    $('.fl-touch.fl-xkeys').textContent = st.north
+      ? 'Hold a finger where to fly · tap a city'
+      : 'Drag to steer: sideways turns, up climbs · tap a city';
+    canvas.classList.toggle('fl-aiming', following());
+  }
 
   // ---------- engine sound ----------
   // A low sawtooth through a low-pass, beaten at the propeller's rate, and a
@@ -338,6 +364,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
     document.body.classList.toggle('explore', m === 'explore');
     try { localStorage.setItem('slop-cities.flight', m); } catch {}
     globe.setGamePick(m === 'explore');
+    aim = null; showHelp();
     if (m === 'explore') {
       target = null; beacon.visible = false; globe.setTarget(null);
       $('.fl-goal-k').textContent = 'Below';
@@ -390,13 +417,15 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
     plane.group.visible = true;
     hud.hidden = false;
     running = true;
+    showHelp();
     startSound();
     globe.startGame(step);
   }
   function stop() {
     if (!running) return;
     running = false;
-    keys.clear(); drag = null;
+    keys.clear(); drag = null; aim = null;
+    canvas.classList.remove('fl-aiming');
     plane.group.visible = false; beacon.visible = false;
     for (const q of puffs) { q.m.visible = false; q.age = 9; }
     hud.hidden = true;
@@ -408,6 +437,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
   }
 
   // ---------- the frame ----------
+  const aimV = new THREE.Vector3();
   const qBasis = new THREE.Quaternion(), qLocal = new THREE.Quaternion(), mBasis = new THREE.Matrix4(), right = new THREE.Vector3(), eul = new THREE.Euler();
   function step(dt, now) {
     st.t += dt; st.legT += dt;
@@ -416,6 +446,19 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
     let climb = (keys.has('up') ? 1 : 0) - (keys.has('down') ? 1 : 0);
     if (drag) { roll = roll || drag.dx; climb = climb || drag.dy; }
     const explore = st.mode === 'explore';
+    // Follow the cursor: bank toward its bearing from the plane on screen,
+    // which north up makes the bearing on the map.
+    let aimSpeed = 1;
+    if (following() && aim && !roll) {
+      aimV.copy(plane.group.position).project(camera);
+      const sx = (aimV.x * 0.5 + 0.5) * innerWidth, sy = (-aimV.y * 0.5 + 0.5) * innerHeight;
+      const dx = aim.x - sx, dy = aim.y - sy, d = Math.hypot(dx, dy);
+      if (d > 18) {
+        const diff = wrap(Math.atan2(dx, -dy) - heading());
+        roll = Math.max(-1, Math.min(1, diff * 1.4));
+      }
+      aimSpeed = Math.max(0.3, Math.min(1.8, d / (0.25 * Math.min(innerWidth, innerHeight))));
+    }
     // Explore: up and down change the height, and the plane's size and speed follow it.
     if (explore) {
       if (climb) st.hWant = Math.max(H_MIN, Math.min(H_MAX, st.hWant * Math.exp(climb * dt * 0.55)));
@@ -423,7 +466,7 @@ export function createFlight({ globe, world, places, onArrive, onExit, onOpen, o
       climb = 0;
     }
     const zoom = explore ? st.h / H_START : 1;
-    const wantSpeed = (keys.has('boost') ? BOOST : keys.has('slow') ? SLOW : CRUISE) * (explore ? 5 * Math.sqrt(zoom) : 1);
+    const wantSpeed = (keys.has('boost') ? BOOST : keys.has('slow') ? SLOW : CRUISE) * (explore ? 5 * Math.sqrt(zoom) * aimSpeed : 1);
     st.speed += (wantSpeed - st.speed) * (1 - Math.exp(-dt * (wantSpeed > st.speed ? 1.2 : 0.8)));
     st.bank += (roll * 55 * D2R - st.bank) * (1 - Math.exp(-dt * 3));
     st.pitch += (climb * 22 * D2R - st.pitch) * (1 - Math.exp(-dt * 2.5));

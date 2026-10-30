@@ -546,3 +546,4 @@ kbd {
   .fl-modes { margin-right: 0; }
 }
 .flight[data-fm="explore"] .fl-g:has(.fl-speed) { display: none; }
+.flying canvas.fl-aiming { cursor: crosshair; }
