@@ -418,6 +418,35 @@
    ]
   },
   {
+   "id": "guangzhou",
+   "city": "Guangzhou",
+   "country": "China",
+   "region": "Asia",
+   "lat": 23.1196,
+   "lon": 113.321,
+   "original": false,
+   "entries": [
+    {
+     "title": "Guangzhou, China",
+     "links": {
+      "play": "https://blessxu.cn/project/zhujiang-city/",
+      "source": "https://github.com/dearfaint/slop-guangzhou"
+     },
+     "author": "dearfaint",
+     "authorUrl": "https://github.com/dearfaint",
+     "desc": "Slop Guangzhou: Zhujiang New Town with Canton Tower, Huacheng Square, Haixinsha and the Pearl River, on foot, by car, bicycle or helicopter. Its README says which building heights are estimates.",
+     "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "hong-kong",
    "city": "Hong Kong",
    "country": null,
@@ -783,6 +812,36 @@
    ]
   },
   {
+   "id": "helsinki",
+   "city": "Helsinki",
+   "country": "Finland",
+   "region": "Europe",
+   "lat": 60.1695,
+   "lon": 24.9525,
+   "original": false,
+   "entries": [
+    {
+     "title": "Helsinki, Finland",
+     "links": {
+      "play": "https://kinotus.github.io/slop-helsinki/",
+      "source": "https://github.com/kinotus/slop-helsinki"
+     },
+     "author": "kinotus",
+     "authorUrl": "https://github.com/kinotus",
+     "desc": "Slop Helsinki: from Senaatintori to the Cathedral, Esplanadi, Kauppatori and the Central Station, with the city's photo-textured 3D buildings streamed around you, real terrain and tram lines. Adapted from Slop Utrecht.",
+     "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "utrecht"
+   ]
+  },
+  {
    "id": "kahramanmaras",
    "city": "Kahramanmaraş",
    "country": "Türkiye",
@@ -840,6 +899,35 @@
    "parents": [
     "new-york"
    ]
+  },
+  {
+   "id": "las-palmas-de-gran-canaria",
+   "city": "Las Palmas de Gran Canaria",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 28.1399,
+   "lon": -15.4366,
+   "original": false,
+   "entries": [
+    {
+     "title": "Las Palmas de Gran Canaria, Spain",
+     "links": {
+      "play": "https://henry94bt.github.io/slop-LPGC/",
+      "source": "https://github.com/henry94bt/slop-LPGC"
+     },
+     "author": "henry94bt",
+     "authorUrl": "https://github.com/henry94bt",
+     "desc": "Las Palmas · Golden Hour: Las Canteras beach, Guanarteme and the Auditorio Alfredo Kraus from 9,141 OSM buildings, with beach umbrellas, swimmers, lifeguard towers and a kayak.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
   },
   {
    "id": "london",

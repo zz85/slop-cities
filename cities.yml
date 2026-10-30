@@ -85,6 +85,15 @@ cities:
             desc: "Slop Dubai: jump to Burj Khalifa, Museum of the Future, Dubai Frame, Burj Al Arab, Palm Jumeirah and Dubai Marina."
             screenshot: screenshots/dubai.jpg
 
+      - city: Guangzhou
+        country: China
+        coords: [23.1196, 113.321]
+        takes:
+          - play: https://blessxu.cn/project/zhujiang-city/
+            source: https://github.com/dearfaint/slop-guangzhou
+            by: dearfaint
+            desc: "Slop Guangzhou: Zhujiang New Town with Canton Tower, Huacheng Square, Haixinsha and the Pearl River, on foot, by car, bicycle or helicopter. Its README says which building heights are estimates."
+
       - city: Hong Kong
         coords: [22.2988, 114.1722]
         takes:
@@ -211,6 +220,16 @@ cities:
             source: https://github.com/ginocingolani/slop-donostia
             by: ginocingolani
 
+      - city: Helsinki
+        country: Finland
+        coords: [60.1695, 24.9525]
+        remix_of: [utrecht]
+        takes:
+          - play: https://kinotus.github.io/slop-helsinki/
+            source: https://github.com/kinotus/slop-helsinki
+            by: kinotus
+            desc: "Slop Helsinki: from Senaatintori to the Cathedral, Esplanadi, Kauppatori and the Central Station, with the city's photo-textured 3D buildings streamed around you, real terrain and tram lines. Adapted from Slop Utrecht."
+
       - city: Kahramanmaraş
         country: Türkiye
         coords: [37.5753, 36.9228]
@@ -230,6 +249,16 @@ cities:
             source: https://github.com/meoyawn/slop-kazan
             by: meoyawn
             desc: Kazan and surroundings, Tatarstan.
+
+      - city: Las Palmas de Gran Canaria
+        country: Spain
+        coords: [28.1399, -15.4366]
+        takes:
+          - play: https://henry94bt.github.io/slop-LPGC/
+            source: https://github.com/henry94bt/slop-LPGC
+            by: henry94bt
+            desc: "Las Palmas · Golden Hour: Las Canteras beach, Guanarteme and the Auditorio Alfredo Kraus from 9,141 OSM buildings, with beach umbrellas, swimmers, lifeguard towers and a kayak."
+            flags: [own engine]
 
       - city: London
         country: UK
