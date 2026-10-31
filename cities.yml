@@ -360,7 +360,8 @@ cities:
             pick: true
             tweet: https://x.com/OrestesGaolin/status/2114423799382679687
             by: "@OrestesGaolin"
-            desc: "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture."
+            desc: "Tiny Warsaw: browse, ride and fly through a low-poly 3D Warsaw built from OpenStreetMap and GUGiK data, with hand-modelled landmarks, live flights at Okęcie and multiplayer."
+            flags: [own engine]
             screenshot: screenshots/warsaw.jpg
           - tag: Isometric Warsaw
             play: https://bedirhanyildirim.com/warsaw-izo/
