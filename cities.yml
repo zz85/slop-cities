@@ -116,10 +116,11 @@ cities:
         country: India
         coords: [22.7196, 75.8577]
         takes:
-          - source: https://github.com/animishraa05/slop-indore
+          - play: https://animishraa05.github.io/slop-indore/
+            source: https://github.com/animishraa05/slop-indore
             by: animishraa05
-            desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design; run it with npm run dev."
-            flags: [own engine, source only]
+            desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design."
+            flags: [own engine]
 
       - city: Niseko
         country: Japan

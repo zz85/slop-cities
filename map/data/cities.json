@@ -523,14 +523,14 @@
     {
      "title": "Indore, India",
      "links": {
+      "play": "https://animishraa05.github.io/slop-indore/",
       "source": "https://github.com/animishraa05/slop-indore"
      },
      "author": "animishraa05",
      "authorUrl": "https://github.com/animishraa05",
-     "desc": "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design; run it with npm run dev.",
+     "desc": "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design.",
      "flags": [
-      "own engine",
-      "source only"
+      "own engine"
      ],
      "screenshot": null,
      "pick": false,
