@@ -159,7 +159,7 @@
      "authorUrl": "https://github.com/VibezZzCoder",
      "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-nyc-spin-off-euc-thrills.jpg",
      "pick": false
     },
     {
@@ -174,7 +174,7 @@
      "flags": [
       "WIP"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-pocket-new-york.jpg",
      "pick": false
     },
     {
@@ -252,7 +252,7 @@
      "authorUrl": "https://github.com/jdlp2442",
      "desc": "1:1 port to Unity 6 / URP 17.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-unity-port.jpg",
      "pick": false
     },
     {
@@ -468,7 +468,7 @@
      "authorUrl": "https://github.com/dearfaint",
      "desc": "Slop Guangzhou: Zhujiang New Town with Canton Tower, Huacheng Square, Haixinsha and the Pearl River, on foot, by car, bicycle or helicopter. Its README says which building heights are estimates.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/guangzhou.jpg",
      "pick": false,
      "tag": null
     }
@@ -499,7 +499,7 @@
      "flags": [
       "githack"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/hong-kong.jpg",
      "pick": false,
      "tag": null
     },
@@ -537,14 +537,14 @@
     {
      "title": "Indore, India",
      "links": {
-      "play": "https://animishraa05.github.io/slop-indore/",
       "source": "https://github.com/animishraa05/slop-indore"
      },
      "author": "animishraa05",
      "authorUrl": "https://github.com/animishraa05",
      "desc": "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design.",
      "flags": [
-      "own engine"
+      "own engine",
+      "source only"
      ],
      "screenshot": null,
      "pick": false,
@@ -575,7 +575,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/niseko.jpg",
      "pick": false,
      "tag": null
     }
@@ -952,7 +952,7 @@
      "authorUrl": "https://github.com/kinotus",
      "desc": "Slop Helsinki: from Senaatintori to the Cathedral, Esplanadi, Kauppatori and the Central Station, with the city's photo-textured 3D buildings streamed around you, real terrain and tram lines. Adapted from Slop Utrecht.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/helsinki.jpg",
      "pick": false,
      "tag": null
     }
@@ -1043,7 +1043,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/las-palmas-de-gran-canaria.jpg",
      "pick": false,
      "tag": null
     }
@@ -1465,7 +1465,7 @@
      "authorUrl": "https://x.com/unable0_",
      "desc": "Waymo rides, helicopters, real hills and marine fog.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/san-francisco.jpg",
      "pick": false,
      "tag": null
     },
@@ -1610,7 +1610,7 @@
      "authorUrl": "https://github.com/riantorres1975",
      "desc": "Uruapan, Michoacán, from OpenStreetMap.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/uruapan.jpg",
      "pick": false,
      "tag": null
     }
