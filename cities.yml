@@ -123,6 +123,16 @@ cities:
             desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design."
             flags: [own engine, source only]
 
+      - city: Wuhan
+        country: China
+        coords: [30.5803, 114.2913]
+        takes:
+          - play: https://lightyearzh.github.io/slop-wuhan/
+            source: https://github.com/LightYearZh/slop-wuhan
+            by: LightYearZh
+            desc: "Slop 武汉 · Wuhan Roam: walk Jianghan Road to the Jianghan Customs House, drive a taxi over the Yangtze bridge or fly over the two rivers, and pick up taxi fares with turn-by-turn navigation."
+            screenshot: screenshots/wuhan.jpg
+
       - city: Tokyo
         country: Japan
         coords: [35.6595, 139.7005]
@@ -255,6 +265,17 @@ cities:
             by: rgaricano
             desc: "Vista de Granada: a Granada conversion of Slop New York, made with a local model (Bonsai, a binary/ternary-quantised Qwen) and its own entry point beside the New York one."
             flags: [githack]
+
+      - city: Leuven
+        country: Belgium
+        coords: [50.8798, 4.7005]
+        takes:
+          - play: https://leuven.exe.xyz/
+            source: https://github.com/basteau/leuven.social
+            by: basteau
+            desc: "leuven.social: the historic centre as a tiny isometric 3D city from Flemish open data (GRB buildings, LiDAR) and OpenStreetMap. Inspired by Slop New York."
+            flags: [isometric, own engine]
+            screenshot: screenshots/leuven.jpg
 
       - city: Helsinki
         country: Finland
@@ -438,6 +459,28 @@ cities:
             source: https://github.com/mrubens/go-to-ann-arbor
             by: mrubens
             desc: "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter."
+
+      - city: Boston
+        country: USA
+        coords: [42.3505, -71.0810]
+        takes:
+          - play: https://markleary.github.io/drive-boston/
+            source: https://github.com/markleary/drive-boston
+            by: markleary
+            desc: "Drive Boston: drive or fly a helicopter around Greater Boston, from Charlestown to Mattapan plus Cambridge and Somerville, on USGS terrain. Three.js and Rapier; its terrain and draped roads follow the approach of Slop San Francisco."
+            flags: [own engine]
+            screenshot: screenshots/boston.jpg
+
+      - city: Glens Falls
+        country: USA
+        coords: [43.3095, -73.6440]
+        takes:
+          - play: https://raw.githack.com/strapcat/slop-glens-falls/main/index.html?city=glensfalls
+            source: https://github.com/strapcat/slop-glens-falls
+            by: strapcat
+            desc: "Slop Glens Falls: downtown Glens Falls, New York, from OSM footprints, with cars, pedestrians on the sidewalks and working traffic signals."
+            flags: [githack, WIP]
+            screenshot: screenshots/glens-falls.jpg
 
       - city: San Francisco
         country: USA
