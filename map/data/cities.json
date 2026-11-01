@@ -204,6 +204,20 @@
      "pick": false
     },
     {
+     "title": "Slop Cockroach",
+     "links": {
+      "play": "https://azkian1.github.io/slop-newyork/",
+      "source": "https://github.com/azkian1/slop-newyork",
+      "tweet": "https://x.com/azaticus/status/2116621970112741536"
+     },
+     "author": "@azaticus",
+     "authorUrl": "https://x.com/azaticus",
+     "desc": "You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.",
+     "flags": [],
+     "screenshot": "screenshots/new-york-slop-cockroach.jpg",
+     "pick": false
+    },
+    {
      "title": "Spider-Man · Slop New York",
      "links": {
       "play": "https://jnaranj09.github.io/claude-spiderman-game/",
@@ -744,6 +758,35 @@
    ]
   },
   {
+   "id": "tokyo",
+   "city": "Tokyo",
+   "country": "Japan",
+   "region": "Asia",
+   "lat": 35.6595,
+   "lon": 139.7005,
+   "original": false,
+   "entries": [
+    {
+     "title": "Tokyo, Japan (Shibuya)",
+     "links": {
+      "play": "https://shibuya.kumodeck.app/",
+      "tweet": "https://x.com/sara_kumodeck/status/2113548620448645578"
+     },
+     "author": "@sara_kumodeck",
+     "authorUrl": "https://x.com/sara_kumodeck",
+     "desc": "Shibuya Three.js: 3,988 real buildings from Japan's PLATEAU 3D city data on the real hills. Wait for the green, then cross the scramble with up to 320 people at once, diagonals too.",
+     "flags": [],
+     "screenshot": "screenshots/tokyo-shibuya.jpg",
+     "pick": false,
+     "tag": "Shibuya"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "barcelona",
    "city": "Barcelona",
    "country": "Spain",
@@ -849,6 +892,37 @@
      "authorUrl": "https://github.com/ginocingolani",
      "desc": "",
      "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "granada",
+   "city": "Granada",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 37.1773,
+   "lon": -3.5986,
+   "original": false,
+   "entries": [
+    {
+     "title": "Granada, Spain",
+     "links": {
+      "play": "https://raw.githack.com/rgaricano/Vista_de_Granada/feature/granada-conversion/index/granada/index.html",
+      "source": "https://github.com/rgaricano/Vista_de_Granada"
+     },
+     "author": "rgaricano",
+     "authorUrl": "https://github.com/rgaricano",
+     "desc": "Vista de Granada: a Granada conversion of Slop New York, made with a local model (Bonsai, a binary/ternary-quantised Qwen) and its own entry point beside the New York one.",
+     "flags": [
+      "githack"
+     ],
      "screenshot": null,
      "pick": false,
      "tag": null
@@ -1185,11 +1259,12 @@
      "title": "Utrecht, Netherlands",
      "links": {
       "play": "https://bertt.github.io/slop-utrecht/",
-      "source": "https://github.com/bertt/slop-utrecht"
+      "source": "https://github.com/bertt/slop-utrecht",
+      "tweet": "https://x.com/berttemme/status/2114848313182965925"
      },
      "author": "@berttemme",
      "authorUrl": "https://x.com/berttemme",
-     "desc": "Domtoren, Oudegracht and Centraal Station.",
+     "desc": "Domtoren, Oudegracht and Centraal Station, now with a cargo-bike (bakfiets) mode.",
      "flags": [],
      "screenshot": "screenshots/utrecht.jpg",
      "pick": false,
@@ -1244,6 +1319,22 @@
      "tag": "Isometric Warsaw"
     },
     {
+     "title": "Warsaw, Poland (Around Warsaw)",
+     "links": {
+      "source": "https://github.com/LubomirOlshansky/AroundWarsaw"
+     },
+     "author": "@olshansky93",
+     "authorUrl": "https://x.com/olshansky93",
+     "desc": "A small-car arcade drive (and a helicopter) through the real centre of Warsaw from OpenStreetMap and GUGiK data, built in Godot for iPhone and Android: gentle police, side jobs and a car radio. Free and MIT; beta sign-up at aroundwarsaw.app.",
+     "flags": [
+      "own engine",
+      "source only"
+     ],
+     "screenshot": "screenshots/warsaw-around-warsaw.jpg",
+     "pick": false,
+     "tag": "Around Warsaw"
+    },
+    {
      "title": "Warsaw, Poland (Szczęśliwe Bielany)",
      "links": {
       "play": "https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html",
@@ -1285,6 +1376,35 @@
      "desc": "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter.",
      "flags": [],
      "screenshot": "screenshots/zurich.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "ann-arbor",
+   "city": "Ann Arbor",
+   "country": "USA",
+   "region": "North America",
+   "lat": 42.2808,
+   "lon": -83.743,
+   "original": false,
+   "entries": [
+    {
+     "title": "Ann Arbor, USA",
+     "links": {
+      "play": "https://mrubens.github.io/go-to-ann-arbor/",
+      "source": "https://github.com/mrubens/go-to-ann-arbor"
+     },
+     "author": "mrubens",
+     "authorUrl": "https://github.com/mrubens",
+     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter.",
+     "flags": [],
+     "screenshot": null,
      "pick": false,
      "tag": null
     }

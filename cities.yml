@@ -122,6 +122,17 @@ cities:
             desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design."
             flags: [own engine]
 
+      - city: Tokyo
+        country: Japan
+        coords: [35.6595, 139.7005]
+        takes:
+          - tag: Shibuya
+            play: https://shibuya.kumodeck.app/
+            tweet: https://x.com/sara_kumodeck/status/2113548620448645578
+            by: "@sara_kumodeck"
+            desc: "Shibuya Three.js: 3,988 real buildings from Japan's PLATEAU 3D city data on the real hills. Wait for the green, then cross the scramble with up to 320 people at once, diagonals too."
+            screenshot: screenshots/tokyo-shibuya.jpg
+
       - city: Niseko
         country: Japan
         coords: [42.8636, 140.6875]
@@ -232,6 +243,16 @@ cities:
           - play: https://ginocingolani.github.io/slop-donostia/
             source: https://github.com/ginocingolani/slop-donostia
             by: ginocingolani
+
+      - city: Granada
+        country: Spain
+        coords: [37.1773, -3.5986]
+        takes:
+          - play: https://raw.githack.com/rgaricano/Vista_de_Granada/feature/granada-conversion/index/granada/index.html
+            source: https://github.com/rgaricano/Vista_de_Granada
+            by: rgaricano
+            desc: "Vista de Granada: a Granada conversion of Slop New York, made with a local model (Bonsai, a binary/ternary-quantised Qwen) and its own entry point beside the New York one."
+            flags: [githack]
 
       - city: Helsinki
         country: Finland
@@ -348,8 +369,9 @@ cities:
         takes:
           - play: https://bertt.github.io/slop-utrecht/
             source: https://github.com/bertt/slop-utrecht
+            tweet: https://x.com/berttemme/status/2114848313182965925
             by: "@berttemme"
-            desc: Domtoren, Oudegracht and Centraal Station.
+            desc: Domtoren, Oudegracht and Centraal Station, now with a cargo-bike (bakfiets) mode.
             screenshot: screenshots/utrecht.jpg
 
       - city: Warsaw
@@ -370,6 +392,12 @@ cities:
             desc: The whole city as an isometric pixel-art map from OSM and GUGiK data, with real sun, seasons and Vistula levels, and trams and trains running to their timetables.
             flags: [isometric, own engine]
             screenshot: screenshots/warsaw-isometric-warsaw.jpg
+          - tag: Around Warsaw
+            source: https://github.com/LubomirOlshansky/AroundWarsaw
+            by: "@olshansky93"
+            desc: "A small-car arcade drive (and a helicopter) through the real centre of Warsaw from OpenStreetMap and GUGiK data, built in Godot for iPhone and Android: gentle police, side jobs and a car radio. Free and MIT; beta sign-up at [aroundwarsaw.app](https://aroundwarsaw.app)."
+            flags: [own engine, source only]
+            screenshot: screenshots/warsaw-around-warsaw.jpg
           - tag: Szczęśliwe Bielany
             play: https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html
             source: https://github.com/keymaker2005/szczesliwe-bielany
@@ -397,6 +425,15 @@ cities:
             by: JuanittoSantana
             desc: Ciudad Obregón, Sonora.
             flags: [githack]
+
+      - city: Ann Arbor
+        country: USA
+        coords: [42.2808, -83.743]
+        takes:
+          - play: https://mrubens.github.io/go-to-ann-arbor/
+            source: https://github.com/mrubens/go-to-ann-arbor
+            by: mrubens
+            desc: "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter."
 
       - city: San Francisco
         country: USA
@@ -558,6 +595,13 @@ remixes:
       by: mattiaongit
       desc: "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; `?phone` forces phone mode."
       screenshot: screenshots/new-york-slop-new-york-mini.jpg
+    - name: Slop Cockroach
+      play: https://azkian1.github.io/slop-newyork/
+      source: https://github.com/azkian1/slop-newyork
+      tweet: https://x.com/azaticus/status/2116621970112741536
+      by: "@azaticus"
+      desc: You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.
+      screenshot: screenshots/new-york-slop-cockroach.jpg
     - name: Spider-Man · Slop New York
       play: https://jnaranj09.github.io/claude-spiderman-game/
       source: https://github.com/jnaranj09/claude-spiderman-game
@@ -583,7 +627,7 @@ other:
       play: https://elderwake-kaiju.vercel.app/
       tweet: https://x.com/Mor1ight/status/2114195154802446493
       by: "@Mor1ight"
-      desc: Kaiju-attack themed three.js game.
+      desc: Kaiju-attack themed three.js game, now with a Tokyo map (Shibuya and Shinjuku) built the way Slop New York is, and 2–4 player co-op.
     - name: StreetRacer
       play: https://streetracer.app/
       tweet: https://x.com/zan_sheum/status/2113703904198164493
@@ -595,7 +639,9 @@ other:
       flags: [isometric, own engine]
     - name: Road Thruster
       play: https://roadthruster.versezero.com/
-      desc: Tesla rocket.
+      tweet: https://x.com/opdgame/status/2115148210201309327
+      by: "@opdgame"
+      desc: Racing game with a map where you race a rocket to orbit, and a red Roadster waiting at the finish.
     - name: Valdrada
       play: https://huggingface.co/spaces/mehmetkeremturkcan/valdrada
       source: https://github.com/mkturkcan/valdrada

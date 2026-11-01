@@ -4,6 +4,8 @@ A curated list of **slop cities**: browser city simulations in the spirit of [mr
 
 **[Interactive map](https://zz85.github.io/slop-cities/map/)**: every city on the list on a world map and globe.
 
+Shared by mrdoob: ["35+ projects based on Slop New York in just 4 days"](https://x.com/mrdoob/status/2114603802544553992), ["In just a week we already have 41 slop cities"](https://x.com/mrdoob/status/2116090751306322142). See also [@johnfewell's thread](https://x.com/johnfewell/status/2115443584040099996) of favourites.
+
 > Slop New York is a New York City simulation built with three.js, WebGPURenderer and TSL. Explore Manhattan on foot, by car, by bicycle, or by helicopter. "Fork it, remix it, improve it, break it."
 
 ## Featured
@@ -106,6 +108,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 - **Taipei, Taiwan** - [Play](https://shwang1979.github.io/slop-taipei/) · [Source](https://github.com/shwang1979/slop-taipei) - by [shwang1979](https://github.com/shwang1979). Slop 台北: Wanhua and Ximending to Xinyi and Taipei 101, by taxi, scooter or helicopter.
 - **Taipei, Taiwan (hebe13579)** - [Play](https://hebe13579.github.io/slop-taipei/?city=taipei) · [Source](https://github.com/hebe13579/slop-taipei) - by [hebe13579](https://github.com/hebe13579). Taipei Basin with rivers and bridges.
 - **Taipei, Taiwan (sc0Vu)** - [Play](https://sc0vu.github.io/slop-taipei/) · [Source](https://github.com/sc0Vu/slop-taipei) - by [sc0Vu](https://github.com/sc0Vu).
+- **Tokyo, Japan (Shibuya)** - [Play](https://shibuya.kumodeck.app/) · [Tweet](https://x.com/sara_kumodeck/status/2113548620448645578) - by [@sara_kumodeck](https://x.com/sara_kumodeck). Shibuya Three.js: 3,988 real buildings from Japan's PLATEAU 3D city data on the real hills. Wait for the green, then cross the scramble with up to 320 people at once, diagonals too.
 
 ### Europe
 
@@ -113,6 +116,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 - **Berlin, Germany** - [Play](https://www.aaronjcunningham.com/play/berlin) · [Tweet](https://x.com/Aaron_1337/status/2113969912158847343) - by [@Aaron_1337](https://x.com/Aaron_1337). Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.
 - **Copenhagen, Denmark** - [Play](https://martincollignon.github.io/copenhagen-twin/) · [Source](https://github.com/martincollignon/copenhagen-twin) - by [martincollignon](https://github.com/martincollignon). A city twin with real building data and Skråfoto facade textures.
 - **Donostia / San Sebastián, Spain** - [Play](https://ginocingolani.github.io/slop-donostia/) · [Source](https://github.com/ginocingolani/slop-donostia) - by [ginocingolani](https://github.com/ginocingolani).
+- **Granada, Spain** - [Play](https://raw.githack.com/rgaricano/Vista_de_Granada/feature/granada-conversion/index/granada/index.html) · [Source](https://github.com/rgaricano/Vista_de_Granada) - by [rgaricano](https://github.com/rgaricano). Vista de Granada: a Granada conversion of Slop New York, made with a local model (Bonsai, a binary/ternary-quantised Qwen) and its own entry point beside the New York one. *(githack)*
 - **Helsinki, Finland** - [Play](https://kinotus.github.io/slop-helsinki/) · [Source](https://github.com/kinotus/slop-helsinki) - by [kinotus](https://github.com/kinotus). Slop Helsinki: from Senaatintori to the Cathedral, Esplanadi, Kauppatori and the Central Station, with the city's photo-textured 3D buildings streamed around you, real terrain and tram lines. Adapted from Slop Utrecht.
 - **Kahramanmaraş, Türkiye** - [Play](https://mhmmd5225.github.io/SLOPMARAS/) · [Source](https://github.com/mhmmd5225/SLOPMARAS) - by [mhmmd5225](https://github.com/mhmmd5225). SLOPMARAS: 40,000+ buildings, the castle and Ulu Camii, navigation and self-driving taxis. Adapted from Slop New York and Slop Singapore.
 - **Kazan, Russia** - [Play](https://kazan.adelnz.com/) · [Source](https://github.com/meoyawn/slop-kazan) - by [meoyawn](https://github.com/meoyawn). Kazan and surroundings, Tatarstan.
@@ -124,14 +128,16 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 - **Oslo, Norway** - [Play](https://raw.githack.com/yymir/virtual-oslo/main/index.html) · [Source](https://github.com/yymir/virtual-oslo) - by [yymir](https://github.com/yymir). Virtual Oslo: real terrain from the fjord to Ekeberg, tram lines and 23,000 mapped trees. *(githack)*
 - **Seville, Spain** - [Play](https://rnachoc.github.io/sevilla-sim/) · [Source](https://github.com/rnachoc/sevilla-sim) - by [rnachoc](https://github.com/rnachoc). Sevilla Sim: old town and Triana with IGN orthophotos, Sevici bikes and horse carriages. *(own engine)*
 - **Terrassa, Spain** - [Play](https://raw.githack.com/oegea/slop-egara/main/index.html) · [Source](https://github.com/oegea/slop-egara) - by [oegea](https://github.com/oegea). Grand Theft Ègara: Terrassa at 1:1 with real relief. *(githack)*
-- **Utrecht, Netherlands** - [Play](https://bertt.github.io/slop-utrecht/) · [Source](https://github.com/bertt/slop-utrecht) - by [@berttemme](https://x.com/berttemme). Domtoren, Oudegracht and Centraal Station.
+- **Utrecht, Netherlands** - [Play](https://bertt.github.io/slop-utrecht/) · [Source](https://github.com/bertt/slop-utrecht) · [Tweet](https://x.com/berttemme/status/2114848313182965925) - by [@berttemme](https://x.com/berttemme). Domtoren, Oudegracht and Centraal Station, now with a cargo-bike (bakfiets) mode.
 - **Warsaw, Poland** - [Play](https://tinywarsaw.app/) · [Tweet](https://x.com/OrestesGaolin/status/2114423799382679687) - by [@OrestesGaolin](https://x.com/OrestesGaolin). Tiny Warsaw: browse, ride and fly through a low-poly 3D Warsaw built from OpenStreetMap and GUGiK data, with hand-modelled landmarks, live flights at Okęcie and multiplayer. *(own engine)*
 - **Warsaw, Poland (Isometric Warsaw)** - [Play](https://bedirhanyildirim.com/warsaw-izo/) · [Tweet](https://x.com/bedcodes/status/2113176644479229953) - by [@bedcodes](https://x.com/bedcodes). The whole city as an isometric pixel-art map from OSM and GUGiK data, with real sun, seasons and Vistula levels, and trams and trains running to their timetables. *(isometric, own engine)*
+- **Warsaw, Poland (Around Warsaw)** - [Source](https://github.com/LubomirOlshansky/AroundWarsaw) - by [@olshansky93](https://x.com/olshansky93). A small-car arcade drive (and a helicopter) through the real centre of Warsaw from OpenStreetMap and GUGiK data, built in Godot for iPhone and Android: gentle police, side jobs and a car radio. Free and MIT; beta sign-up at [aroundwarsaw.app](https://aroundwarsaw.app). *(own engine, source only)*
 - **Warsaw, Poland (Szczęśliwe Bielany)** - [Play](https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html) · [Source](https://github.com/keymaker2005/szczesliwe-bielany) - by [keymaker2005](https://github.com/keymaker2005). Bielany along the M1 metro line (Stare Bielany, Wawrzyszew, Młociny) on a golden-autumn day. *(githack)*
 - **Zürich, Switzerland** - [Play](https://zurich.pocketswitzerland.ch) · [Source](https://github.com/colorfield/slop-zurich) - by [colorfield](https://github.com/colorfield). Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter.
 
 ### North America
 
+- **Ann Arbor, USA** - [Play](https://mrubens.github.io/go-to-ann-arbor/) · [Source](https://github.com/mrubens/go-to-ann-arbor) - by [mrubens](https://github.com/mrubens). Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter.
 - **Ciudad Obregón, Mexico** - [Play](https://raw.githack.com/JuanittoSantana/SlopSonora/obregon/obregon.html) · [Source](https://github.com/JuanittoSantana/SlopSonora) - by [JuanittoSantana](https://github.com/JuanittoSantana). Ciudad Obregón, Sonora. *(githack)*
 - **San Francisco, USA** - [Play](https://unable12.github.io/slop-sanfrancisco/) · [Source](https://github.com/unable12/slop-sanfrancisco) · [Tweet](https://x.com/unable0_/status/2113784642406842438) - by [@unable0_](https://x.com/unable0_). Waymo rides, helicopters, real hills and marine fog.
 - **San Francisco, USA (Sweep SF)** - [Play](https://sweepsf.nicolas.dev/).
@@ -163,6 +169,7 @@ Same Manhattan, new game, platform or engine.
 - **Pocket New York** - [Source](https://github.com/pocket-nexus/pocket-newyork) · [Tweet](https://x.com/pocket_js/status/2113974954131882181) - by [@pocket_js](https://x.com/pocket_js). Slop New York compiled with Pocket3D to run on a PS Vita. *(WIP)*
 - **Real terrain** - [Play](https://pablo-mayrgundter.github.io/slop-newyork/?ground=terrain) · [Source](https://github.com/pablo-mayrgundter/slop-newyork) - by [pablo-mayrgundter](https://github.com/pablo-mayrgundter). Drives the city over Manhattan's real ground.
 - **Slop New York Mini** - [Play](https://mattiaongit.github.io/slop-newyork-mini/) · [Source](https://github.com/mattiaongit/slop-newyork-mini) - by [mattiaongit](https://github.com/mattiaongit). Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; `?phone` forces phone mode.
+- **Slop Cockroach** - [Play](https://azkian1.github.io/slop-newyork/) · [Source](https://github.com/azkian1/slop-newyork) · [Tweet](https://x.com/azaticus/status/2116621970112741536) - by [@azaticus](https://x.com/azaticus). You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.
 - **Spider-Man · Slop New York** - [Play](https://jnaranj09.github.io/claude-spiderman-game/) · [Source](https://github.com/jnaranj09/claude-spiderman-game) - by [jnaranj09](https://github.com/jnaranj09). Web-swing through Manhattan on your phone with a one-thumb swinging controller.
 - **Taxi fares** - [Play](https://mrubens.github.io/new-york/) · [Source](https://github.com/mrubens/new-york) - by [mrubens](https://github.com/mrubens). Drive taxi fares against the clock.
 - **Unity port** - [Source](https://github.com/jdlp2442/port-slop-newyork) - by [jdlp2442](https://github.com/jdlp2442). 1:1 port to Unity 6 / URP 17.
@@ -171,10 +178,10 @@ Same Manhattan, new game, platform or engine.
 
 Projects in the same vein: city maps, three.js games, driving and racing.
 
-- **Elderwake** - [Play](https://elderwake-kaiju.vercel.app/) · [Tweet](https://x.com/Mor1ight/status/2114195154802446493) - by [@Mor1ight](https://x.com/Mor1ight). Kaiju-attack themed three.js game.
+- **Elderwake** - [Play](https://elderwake-kaiju.vercel.app/) · [Tweet](https://x.com/Mor1ight/status/2114195154802446493) - by [@Mor1ight](https://x.com/Mor1ight). Kaiju-attack themed three.js game, now with a Tokyo map (Shibuya and Shinjuku) built the way Slop New York is, and 2–4 player co-op.
 - **StreetRacer** - [Play](https://streetracer.app/) · [Tweet](https://x.com/zan_sheum/status/2113703904198164493) - by [@zan_sheum](https://x.com/zan_sheum).
 - **Isometric NYC** - [Play](http://isometric.nyc) - by [@_coenen](https://x.com/_coenen). Manhattan as an isometric pixel-art map; the map that started tiny.london, tinygyn and the other pixel-art cities. Not built on Slop. *(isometric, own engine)*
-- **Road Thruster** - [Play](https://roadthruster.versezero.com/). Tesla rocket.
+- **Road Thruster** - [Play](https://roadthruster.versezero.com/) · [Tweet](https://x.com/opdgame/status/2115148210201309327) - by [@opdgame](https://x.com/opdgame). Racing game with a map where you race a rocket to orbit, and a red Roadster waiting at the finish.
 - **Valdrada** - [Play](https://huggingface.co/spaces/mehmetkeremturkcan/valdrada) · [Source](https://github.com/mkturkcan/valdrada) · [Tweet](https://x.com/mkturkcan/status/2108946258081743097) - by [@mkturkcan](https://x.com/mkturkcan). A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.
 - **Zero to Gone** - [Play](https://zero-to-gone.vercel.app/) · [Tweet](https://x.com/AugustCastilIo/status/2114423589340377206) - by [@AugustCastilIo](https://x.com/AugustCastilIo). Roadster game with crushable cars.
 - **Eastside Drift** - [Play](https://eastside-drift.vercel.app/). *(unverified)*
