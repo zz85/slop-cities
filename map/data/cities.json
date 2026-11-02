@@ -1416,6 +1416,35 @@
    ]
   },
   {
+   "id": "zirndorf",
+   "city": "Zirndorf",
+   "country": "Germany",
+   "region": "Europe",
+   "lat": 49.4415,
+   "lon": 10.9576,
+   "original": false,
+   "entries": [
+    {
+     "title": "Zirndorf, Germany",
+     "links": {
+      "play": "https://slop-zirndorf.garagen-flohmarkt.workers.dev/"
+     },
+     "author": "Danny02",
+     "authorUrl": "https://github.com/Danny02",
+     "desc": "Slop Zirndorf: a Franconian town on its real relief, with the Bavarian survey's 3D buildings and every surveyed tree, the railway, bridges over the Bibert, foot and bike paths, and the real VGN buses live. Adapted from Slop Singapore.",
+     "flags": [],
+     "screenshot": "screenshots/zirndorf.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "singapore"
+   ]
+  },
+  {
    "id": "zurich",
    "city": "Zürich",
    "country": "Switzerland",
