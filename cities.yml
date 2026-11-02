@@ -445,7 +445,7 @@ cities:
         coords: [49.4415, 10.9576]
         remix_of: [singapore]
         takes:
-          - play: https://slop-zirndorf.garagen-flohmarkt.workers.dev/
+          - play: https://zirndorf.nullzwo.dev/
             by: Danny02
             desc: "Slop Zirndorf: a Franconian town on its real relief, with the Bavarian survey's 3D buildings and every surveyed tree, the railway, bridges over the Bibert, foot and bike paths, and the real VGN buses live. Adapted from Slop Singapore."
             screenshot: screenshots/zirndorf.jpg
