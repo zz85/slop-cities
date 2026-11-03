@@ -47,6 +47,6 @@ Also:
   - Any other label, such as `tiny`, shows as a badge on the map's city card.
 - **Picks:** `pick: true` on a take marks it as one of the list's highlights. On the map it gets a Pick badge, comes first on its city's card, and shows under the Picks filter. It doesn't change the README line; the Featured table at the top is still chosen by hand.
 - **Lineage:** `remix_of: [singapore]` on a city draws an arc to it from another city it adapts, beside the one from New York.
-- **Screenshots:** a `screenshot: screenshots/<name>.jpg` on a take shows on its map card. The Featured table at the top of the README is still written by hand.
+- **Screenshots:** every take, remix and other entry gets its own `screenshot: screenshots/<name>.jpg`, 960x540 JPEG, named after the city and its tag (such as `warsaw-isometric-warsaw.jpg`, `new-york-slop-cockroach.jpg`, `other-elderwake.jpg`). It shows on that entry's map card. Take it from the author's tweet video or photo, the site's preview image, or the repo's README; the build lists every entry that still has none. The Featured table at the top of the README is still written by hand.
 - Strip tracking params like `?s=20` from tweet links.
 - Link only to things that load.

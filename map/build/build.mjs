@@ -151,6 +151,14 @@ const jsonNew = JSON.stringify({ places: placesOut }, null, 1) + '\n';
 const jsonOld = existsSync(jsonPath) ? readFileSync(jsonPath, 'utf8') : '';
 const stale = [readmeNew !== readmeOld && 'README.md', jsonNew !== jsonOld && 'map/data/cities.json'].filter(Boolean);
 const takes = placesOut.reduce((n, p) => n + p.entries.length, 0);
+// Every take, remix and other entry should have its own screenshot. A missing one
+// doesn't fail the build; it's listed so it isn't forgotten.
+const noShot = [
+  ...placesOut.flatMap((p) => p.entries.filter((e) => !e.screenshot).map((e) => `${p.city}${e.tag ? ` (${e.tag})` : ''}`)),
+  ...(data.remixes?.entries || []).filter((e) => !e.screenshot).map((e) => `remix: ${e.name}`),
+  ...(data.other?.entries || []).filter((e) => !e.screenshot).map((e) => `other: ${e.name}`),
+];
+if (noShot.length) console.warn(`${noShot.length} without a screenshot: ${noShot.join('; ')}`);
 if (check) {
   if (stale.length) { console.error(`Out of date: ${stale.join(', ')}. Run node map/build/build.mjs`); process.exit(1); }
   console.log('README.md and map/data/cities.json are up to date.');

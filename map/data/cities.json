@@ -159,7 +159,7 @@
      "authorUrl": "https://github.com/VibezZzCoder",
      "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-nyc-spin-off-euc-thrills.jpg",
      "pick": false
     },
     {
@@ -174,7 +174,7 @@
      "flags": [
       "WIP"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-pocket-new-york.jpg",
      "pick": false
     },
     {
@@ -201,6 +201,20 @@
      "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
      "flags": [],
      "screenshot": "screenshots/new-york-slop-new-york-mini.jpg",
+     "pick": false
+    },
+    {
+     "title": "Slop Cockroach",
+     "links": {
+      "play": "https://azkian1.github.io/slop-newyork/",
+      "source": "https://github.com/azkian1/slop-newyork",
+      "tweet": "https://x.com/azaticus/status/2116621970112741536"
+     },
+     "author": "@azaticus",
+     "authorUrl": "https://x.com/azaticus",
+     "desc": "You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.",
+     "flags": [],
+     "screenshot": "screenshots/new-york-slop-cockroach.jpg",
      "pick": false
     },
     {
@@ -238,7 +252,7 @@
      "authorUrl": "https://github.com/jdlp2442",
      "desc": "1:1 port to Unity 6 / URP 17.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/new-york-unity-port.jpg",
      "pick": false
     },
     {
@@ -454,7 +468,7 @@
      "authorUrl": "https://github.com/dearfaint",
      "desc": "Slop Guangzhou: Zhujiang New Town with Canton Tower, Huacheng Square, Haixinsha and the Pearl River, on foot, by car, bicycle or helicopter. Its README says which building heights are estimates.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/guangzhou.jpg",
      "pick": false,
      "tag": null
     }
@@ -485,7 +499,7 @@
      "flags": [
       "githack"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/hong-kong.jpg",
      "pick": false,
      "tag": null
     },
@@ -523,14 +537,14 @@
     {
      "title": "Indore, India",
      "links": {
-      "play": "https://animishraa05.github.io/slop-indore/",
       "source": "https://github.com/animishraa05/slop-indore"
      },
      "author": "animishraa05",
      "authorUrl": "https://github.com/animishraa05",
      "desc": "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design.",
      "flags": [
-      "own engine"
+      "own engine",
+      "source only"
      ],
      "screenshot": null,
      "pick": false,
@@ -561,7 +575,7 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/niseko.jpg",
      "pick": false,
      "tag": null
     }
@@ -744,6 +758,64 @@
    ]
   },
   {
+   "id": "tokyo",
+   "city": "Tokyo",
+   "country": "Japan",
+   "region": "Asia",
+   "lat": 35.6595,
+   "lon": 139.7005,
+   "original": false,
+   "entries": [
+    {
+     "title": "Tokyo, Japan (Shibuya)",
+     "links": {
+      "play": "https://shibuya.kumodeck.app/",
+      "tweet": "https://x.com/sara_kumodeck/status/2113548620448645578"
+     },
+     "author": "@sara_kumodeck",
+     "authorUrl": "https://x.com/sara_kumodeck",
+     "desc": "Shibuya Three.js: 3,988 real buildings from Japan's PLATEAU 3D city data on the real hills. Wait for the green, then cross the scramble with up to 320 people at once, diagonals too.",
+     "flags": [],
+     "screenshot": "screenshots/tokyo-shibuya.jpg",
+     "pick": false,
+     "tag": "Shibuya"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "wuhan",
+   "city": "Wuhan",
+   "country": "China",
+   "region": "Asia",
+   "lat": 30.5803,
+   "lon": 114.2913,
+   "original": false,
+   "entries": [
+    {
+     "title": "Wuhan, China",
+     "links": {
+      "play": "https://lightyearzh.github.io/slop-wuhan/",
+      "source": "https://github.com/LightYearZh/slop-wuhan"
+     },
+     "author": "LightYearZh",
+     "authorUrl": "https://github.com/LightYearZh",
+     "desc": "Slop 武汉 · Wuhan Roam: walk Jianghan Road to the Jianghan Customs House, drive a taxi over the Yangtze bridge or fly over the two rivers, and pick up taxi fares with turn-by-turn navigation.",
+     "flags": [],
+     "screenshot": "screenshots/wuhan.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "barcelona",
    "city": "Barcelona",
    "country": "Spain",
@@ -860,6 +932,37 @@
    ]
   },
   {
+   "id": "granada",
+   "city": "Granada",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 37.1773,
+   "lon": -3.5986,
+   "original": false,
+   "entries": [
+    {
+     "title": "Granada, Spain",
+     "links": {
+      "play": "https://raw.githack.com/rgaricano/Vista_de_Granada/feature/granada-conversion/index/granada/index.html",
+      "source": "https://github.com/rgaricano/Vista_de_Granada"
+     },
+     "author": "rgaricano",
+     "authorUrl": "https://github.com/rgaricano",
+     "desc": "Vista de Granada: a Granada conversion of Slop New York, made with a local model (Bonsai, a binary/ternary-quantised Qwen) and its own entry point beside the New York one.",
+     "flags": [
+      "githack"
+     ],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "helsinki",
    "city": "Helsinki",
    "country": "Finland",
@@ -878,7 +981,7 @@
      "authorUrl": "https://github.com/kinotus",
      "desc": "Slop Helsinki: from Senaatintori to the Cathedral, Esplanadi, Kauppatori and the Central Station, with the city's photo-textured 3D buildings streamed around you, real terrain and tram lines. Adapted from Slop Utrecht.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/helsinki.jpg",
      "pick": false,
      "tag": null
     }
@@ -969,7 +1072,37 @@
      "flags": [
       "own engine"
      ],
-     "screenshot": null,
+     "screenshot": "screenshots/las-palmas-de-gran-canaria.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
+   "id": "leuven",
+   "city": "Leuven",
+   "country": "Belgium",
+   "region": "Europe",
+   "lat": 50.8798,
+   "lon": 4.7005,
+   "original": false,
+   "entries": [
+    {
+     "title": "Leuven, Belgium",
+     "links": {
+      "play": "https://leuven.exe.xyz/",
+      "source": "https://github.com/basteau/leuven.social"
+     },
+     "author": "basteau",
+     "authorUrl": "https://github.com/basteau",
+     "desc": "leuven.social: the historic centre as a tiny isometric 3D city from Flemish open data (GRB buildings, LiDAR) and OpenStreetMap. Inspired by Slop New York.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/leuven.jpg",
      "pick": false,
      "tag": null
     }
@@ -1185,11 +1318,12 @@
      "title": "Utrecht, Netherlands",
      "links": {
       "play": "https://bertt.github.io/slop-utrecht/",
-      "source": "https://github.com/bertt/slop-utrecht"
+      "source": "https://github.com/bertt/slop-utrecht",
+      "tweet": "https://x.com/berttemme/status/2114848313182965925"
      },
      "author": "@berttemme",
      "authorUrl": "https://x.com/berttemme",
-     "desc": "Domtoren, Oudegracht and Centraal Station.",
+     "desc": "Domtoren, Oudegracht and Centraal Station, now with a cargo-bike (bakfiets) mode.",
      "flags": [],
      "screenshot": "screenshots/utrecht.jpg",
      "pick": false,
@@ -1218,8 +1352,10 @@
      },
      "author": "@OrestesGaolin",
      "authorUrl": "https://x.com/OrestesGaolin",
-     "desc": "Tiny Warsaw: browse, ride and fly through a low-poly central Warsaw with the Palace of Culture.",
-     "flags": [],
+     "desc": "Tiny Warsaw: browse, ride and fly through a low-poly 3D Warsaw built from OpenStreetMap and GUGiK data, with hand-modelled landmarks, live flights at Okęcie and multiplayer.",
+     "flags": [
+      "own engine"
+     ],
      "screenshot": "screenshots/warsaw.jpg",
      "pick": true,
      "tag": null
@@ -1242,6 +1378,22 @@
      "tag": "Isometric Warsaw"
     },
     {
+     "title": "Warsaw, Poland (Around Warsaw)",
+     "links": {
+      "source": "https://github.com/LubomirOlshansky/AroundWarsaw"
+     },
+     "author": "@olshansky93",
+     "authorUrl": "https://x.com/olshansky93",
+     "desc": "A small-car arcade drive (and a helicopter) through the real centre of Warsaw from OpenStreetMap and GUGiK data, built in Godot for iPhone and Android: gentle police, side jobs and a car radio. Free and MIT; beta sign-up at aroundwarsaw.app.",
+     "flags": [
+      "own engine",
+      "source only"
+     ],
+     "screenshot": "screenshots/warsaw-around-warsaw.jpg",
+     "pick": false,
+     "tag": "Around Warsaw"
+    },
+    {
      "title": "Warsaw, Poland (Szczęśliwe Bielany)",
      "links": {
       "play": "https://raw.githack.com/keymaker2005/szczesliwe-bielany/main/index.html",
@@ -1261,6 +1413,35 @@
    "remixes": [],
    "parents": [
     "new-york"
+   ]
+  },
+  {
+   "id": "zirndorf",
+   "city": "Zirndorf",
+   "country": "Germany",
+   "region": "Europe",
+   "lat": 49.4415,
+   "lon": 10.9576,
+   "original": false,
+   "entries": [
+    {
+     "title": "Zirndorf, Germany",
+     "links": {
+      "play": "https://zirndorf.nullzwo.dev/"
+     },
+     "author": "Danny02",
+     "authorUrl": "https://github.com/Danny02",
+     "desc": "Slop Zirndorf: a Franconian town on its real relief, with the Bavarian survey's 3D buildings and every surveyed tree, the railway, bridges over the Bibert, foot and bike paths, and the real VGN buses live. Adapted from Slop Singapore.",
+     "flags": [],
+     "screenshot": "screenshots/zirndorf.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "singapore"
    ]
   },
   {
@@ -1291,6 +1472,64 @@
    "parents": [
     "new-york"
    ]
+  },
+  {
+   "id": "ann-arbor",
+   "city": "Ann Arbor",
+   "country": "USA",
+   "region": "North America",
+   "lat": 42.2808,
+   "lon": -83.743,
+   "original": false,
+   "entries": [
+    {
+     "title": "Ann Arbor, USA",
+     "links": {
+      "play": "https://mrubens.github.io/go-to-ann-arbor/",
+      "source": "https://github.com/mrubens/go-to-ann-arbor"
+     },
+     "author": "mrubens",
+     "authorUrl": "https://github.com/mrubens",
+     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter.",
+     "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "boston",
+   "city": "Boston",
+   "country": "USA",
+   "region": "North America",
+   "lat": 42.3505,
+   "lon": -71.081,
+   "original": false,
+   "entries": [
+    {
+     "title": "Boston, USA",
+     "links": {
+      "play": "https://markleary.github.io/drive-boston/",
+      "source": "https://github.com/markleary/drive-boston"
+     },
+     "author": "markleary",
+     "authorUrl": "https://github.com/markleary",
+     "desc": "Drive Boston: drive or fly a helicopter around Greater Boston, from Charlestown to Mattapan plus Cambridge and Somerville, on USGS terrain. Three.js and Rapier; its terrain and draped roads follow the approach of Slop San Francisco.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/boston.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
   },
   {
    "id": "ciudad-obregon",
@@ -1324,6 +1563,38 @@
    ]
   },
   {
+   "id": "glens-falls",
+   "city": "Glens Falls",
+   "country": "USA",
+   "region": "North America",
+   "lat": 43.3095,
+   "lon": -73.644,
+   "original": false,
+   "entries": [
+    {
+     "title": "Glens Falls, USA",
+     "links": {
+      "play": "https://raw.githack.com/strapcat/slop-glens-falls/main/index.html?city=glensfalls",
+      "source": "https://github.com/strapcat/slop-glens-falls"
+     },
+     "author": "strapcat",
+     "authorUrl": "https://github.com/strapcat",
+     "desc": "Slop Glens Falls: downtown Glens Falls, New York, from OSM footprints, with cars, pedestrians on the sidewalks and working traffic signals.",
+     "flags": [
+      "githack",
+      "WIP"
+     ],
+     "screenshot": "screenshots/glens-falls.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "san-francisco",
    "city": "San Francisco",
    "country": "USA",
@@ -1343,7 +1614,7 @@
      "authorUrl": "https://x.com/unable0_",
      "desc": "Waymo rides, helicopters, real hills and marine fog.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/san-francisco.jpg",
      "pick": false,
      "tag": null
     },
@@ -1488,7 +1759,7 @@
      "authorUrl": "https://github.com/riantorres1975",
      "desc": "Uruapan, Michoacán, from OpenStreetMap.",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/uruapan.jpg",
      "pick": false,
      "tag": null
     }
