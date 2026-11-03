@@ -27,8 +27,8 @@ Shared by mrdoob: ["35+ projects based on Slop New York in just 4 days"](https:/
       <b><a href="https://nelsonchris1.github.io/london-loop/">London</a></b> · <a href="https://x.com/Nelson_christof/status/2113986000112296170">@Nelson_christof</a>
     </td>
     <td align="center" width="33%">
-      <a href="https://slop-toronto.cloud6711.workers.dev/explore"><img src="screenshots/toronto.jpg" alt="Toronto skyline and CN Tower at golden hour from the lake"></a><br>
-      <b><a href="https://slop-toronto.cloud6711.workers.dev/explore">Toronto</a></b> · <a href="https://x.com/johnfewell/status/2114053187946545313">@johnfewell</a>
+      <a href="https://sloptoronto.ca/explore"><img src="screenshots/toronto.jpg" alt="Toronto skyline and CN Tower at golden hour from the lake"></a><br>
+      <b><a href="https://sloptoronto.ca/explore">Toronto</a></b> · <a href="https://x.com/johnfewell/status/2114053187946545313">@johnfewell</a>
     </td>
   </tr>
   <tr>
@@ -149,8 +149,9 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 - **San Francisco, USA (Sweep SF)** - [Play](https://sweepsf.nicolas.dev/).
 - **Seattle, USA** - [Play](https://treycausey.github.io/slop-seattle/) · [Source](https://github.com/treycausey/slop-seattle) - by [treycausey](https://github.com/treycausey). Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries.
 - **Tepic, Mexico** - [Source](https://github.com/the-self/slop-tepic) - by [the-self](https://github.com/the-self). Tepic and Xalisco, Nayarit, on real valley terrain. *(source only)*
-- **Toronto, Canada** - [Play](https://slop-toronto.cloud6711.workers.dev/explore) · [Source](https://github.com/johnfewell/slop-toronto) · [Tweet](https://x.com/johnfewell/status/2114053187946545313) - by [@johnfewell](https://x.com/johnfewell). Downtown and the waterfront at golden hour.
+- **Toronto, Canada** - [Play](https://sloptoronto.ca/explore) · [Source](https://github.com/johnfewell/slop-toronto) · [Tweet](https://x.com/johnfewell/status/2114053187946545313) - by [@johnfewell](https://x.com/johnfewell). Downtown and the waterfront at golden hour.
 - **Toronto, Canada (aalghooneh)** - [Play](https://aalghooneh.github.io/slop-toronto/) · [Source](https://github.com/aalghooneh/slop-toronto).
+- **Toronto, Canada (GTA The 6)** - [Play](https://gta-the-6.onrender.com/explore.html) · [Source](https://github.com/Youseph-Elkhouly/gta-the-6) · [Tweet](https://x.com/seifos/status/2117317259223773446) - by [@seifos](https://x.com/seifos). Larp Theft Auto: The 6, by @seifos and @ElkhoulyYouseph: a GTA-style game on Slop Toronto, with vehicles, helicopters, an in-game phone for teleporting and 7 parody characters. Built in 6 hours at LarpHacks, where it won Best Use of Render.
 - **Uruapan, Mexico** - [Play](https://riantorres1975.github.io/slop-uruapan/) · [Source](https://github.com/riantorres1975/slop-uruapan) - by [riantorres1975](https://github.com/riantorres1975). Uruapan, Michoacán, from OpenStreetMap.
 
 ### Oceania
@@ -161,6 +162,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 
 - **Buenos Aires, Argentina** - [Play](https://msantelli.github.io/slop-buenosaires/) · [Tweet](https://x.com/mesantelli/status/2114805565813936618) - by [@mesantelli](https://x.com/mesantelli). "Buenos Aires berreta": the whole city and part of the conurbano, with black-and-yellow taxis.
 - **Goiânia, Brazil** - [Play](https://tinygyn.com/) · [Tweet](https://x.com/xthomasms/status/2113641952931377428) - by [@xthomasms](https://x.com/xthomasms). tinygyn: Goiânia, Goiás, redrawn frame by frame as an isometric pixel-art map from the city's 3D model, inspired by isometric.nyc and tiny.london. *(isometric, own engine, WIP)*
+- **Santa Fe, Argentina** - [Play](https://raw.githack.com/ArtoriasDelAbismo/slop-sf/santa-fe/index.html) · [Source](https://github.com/ArtoriasDelAbismo/slop-sf) - by [ArtoriasDelAbismo](https://github.com/ArtoriasDelAbismo). Slop Santa Fe: from Bv. Pellegrini and Bv. Gálvez down to the port and the Riacho Santa Fe, on foot, by car, bicycle or helicopter. *(githack)*
 
 ## New York remixes
 

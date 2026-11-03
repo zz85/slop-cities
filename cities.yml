@@ -530,7 +530,7 @@ cities:
         country: Canada
         coords: [43.6532, -79.3832]
         takes:
-          - play: https://slop-toronto.cloud6711.workers.dev/explore
+          - play: https://sloptoronto.ca/explore
             pick: true
             source: https://github.com/johnfewell/slop-toronto
             tweet: https://x.com/johnfewell/status/2114053187946545313
@@ -540,6 +540,13 @@ cities:
           - tag: aalghooneh
             play: https://aalghooneh.github.io/slop-toronto/
             source: https://github.com/aalghooneh/slop-toronto
+          - tag: GTA The 6
+            play: https://gta-the-6.onrender.com/explore.html
+            source: https://github.com/Youseph-Elkhouly/gta-the-6
+            tweet: https://x.com/seifos/status/2117317259223773446
+            by: "@seifos"
+            desc: "Larp Theft Auto: The 6, by @seifos and @ElkhoulyYouseph: a GTA-style game on Slop Toronto, with vehicles, helicopters, an in-game phone for teleporting and 7 parody characters. Built in 6 hours at LarpHacks, where it won Best Use of Render."
+            screenshot: screenshots/toronto-gta-the-6.jpg
 
       - city: Uruapan
         country: Mexico
@@ -563,6 +570,17 @@ cities:
             screenshot: screenshots/sydney.jpg
 
     South America:
+      - city: Santa Fe
+        country: Argentina
+        coords: [-31.6333, -60.7]
+        takes:
+          - play: https://raw.githack.com/ArtoriasDelAbismo/slop-sf/santa-fe/index.html
+            source: https://github.com/ArtoriasDelAbismo/slop-sf
+            by: ArtoriasDelAbismo
+            desc: "Slop Santa Fe: from Bv. Pellegrini and Bv. Gálvez down to the port and the Riacho Santa Fe, on foot, by car, bicycle or helicopter."
+            flags: [githack]
+            screenshot: screenshots/santa-fe.jpg
+
       - city: Buenos Aires
         country: Argentina
         coords: [-34.6037, -58.3816]

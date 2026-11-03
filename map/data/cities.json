@@ -1708,7 +1708,7 @@
     {
      "title": "Toronto, Canada",
      "links": {
-      "play": "https://slop-toronto.cloud6711.workers.dev/explore",
+      "play": "https://sloptoronto.ca/explore",
       "source": "https://github.com/johnfewell/slop-toronto",
       "tweet": "https://x.com/johnfewell/status/2114053187946545313"
      },
@@ -1733,6 +1733,21 @@
      "screenshot": null,
      "pick": false,
      "tag": "aalghooneh"
+    },
+    {
+     "title": "Toronto, Canada (GTA The 6)",
+     "links": {
+      "play": "https://gta-the-6.onrender.com/explore.html",
+      "source": "https://github.com/Youseph-Elkhouly/gta-the-6",
+      "tweet": "https://x.com/seifos/status/2117317259223773446"
+     },
+     "author": "@seifos",
+     "authorUrl": "https://x.com/seifos",
+     "desc": "Larp Theft Auto: The 6, by @seifos and @ElkhoulyYouseph: a GTA-style game on Slop Toronto, with vehicles, helicopters, an in-game phone for teleporting and 7 parody characters. Built in 6 hours at LarpHacks, where it won Best Use of Render.",
+     "flags": [],
+     "screenshot": "screenshots/toronto-gta-the-6.jpg",
+     "pick": false,
+     "tag": "GTA The 6"
     }
    ],
    "remixes": [],
@@ -1857,6 +1872,37 @@
    ],
    "remixes": [],
    "parents": []
+  },
+  {
+   "id": "santa-fe",
+   "city": "Santa Fe",
+   "country": "Argentina",
+   "region": "South America",
+   "lat": -31.6333,
+   "lon": -60.7,
+   "original": false,
+   "entries": [
+    {
+     "title": "Santa Fe, Argentina",
+     "links": {
+      "play": "https://raw.githack.com/ArtoriasDelAbismo/slop-sf/santa-fe/index.html",
+      "source": "https://github.com/ArtoriasDelAbismo/slop-sf"
+     },
+     "author": "ArtoriasDelAbismo",
+     "authorUrl": "https://github.com/ArtoriasDelAbismo",
+     "desc": "Slop Santa Fe: from Bv. Pellegrini and Bv. Gálvez down to the port and the Riacho Santa Fe, on foot, by car, bicycle or helicopter.",
+     "flags": [
+      "githack"
+     ],
+     "screenshot": "screenshots/santa-fe.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
   }
  ]
 }
