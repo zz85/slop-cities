@@ -217,6 +217,19 @@ cities:
             by: sc0Vu
             screenshot: screenshots/taipei-sc0vu.jpg
 
+
+    Australasia:
+      - city: Sydney
+        country: Australia
+        coords: [-33.8688, 151.2093]
+        takes:
+          - play: https://syd.maize.live
+            source: https://github.com/doublependu/m-sydney
+            by: "@RadWebGame"                
+            desc: Sydney AU, progressive loading tiles: more area, less resource intensive
+            flags: [own engine]
+            pick: true      
+
     Europe:
       - city: Barcelona
         country: Spain
