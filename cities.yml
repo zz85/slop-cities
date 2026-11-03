@@ -440,6 +440,16 @@ cities:
             desc: "Slop Zürich: the inner city at 1:1 on its real relief from swisstopo buildings and terrain, with trams, on foot, by bike, cargo bike, car or helicopter."
             screenshot: screenshots/zurich.jpg
 
+      - city: Zirndorf
+        country: Germany
+        coords: [49.4415, 10.9576]
+        remix_of: [singapore]
+        takes:
+          - play: https://zirndorf.nullzwo.dev/
+            by: Danny02
+            desc: "Slop Zirndorf: a Franconian town on its real relief, with the Bavarian survey's 3D buildings and every surveyed tree, the railway, bridges over the Bibert, foot and bike paths, and the real VGN buses live. Adapted from Slop Singapore."
+            screenshot: screenshots/zirndorf.jpg
+
     North America:
       - city: Ciudad Obregón
         country: Mexico
