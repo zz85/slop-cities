@@ -726,6 +726,11 @@ other:
       tweet: https://x.com/zan_sheum/status/2113703904198164493
       by: "@zan_sheum"
       screenshot: screenshots/other-streetracer.jpg
+    - name: Go To Anywhere
+      source: https://github.com/kcm/go-to-anywhere
+      by: kcm
+      desc: "A multi-city engine for driving, walking, cycling, flying and kayaking at 1:1 scale from OSM, elevation and GTFS transit data, with each city as a separate pack you build locally (San Francisco and Royal Oak, Michigan so far). Adapted from Go To Ann Arbor and mrdoob's Slop code."
+      flags: [source only]
     - name: Isometric NYC
       play: http://isometric.nyc
       by: "@_coenen"
