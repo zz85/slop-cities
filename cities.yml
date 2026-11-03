@@ -218,18 +218,6 @@ cities:
             screenshot: screenshots/taipei-sc0vu.jpg
 
 
-    Australasia:
-      - city: Sydney
-        country: Australia
-        coords: [-33.8688, 151.2093]
-        takes:
-          - play: https://syd.maize.live
-            source: https://github.com/doublependu/m-sydney
-            by: "@RadWebGame"                
-            desc: Sydney AU, progressive loading tiles: more area, less resource intensive
-            flags: [own engine]
-            pick: true      
-
     Europe:
       - city: Barcelona
         country: Spain
@@ -562,6 +550,17 @@ cities:
             by: riantorres1975
             desc: Uruapan, Michoacán, from OpenStreetMap.
             screenshot: screenshots/uruapan.jpg
+
+    Oceania:
+      - city: Sydney
+        country: Australia
+        coords: [-33.8688, 151.2093]
+        takes:
+          - play: https://syd.maize.live
+            source: https://github.com/doublependu/m-sydney
+            by: "@RadWebGame"
+            desc: "Slop Sydney: drive over the Harbour Bridge, walk the CBD, cycle the foreshore or fly around the Opera House, with the city loaded in tiles so more of it fits in less memory."
+            screenshot: screenshots/sydney.jpg
 
     South America:
       - city: Buenos Aires

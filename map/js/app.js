@@ -57,7 +57,7 @@ const far = places.filter((p) => !p.original).reduce((a, p) => (distanceKm(ny.lo
 $('#brand-sub').textContent = `World map · ${places.length} cities · ${takes} takes · ${countries} countries`;
 $('#stats').innerHTML = `${ny.remixes.length} New York remixes · farthest from New York: ${esc(far.city)}, ${Math.round(distanceKm(ny.lon, ny.lat, far.lon, far.lat)).toLocaleString()} km`;
 
-const REGIONS = ['North America', 'South America', 'Europe', 'Africa', 'Asia'];
+const REGIONS = ['North America', 'South America', 'Europe', 'Africa', 'Asia', 'Oceania'];
 // ---------- labels and ranking ----------
 // An entry's *(...)* markers in the README are either a status (source only,
 // WIP, unverified) or a label the list's editor gives a take, such as

@@ -1770,6 +1770,35 @@
    ]
   },
   {
+   "id": "sydney",
+   "city": "Sydney",
+   "country": "Australia",
+   "region": "Oceania",
+   "lat": -33.8688,
+   "lon": 151.2093,
+   "original": false,
+   "entries": [
+    {
+     "title": "Sydney, Australia",
+     "links": {
+      "play": "https://syd.maize.live",
+      "source": "https://github.com/doublependu/m-sydney"
+     },
+     "author": "@RadWebGame",
+     "authorUrl": "https://x.com/RadWebGame",
+     "desc": "Slop Sydney: drive over the Harbour Bridge, walk the CBD, cycle the foreshore or fly around the Opera House, with the city loaded in tiles so more of it fits in less memory.",
+     "flags": [],
+     "screenshot": "screenshots/sydney.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "buenos-aires",
    "city": "Buenos Aires",
    "country": "Argentina",
