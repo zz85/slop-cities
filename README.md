@@ -155,6 +155,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 - **Toronto, Canada (aalghooneh)** - [Play](https://aalghooneh.github.io/slop-toronto/) · [Source](https://github.com/aalghooneh/slop-toronto).
 - **Toronto, Canada (GTA The 6)** - [Play](https://gta-the-6.onrender.com/explore.html) · [Source](https://github.com/Youseph-Elkhouly/gta-the-6) · [Tweet](https://x.com/seifos/status/2117317259223773446) - by [@seifos](https://x.com/seifos). Larp Theft Auto: The 6, by @seifos and @ElkhoulyYouseph: a GTA-style game on Slop Toronto, with vehicles, helicopters, an in-game phone for teleporting and 7 parody characters. Built in 6 hours at LarpHacks, where it won Best Use of Render.
 - **Uruapan, Mexico** - [Play](https://riantorres1975.github.io/slop-uruapan/) · [Source](https://github.com/riantorres1975/slop-uruapan) - by [riantorres1975](https://github.com/riantorres1975). Uruapan, Michoacán, from OpenStreetMap.
+- **Vancouver, Canada** - [Play](https://slopcouver.ca/) - by [Slopcouver](https://github.com/slopcouver). Slopcouver: explore downtown Vancouver, Stanley Park and False Creek on foot, by bike, by car, by kayak or from the air.
 
 ### Oceania
 
