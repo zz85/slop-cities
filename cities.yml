@@ -357,6 +357,16 @@ cities:
             desc: Montreux Drift, with real relief down to Lake Geneva.
             screenshot: screenshots/montreux.jpg
 
+      - city: Pardubice
+        country: Czechia
+        coords: [50.0379, 15.7790]
+        takes:
+          - play: https://selakavon.github.io/slop-pardubice/
+            source: https://github.com/selakavon/slop-pardubice
+            by: selakavon
+            desc: "Slop Pardubice: start on foot at Zelená brána, then walk, cycle, drive or fly through the old town, the castle grounds and along třída Míru."
+            screenshot: screenshots/pardubice.jpg
+
       - city: Oslo
         country: Norway
         coords: [59.9139, 10.7522]
@@ -737,6 +747,14 @@ other:
       tweet: https://x.com/zan_sheum/status/2113703904198164493
       by: "@zan_sheum"
       screenshot: screenshots/other-streetracer.jpg
+    - name: Gen City Auto
+      play: https://greggman.github.io/gen-city-auto/
+      source: https://github.com/greggman/gen-city-auto
+      tweet: https://x.com/greggman/status/2117605120745881692
+      by: "@greggman"
+      desc: "A procedurally generated metropolis to drive and fly around, inspired by GTA V and Marvel's Spider-Man: cars, trucks, buses, trains, headlights and turn signals, bridges, clouds and rain, in under 500 KB of WebGPU with no libraries."
+      flags: [own engine]
+      screenshot: screenshots/other-gen-city-auto.jpg
     - name: Go To Anywhere
       source: https://github.com/kcm/go-to-anywhere
       by: kcm

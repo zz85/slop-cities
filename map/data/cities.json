@@ -1276,6 +1276,35 @@
    ]
   },
   {
+   "id": "pardubice",
+   "city": "Pardubice",
+   "country": "Czechia",
+   "region": "Europe",
+   "lat": 50.0379,
+   "lon": 15.779,
+   "original": false,
+   "entries": [
+    {
+     "title": "Pardubice, Czechia",
+     "links": {
+      "play": "https://selakavon.github.io/slop-pardubice/",
+      "source": "https://github.com/selakavon/slop-pardubice"
+     },
+     "author": "selakavon",
+     "authorUrl": "https://github.com/selakavon",
+     "desc": "Slop Pardubice: start on foot at Zelená brána, then walk, cycle, drive or fly through the old town, the castle grounds and along třída Míru.",
+     "flags": [],
+     "screenshot": "screenshots/pardubice.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "seville",
    "city": "Seville",
    "country": "Spain",
