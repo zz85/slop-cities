@@ -547,6 +547,16 @@ cities:
             desc: Tepic and Xalisco, Nayarit, on real valley terrain.
             flags: [source only]
 
+      - city: Vancouver
+        country: Canada
+        coords: [49.2827, -123.1207]
+        takes:
+          - play: https://slopcouver.ca/
+            by: Slopcouver
+            by_url: https://github.com/slopcouver
+            desc: "Slopcouver: explore downtown Vancouver, Stanley Park and False Creek on foot, by bike, by car, by kayak or from the air."
+            screenshot: screenshots/vancouver.jpg
+
       - city: Toronto
         country: Canada
         coords: [43.6532, -79.3832]

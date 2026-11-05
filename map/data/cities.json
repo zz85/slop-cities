@@ -1844,6 +1844,34 @@
    ]
   },
   {
+   "id": "vancouver",
+   "city": "Vancouver",
+   "country": "Canada",
+   "region": "North America",
+   "lat": 49.2827,
+   "lon": -123.1207,
+   "original": false,
+   "entries": [
+    {
+     "title": "Vancouver, Canada",
+     "links": {
+      "play": "https://slopcouver.ca/"
+     },
+     "author": "Slopcouver",
+     "authorUrl": "https://github.com/slopcouver",
+     "desc": "Slopcouver: explore downtown Vancouver, Stanley Park and False Creek on foot, by bike, by car, by kayak or from the air.",
+     "flags": [],
+     "screenshot": "screenshots/vancouver.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "sydney",
    "city": "Sydney",
    "country": "Australia",
