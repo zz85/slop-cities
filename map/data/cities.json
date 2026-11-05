@@ -932,6 +932,36 @@
    ]
   },
   {
+   "id": "geneva",
+   "city": "Geneva",
+   "country": "Switzerland",
+   "region": "Europe",
+   "lat": 46.2044,
+   "lon": 6.1432,
+   "original": false,
+   "entries": [
+    {
+     "title": "Geneva, Switzerland",
+     "links": {
+      "play": "https://emmanpi.github.io/slop-geneva/",
+      "source": "https://github.com/emmanpi/slop-geneva"
+     },
+     "author": "emmanpi",
+     "authorUrl": "https://github.com/emmanpi",
+     "desc": "Slop Geneva: the centre at 1:1 on its real relief from swisstopo and SITG open data. TPG trams and buses on the real timetable, the Mouettes across the Rade, the Jet d'eau, live MeteoSwiss weather, 39,000 trees through the seasons and the 1st of August fireworks. Adapted from Slop Zürich.",
+     "flags": [],
+     "screenshot": "screenshots/geneva.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "zurich"
+   ]
+  },
+  {
    "id": "granada",
    "city": "Granada",
    "country": "Spain",
