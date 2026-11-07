@@ -866,6 +866,22 @@
      "screenshot": "screenshots/berlin.jpg",
      "pick": true,
      "tag": null
+    },
+    {
+     "title": "Berlin, Germany (NK GTA)",
+     "links": {
+      "play": "https://nkgta.0sk.ar",
+      "source": "https://github.com/oskarrough/nkgta"
+     },
+     "author": "oskarrough",
+     "authorUrl": "https://github.com/oskarrough",
+     "desc": "A GTA 1 and 3-style game in the streets of Neukölln, from OpenStreetMap with elevation. On foot, by bike or in car, with Polizei, shops to walk into, and radio.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/berlin-nk-gta.jpg",
+     "pick": false,
+     "tag": "NK GTA"
     }
    ],
    "remixes": [],
