@@ -781,6 +781,13 @@ other:
       by: kcm
       desc: "A multi-city engine for driving, walking, cycling, flying and kayaking at 1:1 scale from OSM, elevation and GTFS transit data, with each city as a separate pack you build locally (San Francisco and Royal Oak, Michigan so far). Adapted from Go To Ann Arbor and mrdoob's Slop code."
       flags: [source only]
+    - name: Mapz
+      play: https://playmapz.com
+      by: u/SolidAcanthisitta691
+      by_url: https://www.reddit.com/user/SolidAcanthisitta691
+      desc: "A multiplayer browser FPS where you type any street or landmark and about a minute later fight in it, built from OpenStreetMap, elevation data and, in the Netherlands, 3D BAG building heights. Free-for-all, Gun Game and zombie modes. [Announced on r/threejs](https://www.reddit.com/r/threejs/comments/1xm8o3w/)."
+      flags: [own engine]
+      screenshot: screenshots/other-mapz.jpg
     - name: Isometric NYC
       play: http://isometric.nyc
       by: "@_coenen"
