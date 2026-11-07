@@ -238,6 +238,13 @@ cities:
             by: "@Aaron_1337"
             desc: Berlin's street map, and pedestrians who scream and jump out of the way of bad driving.
             screenshot: screenshots/berlin.jpg
+          - tag: NK GTA
+            play: https://nkgta.0sk.ar
+            source: https://github.com/oskarrough/nkgta
+            by: oskarrough
+            desc: A GTA 1-style game in the real streets of Neukölln, from OpenStreetMap and Berlin's elevation model. On foot, by bike or in a stolen car, with a Polizei Wanne on your tail, shops to walk into, and radio.
+            flags: [own engine]
+            screenshot: screenshots/berlin-nk-gta.jpg
 
       - city: Copenhagen
         country: Denmark
