@@ -538,6 +538,17 @@ cities:
             desc: "Slop Seattle: downtown, Seattle Center, Pioneer Square, South Lake Union and SoDo from 4,490 OSM buildings, with the Space Needle, Pike Place Market, the Great Wheel and Elliott Bay ferries."
             screenshot: screenshots/seattle.jpg
 
+      - city: St. Louis
+        country: USA
+        coords: [38.627, -90.1994]
+        takes:
+          - play: https://brinewater.vlad.yt/play/
+            by: u/Ok_Incident222
+            by_url: https://www.reddit.com/user/Ok_Incident222
+            desc: "Brinewater: a GTA-style open world on the real street grid of St. Louis from OpenStreetMap and city data, with interstates and their ramps, Metro bus routes, AI traffic and police chases up to a helicopter, crash damage that tears panels off, and the metro area streamed in tiles. Three.js and Rapier; desktop Chrome. [Announced on r/threejs](https://www.reddit.com/r/threejs/comments/1xnzbk4/)."
+            flags: [own engine]
+            screenshot: screenshots/st-louis.jpg
+
       - city: Tepic
         country: Mexico
         coords: [21.5042, -104.8946]

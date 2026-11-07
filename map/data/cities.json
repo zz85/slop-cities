@@ -1726,6 +1726,34 @@
    ]
   },
   {
+   "id": "st-louis",
+   "city": "St. Louis",
+   "country": "USA",
+   "region": "North America",
+   "lat": 38.627,
+   "lon": -90.1994,
+   "original": false,
+   "entries": [
+    {
+     "title": "St. Louis, USA",
+     "links": {
+      "play": "https://brinewater.vlad.yt/play/"
+     },
+     "author": "u/Ok_Incident222",
+     "authorUrl": "https://www.reddit.com/user/Ok_Incident222",
+     "desc": "Brinewater: a GTA-style open world on the real street grid of St. Louis from OpenStreetMap and city data, with interstates and their ramps, Metro bus routes, AI traffic and police chases up to a helicopter, crash damage that tears panels off, and the metro area streamed in tiles. Three.js and Rapier; desktop Chrome. Announced on r/threejs.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/st-louis.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
    "id": "tepic",
    "city": "Tepic",
    "country": "Mexico",
