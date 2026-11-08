@@ -758,6 +758,35 @@
    ]
   },
   {
+   "id": "tehran",
+   "city": "Tehran",
+   "country": "Iran",
+   "region": "Asia",
+   "lat": 35.6997,
+   "lon": 51.338,
+   "original": false,
+   "entries": [
+    {
+     "title": "Tehran, Iran",
+     "links": {
+      "play": "https://sloptehran.amirrangeryr.workers.dev/",
+      "source": "https://github.com/AmirRangerYr/slop-tehran"
+     },
+     "author": "AmirRangerYr",
+     "authorUrl": "https://github.com/AmirRangerYr",
+     "desc": "Slop Tehran: Explore western Tehran, including Azadi Square, Ekbatan and Mehrabad Airport.",
+     "flags": [],
+     "screenshot": "screenshots/tehran.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "tokyo",
    "city": "Tokyo",
    "country": "Japan",
@@ -875,7 +904,7 @@
      },
      "author": "oskarrough",
      "authorUrl": "https://github.com/oskarrough",
-     "desc": "A GTA 1 and 3-style game in the streets of Neukölln, from OpenStreetMap with elevation. On foot, by bike or in car, with Polizei, shops to walk into, and radio.",
+     "desc": "A GTA 1-style game in the real streets of Neukölln, from OpenStreetMap and Berlin's elevation model. On foot, by bike or in a stolen car, with a Polizei Wanne on your tail, shops to walk into, and radio.",
      "flags": [
       "own engine"
      ],
