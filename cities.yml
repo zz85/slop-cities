@@ -165,7 +165,17 @@ cities:
             desc: "Riyadh 360: 3D city explorer and virtual tours from OpenStreetMap."
             flags: [own engine]
             screenshot: screenshots/riyadh.jpg
-
+      
+      - city: Tehran
+        country: Iran
+        coords: [35.6997, 51.3380]
+        takes:
+          - play: https://sloptehran.amirrangeryr.workers.dev/
+            source: https://github.com/AmirRangerYr/slop-tehran
+            by: AmirRangerYr
+            desc: "Slop Tehran: Explore western Tehran, including Azadi Square, Ekbatan and Mehrabad Airport."
+            screenshot: screenshots/tehran.jpg
+ 
       - city: Seoul
         country: South Korea
         coords: [37.5665, 126.978]
