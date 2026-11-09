@@ -22,6 +22,7 @@
      "flags": [],
      "screenshot": "screenshots/newyork.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -39,7 +40,8 @@
       "githack"
      ],
      "screenshot": "screenshots/new-york-city-life-simulator.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "Extinction Avenue",
@@ -52,7 +54,8 @@
      "desc": "Arcade dino-outbreak car shooter in Midtown.",
      "flags": [],
      "screenshot": "screenshots/new-york-extinction-avenue.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Film-set studio",
@@ -67,7 +70,8 @@
       "githack"
      ],
      "screenshot": "screenshots/new-york-film-set-studio.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "Flying Car Simulator",
@@ -80,7 +84,8 @@
      "desc": "Fly a Roadster over 1:1 Manhattan with live traffic.",
      "flags": [],
      "screenshot": "screenshots/new-york-flying-car-simulator.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "GEN Z QUANT: Unfinished Business",
@@ -93,7 +98,8 @@
      "desc": "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home.",
      "flags": [],
      "screenshot": "screenshots/new-york-gen-z-quant-unfinished-business.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Handbrake drift",
@@ -108,7 +114,8 @@
       "githack"
      ],
      "screenshot": null,
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "LLM residents",
@@ -122,7 +129,8 @@
       "source only"
      ],
      "screenshot": null,
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Low-end GPU fork",
@@ -135,7 +143,8 @@
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
      "flags": [],
      "screenshot": "screenshots/new-york-low-end-gpu-fork.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Make it anywhere",
@@ -147,7 +156,8 @@
      "desc": "A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.",
      "flags": [],
      "screenshot": "screenshots/new-york-make-it-anywhere.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "NYC Spin-off: EUC Thrills",
@@ -160,7 +170,8 @@
      "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
      "screenshot": "screenshots/new-york-nyc-spin-off-euc-thrills.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "Pocket New York",
@@ -175,7 +186,8 @@
       "WIP"
      ],
      "screenshot": "screenshots/new-york-pocket-new-york.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Real terrain",
@@ -188,7 +200,8 @@
      "desc": "Drives the city over Manhattan's real ground.",
      "flags": [],
      "screenshot": "screenshots/new-york-real-terrain.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Slop New York Mini",
@@ -201,7 +214,8 @@
      "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
      "flags": [],
      "screenshot": "screenshots/new-york-slop-new-york-mini.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Slop Cockroach",
@@ -215,7 +229,8 @@
      "desc": "You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.",
      "flags": [],
      "screenshot": "screenshots/new-york-slop-cockroach.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-11-01"
     },
     {
      "title": "Spider-Man · Slop New York",
@@ -228,7 +243,8 @@
      "desc": "Web-swing through Manhattan on your phone with a one-thumb swinging controller.",
      "flags": [],
      "screenshot": "screenshots/new-york-spider-man-slop-new-york.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Taxi fares",
@@ -241,7 +257,8 @@
      "desc": "Drive taxi fares against the clock.",
      "flags": [],
      "screenshot": "screenshots/new-york-taxi-fares.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "Unity port",
@@ -253,7 +270,8 @@
      "desc": "1:1 port to Unity 6 / URP 17.",
      "flags": [],
      "screenshot": "screenshots/new-york-unity-port.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Valdrada",
@@ -267,7 +285,8 @@
      "desc": "A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.",
      "flags": [],
      "screenshot": "screenshots/new-york-valdrada.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     }
    ],
    "parents": []
@@ -293,6 +312,7 @@
      "flags": [],
      "screenshot": "screenshots/abuja.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -324,6 +344,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -352,6 +373,7 @@
      "flags": [],
      "screenshot": "screenshots/nairobi.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -383,6 +405,7 @@
      ],
      "screenshot": "screenshots/bangkok.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -414,6 +437,7 @@
      ],
      "screenshot": "screenshots/daejeon.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -441,6 +465,7 @@
      "flags": [],
      "screenshot": "screenshots/dubai.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -470,6 +495,7 @@
      "flags": [],
      "screenshot": "screenshots/guangzhou.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -501,6 +527,7 @@
      ],
      "screenshot": "screenshots/hong-kong.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     },
     {
@@ -517,6 +544,7 @@
      ],
      "screenshot": "screenshots/hong-kong-night-patrol.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Night Patrol"
     }
    ],
@@ -548,6 +576,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -577,6 +606,7 @@
      ],
      "screenshot": "screenshots/niseko.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -606,6 +636,7 @@
      ],
      "screenshot": "screenshots/riyadh.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -635,6 +666,7 @@
      ],
      "screenshot": "screenshots/seoul.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -662,6 +694,7 @@
      "flags": [],
      "screenshot": "screenshots/shanghai.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -692,6 +725,7 @@
      "flags": [],
      "screenshot": "screenshots/singapore.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -721,6 +755,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -735,6 +770,7 @@
      "flags": [],
      "screenshot": "screenshots/taipei-hebe13579.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "hebe13579"
     },
     {
@@ -749,6 +785,7 @@
      "flags": [],
      "screenshot": "screenshots/taipei-sc0vu.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "sc0Vu"
     }
    ],
@@ -807,6 +844,7 @@
      "flags": [],
      "screenshot": "screenshots/tokyo-shibuya.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": "Shibuya"
     }
    ],
@@ -836,6 +874,7 @@
      "flags": [],
      "screenshot": "screenshots/wuhan.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -865,6 +904,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -894,6 +934,7 @@
      "flags": [],
      "screenshot": "screenshots/berlin.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -939,6 +980,7 @@
      "flags": [],
      "screenshot": "screenshots/copenhagen.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -968,6 +1010,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -997,6 +1040,7 @@
      "flags": [],
      "screenshot": "screenshots/geneva.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
     }
    ],
@@ -1029,6 +1073,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1058,6 +1103,7 @@
      "flags": [],
      "screenshot": "screenshots/helsinki.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1088,6 +1134,7 @@
      "flags": [],
      "screenshot": "screenshots/kahramanmaras.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1118,6 +1165,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1149,6 +1197,7 @@
      ],
      "screenshot": "screenshots/las-palmas-de-gran-canaria.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1179,6 +1228,7 @@
      ],
      "screenshot": "screenshots/leuven.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1207,6 +1257,7 @@
      "flags": [],
      "screenshot": "screenshots/london.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1223,6 +1274,7 @@
      ],
      "screenshot": "screenshots/london-tiny-london.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": "tiny.london"
     }
    ],
@@ -1252,6 +1304,7 @@
      "flags": [],
      "screenshot": "screenshots/madrid.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1281,6 +1334,7 @@
      "flags": [],
      "screenshot": "screenshots/montreux.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1312,6 +1366,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1341,6 +1396,7 @@
      "flags": [],
      "screenshot": "screenshots/pardubice.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
     }
    ],
@@ -1372,6 +1428,7 @@
      ],
      "screenshot": "screenshots/seville.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1401,6 +1458,7 @@
      ],
      "screenshot": "screenshots/terrassa.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1431,6 +1489,7 @@
      "flags": [],
      "screenshot": "screenshots/utrecht.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1493,6 +1552,7 @@
      ],
      "screenshot": "screenshots/warsaw.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1510,6 +1570,7 @@
      ],
      "screenshot": "screenshots/warsaw-isometric-warsaw.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Isometric Warsaw"
     },
     {
@@ -1526,6 +1587,7 @@
      ],
      "screenshot": "screenshots/warsaw-around-warsaw.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": "Around Warsaw"
     },
     {
@@ -1542,6 +1604,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": "Szczęśliwe Bielany"
     }
    ],
@@ -1570,6 +1633,7 @@
      "flags": [],
      "screenshot": "screenshots/zirndorf.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],
@@ -1600,6 +1664,7 @@
      "flags": [],
      "screenshot": "screenshots/zurich.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1629,6 +1694,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1660,6 +1726,7 @@
      ],
      "screenshot": "screenshots/boston.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1689,6 +1756,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1721,6 +1789,7 @@
      ],
      "screenshot": "screenshots/glens-falls.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1751,6 +1820,7 @@
      "flags": [],
      "screenshot": "screenshots/san-francisco.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1764,6 +1834,7 @@
      "flags": [],
      "screenshot": "screenshots/san-francisco-sweep-sf.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Sweep SF"
     }
    ],
@@ -1793,6 +1864,7 @@
      "flags": [],
      "screenshot": "screenshots/seattle.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -1823,6 +1895,7 @@
      ],
      "screenshot": "screenshots/st-louis.jpg",
      "pick": false,
+     "added": "2026-11-07",
      "tag": null
     }
    ],
@@ -1851,6 +1924,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1881,6 +1955,7 @@
      "flags": [],
      "screenshot": "screenshots/toronto.jpg",
      "pick": true,
+     "added": "2026-11-03",
      "tag": null
     },
     {
@@ -1895,6 +1970,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": "aalghooneh"
     },
     {
@@ -1910,6 +1986,7 @@
      "flags": [],
      "screenshot": "screenshots/toronto-gta-the-6.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": "GTA The 6"
     }
    ],
@@ -1939,6 +2016,7 @@
      "flags": [],
      "screenshot": "screenshots/uruapan.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1967,6 +2045,7 @@
      "flags": [],
      "screenshot": "screenshots/vancouver.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
     }
    ],
@@ -1996,6 +2075,7 @@
      "flags": [],
      "screenshot": "screenshots/sydney.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],
@@ -2025,6 +2105,7 @@
      "flags": [],
      "screenshot": "screenshots/buenosaires.jpg",
      "pick": true,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -2058,6 +2139,7 @@
      ],
      "screenshot": "screenshots/goiania.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -2087,6 +2169,7 @@
      ],
      "screenshot": "screenshots/santa-fe.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],

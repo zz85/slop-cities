@@ -25,8 +25,8 @@ const data = load(readFileSync(ymlPath, 'utf8'));
 const problems = [];
 const where = (s) => (msg) => problems.push(`${s}: ${msg}`);
 const LINKS = ['play', 'source', 'tweet'];
-const TAKE_KEYS = new Set(['tag', 'pick', ...LINKS, 'by', 'by_url', 'desc', 'flags', 'screenshot']);
-const ENTRY_KEYS = new Set(['name', 'pick', ...LINKS, 'by', 'by_url', 'desc', 'flags', 'screenshot', 'card']);
+const TAKE_KEYS = new Set(['tag', 'pick', 'added', ...LINKS, 'by', 'by_url', 'desc', 'flags', 'screenshot']);
+const ENTRY_KEYS = new Set(['name', 'pick', 'added', ...LINKS, 'by', 'by_url', 'desc', 'flags', 'screenshot', 'card']);
 const CITY_KEYS = new Set(['city', 'country', 'region', 'coords', 'remix_of', 'takes']);
 function checkLinks(e, bad) {
   for (const k of [...LINKS, 'by_url']) if (e[k] != null && !/^https?:\/\/\S+$/.test(e[k])) bad(`${k} should be a full http(s) URL, not ${JSON.stringify(e[k])}`);
@@ -35,6 +35,9 @@ function checkLinks(e, bad) {
   if (e.screenshot != null && !existsSync(join(root, e.screenshot))) bad(`screenshot ${e.screenshot} does not exist`);
   if (e.desc != null && typeof e.desc !== 'string') bad('desc should be text');
   if (e.pick != null && typeof e.pick !== 'boolean') bad('pick should be true (or left out)');
+  // YAML reads 2026-11-09 as a date; keep it as the text it was written as.
+  if (e.added instanceof Date) e.added = e.added.toISOString().slice(0, 10);
+  if (!/^\d{4}-\d{2}-\d{2}$/.test(e.added || '')) bad(`needs added, the day it joined the list, like added: ${new Date().toISOString().slice(0, 10)}`);
 }
 function checkCity(c, label) {
   const bad = where(label);
@@ -118,6 +121,7 @@ const mapEntry = (title, e) => ({
   flags: e.flags || [],
   screenshot: e.screenshot || null,
   pick: !!e.pick,
+  added: e.added,
 });
 function places() {
   const all = [[data.original, data.original.region || 'North America', true], ...Object.entries(sorted).flatMap(([r, list]) => list.map((c) => [c, r, false]))];

@@ -23,9 +23,10 @@ To add an entry:
          desc: One-line description.  # Markdown is fine
          flags: [isometric, own engine]
          pick: true                   # one of the list's highlights
+         added: 2026-11-09            # the day it joins the list (UTC)
    ```
 
-   Drop any field you don't have; an entry needs at least one of `play`, `source` or `tweet`. Use `by_url` when the author's link is somewhere else.
+   Every entry needs `added`, the day you add it, which orders the map's What's new list. Drop any other field you don't have; an entry needs at least one of `play`, `source` or `tweet`. Use `by_url` when the author's link is somewhere else.
 
 2. Run the build. It needs Node 18 or later and nothing else:
 

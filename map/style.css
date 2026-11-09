@@ -725,3 +725,22 @@ body:has(.player.tip) .pl-ball .pc-tip { display: block; }
   .fl-paused .fl-gauges { display: none; }
   .fl-toast .fl-on kbd { display: none; }
 }
+
+/* ---------- What's new ---------- */
+.list-tabs { display: flex; gap: 2px; margin: 0 10px 6px; padding: 2px; border-radius: 9px; background: rgba(255, 255, 255, 0.05); }
+.list-tabs button { flex: 1; height: 26px; border-radius: 7px; font-size: 12px; font-weight: 600; color: var(--text-3); transition: background-color 0.15s ease, color 0.15s ease; }
+.list-tabs button:hover { color: var(--text); }
+.list-tabs button[aria-selected="true"] { background: rgba(255, 255, 255, 0.12); color: var(--text); }
+.list-tabs span:not(:empty) { margin-left: 3px; padding: 0 5px; border-radius: 5px; font-size: 10px; font-weight: 700; background: var(--taxi); color: var(--taxi-ink); }
+.list .news button { align-items: center; gap: 10px; padding: 6px 8px; }
+.list .news button::before { display: none; }
+.list .news img, .list .news .noshot { flex: none; width: 52px; height: 32px; border-radius: 5px; object-fit: cover; background: rgba(255, 255, 255, 0.06); }
+.list .news .nw { flex: 1; min-width: 0; display: flex; flex-wrap: wrap; align-items: baseline; column-gap: 6px; }
+.list .news .ct { flex: 0 1 auto; }
+.list .news .kind { flex-basis: 100%; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 11px; font-weight: 600; color: var(--text-3); }
+.list .news .kind.city { color: var(--taxi); }
+.list .news .kind span { font-weight: 450; }
+.list .news button.on .kind { color: rgba(18, 19, 20, 0.6); }
+.list .news button.on .kind.city { color: #8a6500; }
+.list .new-badge { font-size: 9.5px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; padding: 1px 5px; border-radius: 4px; background: var(--taxi); color: var(--taxi-ink); }
+.card .added { margin-left: 2px; font-size: 11px; color: var(--text-3); }

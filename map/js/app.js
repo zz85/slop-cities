@@ -142,7 +142,61 @@ $('#chips').addEventListener('click', (e) => {
   globe?.setFilter(ids);
 });
 
+// ---------- what's new ----------
+// Every take and New York remix, newest first by the day it joined the list
+// (`added` in cities.yml). A city's first take is a new city; a later one, a new take.
+const DAY = 864e5;
+const dayOf = (s) => Date.parse(s + 'T00:00:00Z');
+const today = () => { const d = new Date(); return Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()); };
+const firstAdded = new Map(places.map((p) => [p.id, p.entries.map((e) => e.added).sort()[0]]));
+const news = places.flatMap((p) => [
+  ...p.entries.map((e) => ({ p, e, kind: p.original && e === p.entries[0] ? 'The original' : e.added === firstAdded.get(p.id) && !p.entries.some((x) => x !== e && x.added === e.added && x.order < e.order) ? 'New city' : 'New take' })),
+  ...(p.remixes || []).map((e) => ({ p, e, kind: 'New York remix' })),
+]).filter((x) => x.e.added).sort((a, b) => b.e.added.localeCompare(a.e.added) || a.p.city.localeCompare(b.p.city));
+const isRecent = (s) => today() - dayOf(s) < 7 * DAY;
+const recentCity = (p) => isRecent(firstAdded.get(p.id) || '1970-01-01');
+function dayLabel(s) {
+  const ago = Math.round((today() - dayOf(s)) / DAY);
+  if (ago === 0) return 'Today';
+  if (ago === 1) return 'Yesterday';
+  const d = new Date(dayOf(s)), f = (o) => d.toLocaleDateString('en-GB', { ...o, timeZone: 'UTC' });
+  return `${f({ weekday: 'short' })} ${f({ day: 'numeric' })} ${f({ month: 'short' })}${d.getUTCFullYear() !== new Date().getFullYear() ? ' ' + d.getUTCFullYear() : ''}`;
+}
+let listView = 'region';
+try { if (localStorage.getItem('slop-cities.list-view') === 'new') listView = 'new'; } catch {}
+const nRecent = news.filter((x) => isRecent(x.e.added)).length;
+$('#new-count').textContent = nRecent || '';
+$('#new-count').title = `${nRecent} in the last 7 days`;
+function setListView(v) {
+  listView = v;
+  for (const b of document.querySelectorAll('.list-tabs [data-lv]')) b.setAttribute('aria-selected', String(b.dataset.lv === v));
+  try { localStorage.setItem('slop-cities.list-view', v); } catch {}
+  renderList();
+  $('#list').scrollTop = 0;
+}
+for (const b of document.querySelectorAll('.list-tabs [data-lv]')) b.addEventListener('click', () => setListView(b.dataset.lv));
+function renderNews() {
+  let html = '', day = null;
+  for (const { p, e, kind } of news) {
+    if (!takeMatches(p, e)) continue;
+    if (e.added !== day) {
+      if (day) html += '</ul>';
+      day = e.added;
+      const n = news.filter((x) => x.e.added === day && takeMatches(x.p, x.e)).length;
+      html += `<h3>${esc(dayLabel(day))} <span>${n}</span></h3><ul class="news">`;
+    }
+    const what = kind === 'New York remix' ? e.title : e.tag || (e.author ? 'by ' + e.author : '');
+    html += `<li><button data-id="${p.id}" class="${p.id === state.selected ? 'on' : ''}${p.original ? ' original' : ''}" title="${esc(e.desc)}">
+      ${e.screenshot ? `<img src="../${esc(e.screenshot)}" alt="" loading="lazy">` : '<i class="noshot"></i>'}
+      <span class="nw"><span class="nm">${esc(p.city)}</span><span class="ct">${esc(p.country || '')}</span>
+      <span class="kind ${kind === 'New city' ? 'city' : ''}">${esc(kind)}${what ? ` · <span>${esc(what)}</span>` : ''}</span></span>
+    </button></li>`;
+  }
+  $('#list').innerHTML = day ? html + '</ul>' : '<p class="none">Nothing new matches.</p>';
+}
+
 function renderList() {
+  if (listView === 'new') return renderNews();
   const match = placeMatches;
   let html = '';
   for (const r of REGIONS) {
@@ -154,14 +208,14 @@ function renderList() {
       const n = p.entries.length + (p.remixes?.length || 0);
       const nTitle = p.remixes?.length ? `the original and ${p.remixes.length} remixes` : `${n} takes`;
       html += `<li><button data-id="${p.id}" class="${p.id === state.selected ? 'on' : ''}${p.original ? ' original' : ''}">
-        <span class="nm">${esc(p.city)}</span><span class="ct">${esc(p.country || '')}</span>${p.original ? '<span class="tagline">the original</span>' : ''}${n > 1 ? `<span class="n" title="${nTitle}">${n}</span>` : ''}
+        <span class="nm">${esc(p.city)}</span><span class="ct">${esc(p.country || '')}</span>${p.original ? '<span class="tagline">the original</span>' : ''}${recentCity(p) ? '<span class="new-badge" title="Added in the last 7 days">new</span>' : ''}${n > 1 ? `<span class="n" title="${nTitle}">${n}</span>` : ''}
       </button></li>`;
     }
     html += '</ul>';
   }
   $('#list').innerHTML = html || '<p class="none">No city matches.</p>';
 }
-renderList();
+setListView(listView);
 $('#list').addEventListener('click', (e) => {
   const b = e.target.closest('button[data-id]');
   if (b) bus.emit('select', { id: b.dataset.id, source: 'list' });
@@ -228,7 +282,7 @@ function renderCard(keepScroll) {
     <ul class="takes">${entries.map((e) => `
       <li${rankOf(e) === 0 ? ' class="pick"' : ''}>
         ${e.pick || e.labels.length ? `<div class="labels">${e.pick ? '<span class="label-badge pick">Pick</span>' : ''}${e.labels.map((l) => `<span class="label-badge">${esc(l)}</span>`).join('')}</div>` : ''}
-        <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.status.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}</div>
+        <div class="who">${e.tag ? `<b>${esc(e.tag)}</b> · ` : ''}${e.author ? `by <a href="${esc(e.authorUrl)}" target="_blank" rel="noopener">${esc(e.author)}</a>` : '<i>unknown author</i>'}${e.status.map((f) => ` <span class="flag">${esc(f)}</span>`).join('')}${e.tags.includes('source') && !e.tags.includes('source-only') ? ' <span class="flag open">open source</span>' : ''}${e.added ? ` <span class="added" title="Joined the list ${esc(e.added)}">added ${esc(dayLabel(e.added).replace(/^(Today|Yesterday)$/, (m) => m.toLowerCase()))}</span>` : ''}</div>
         ${e.desc ? `<p>${esc(e.desc)}</p>` : ''}
         <div class="links">${linkBtns(e.links)}</div>
         ${e !== shot ? thumb(e) : ''}
