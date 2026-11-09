@@ -1440,6 +1440,37 @@
    ]
   },
   {
+   "id": "valencia",
+   "city": "València",
+   "country": "Spain",
+   "region": "Europe",
+   "lat": 39.4699,
+   "lon": -0.3763,
+   "original": false,
+   "entries": [
+    {
+     "title": "València, Spain",
+     "links": {
+      "play": "https://yurtarmehmet.github.io/slop-valencia/",
+      "source": "https://github.com/yurtarmehmet/slop-valencia",
+      "tweet": "https://x.com/yurtarmehmet/status/2119748923950514434"
+     },
+     "author": "@yurtarmehmet",
+     "authorUrl": "https://x.com/yurtarmehmet",
+     "desc": "Slop València: Ciutat Vella, the Eixample and Russafa, the Túria gardens, the City of Arts and Sciences and the beaches at 1:1, with every Catastro building at its LiDAR-measured height and the city's 86,000 inventoried trees. On foot, by taxi, bike, scooter or helicopter. Adapted from Slop Barcelona.",
+     "flags": [],
+     "screenshot": "screenshots/valencia.jpg",
+     "pick": false,
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "barcelona"
+   ]
+  },
+  {
    "id": "warsaw",
    "city": "Warsaw",
    "country": "Poland",
