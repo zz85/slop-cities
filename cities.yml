@@ -186,11 +186,12 @@ cities:
         coords: [35.6997, 51.3380]
         takes:
           - play: https://sloptehran.amirrangeryr.workers.dev/
+            added: 2026-11-09
             source: https://github.com/AmirRangerYr/slop-tehran
             by: AmirRangerYr
             desc: "Slop Tehran: Explore western Tehran, including Azadi Square, Ekbatan and Mehrabad Airport."
             screenshot: screenshots/tehran.jpg
- 
+
       - city: Seoul
         country: South Korea
         coords: [37.5665, 126.978]
@@ -273,6 +274,7 @@ cities:
             screenshot: screenshots/berlin.jpg
           - tag: NK GTA
             play: https://nkgta.0sk.ar
+            added: 2026-11-08
             source: https://github.com/oskarrough/nkgta
             by: oskarrough
             desc: A GTA 1-style game in the real streets of Neukölln, from OpenStreetMap and Berlin's elevation model. On foot, by bike or in a stolen car, with a Polizei Wanne on your tail, shops to walk into, and radio.
@@ -473,6 +475,8 @@ cities:
         remix_of: [barcelona]
         takes:
           - play: https://yurtarmehmet.github.io/slop-valencia/
+            added: 2026-11-09
+            pick: true
             source: https://github.com/yurtarmehmet/slop-valencia
             tweet: https://x.com/yurtarmehmet/status/2119748923950514434
             by: "@yurtarmehmet"

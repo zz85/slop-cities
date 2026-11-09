@@ -815,6 +815,7 @@
      "flags": [],
      "screenshot": "screenshots/tehran.jpg",
      "pick": false,
+     "added": "2026-11-09",
      "tag": null
     }
    ],
@@ -951,6 +952,7 @@
      ],
      "screenshot": "screenshots/berlin-nk-gta.jpg",
      "pick": false,
+     "added": "2026-11-08",
      "tag": "NK GTA"
     }
    ],
@@ -1519,7 +1521,8 @@
      "desc": "Slop València: Ciutat Vella, the Eixample and Russafa, the Túria gardens, the City of Arts and Sciences and the beaches at 1:1, with every Catastro building at its LiDAR-measured height and the city's 86,000 inventoried trees. On foot, by taxi, bike, scooter or helicopter. Adapted from Slop Barcelona.",
      "flags": [],
      "screenshot": "screenshots/valencia.jpg",
-     "pick": false,
+     "pick": true,
+     "added": "2026-11-09",
      "tag": null
     }
    ],
