@@ -417,6 +417,18 @@ cities:
             desc: Domtoren, Oudegracht and Centraal Station, now with a cargo-bike (bakfiets) mode.
             screenshot: screenshots/utrecht.jpg
 
+      - city: València
+        country: Spain
+        coords: [39.4699, -0.3763]
+        remix_of: [barcelona]
+        takes:
+          - play: https://yurtarmehmet.github.io/slop-valencia/
+            source: https://github.com/yurtarmehmet/slop-valencia
+            tweet: https://x.com/yurtarmehmet/status/2119748923950514434
+            by: "@yurtarmehmet"
+            desc: "Slop València: Ciutat Vella, the Eixample and Russafa, the Túria gardens, the City of Arts and Sciences and the beaches at 1:1, with every Catastro building at its LiDAR-measured height and the city's 86,000 inventoried trees. On foot, by taxi, bike, scooter or helicopter. Adapted from Slop Barcelona."
+            screenshot: screenshots/valencia.jpg
+
       - city: Warsaw
         country: Poland
         coords: [52.2297, 21.0122]
