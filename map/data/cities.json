@@ -322,6 +322,36 @@
    ]
   },
   {
+   "id": "harare",
+   "city": "Harare",
+   "country": "Zimbabwe",
+   "region": "Africa",
+   "lat": -17.8292,
+   "lon": 31.0522,
+   "original": false,
+   "entries": [
+    {
+     "title": "Harare, Zimbabwe",
+     "links": {
+      "play": "https://simandebvu.github.io/harare/",
+      "source": "https://github.com/simandebvu/harare"
+     },
+     "author": "simandebvu",
+     "authorUrl": "https://github.com/simandebvu",
+     "desc": "Slop Harare: the city centre from OpenStreetMap. Walk past vendors and touts, drive a kombi (on the left) and pick up fares, or fly a supply drop over the rooftops. Inspired by Slop New York, with no code reused.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/harare.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
    "id": "kaduna",
    "city": "Kaduna",
    "country": "Nigeria",
@@ -668,10 +698,29 @@
      "pick": false,
      "added": "2026-10-29",
      "tag": null
+    },
+    {
+     "title": "Seoul, South Korea (Teheran-ro)",
+     "links": {
+      "play": "https://raw.githack.com/edumgt/Slop-Seoul/main/index.html",
+      "source": "https://github.com/edumgt/Slop-Seoul"
+     },
+     "author": "edumgt",
+     "authorUrl": "https://github.com/edumgt",
+     "desc": "Slop Seoul: Gangnam's Teheran-ro, the city's finance and IT corridor, with more than 110,000 buildings, by Seoul taxi, Ttareungyi bike or helicopter.",
+     "flags": [
+      "githack"
+     ],
+     "screenshot": "screenshots/seoul-teheran-ro.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "Teheran-ro"
     }
    ],
    "remixes": [],
-   "parents": []
+   "parents": [
+    "new-york"
+   ]
   },
   {
    "id": "shanghai",
@@ -1689,13 +1738,14 @@
      "title": "Ann Arbor, USA",
      "links": {
       "play": "https://mrubens.github.io/go-to-ann-arbor/",
-      "source": "https://github.com/mrubens/go-to-ann-arbor"
+      "source": "https://github.com/mrubens/go-to-ann-arbor",
+      "tweet": "https://x.com/mattrubens/status/2118905256759513332"
      },
      "author": "mrubens",
      "authorUrl": "https://github.com/mrubens",
-     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter.",
+     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter. \"Grand Theft Ann Arbor before GTA 6.\"",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/ann-arbor.jpg",
      "pick": false,
      "added": "2026-11-01",
      "tag": null
@@ -1735,6 +1785,37 @@
    ],
    "remixes": [],
    "parents": []
+  },
+  {
+   "id": "calgary",
+   "city": "Calgary",
+   "country": "Canada",
+   "region": "North America",
+   "lat": 51.0447,
+   "lon": -114.0719,
+   "original": false,
+   "entries": [
+    {
+     "title": "Calgary, Canada",
+     "links": {
+      "play": "https://slop-calgary.edwinzhang.com",
+      "source": "https://github.com/edwinzhng/slop-calgary",
+      "tweet": "https://x.com/edwinzhng/status/2119695745465085952"
+     },
+     "author": "@edwinzhng",
+     "authorUrl": "https://x.com/edwinzhng",
+     "desc": "Slop Calgary: walk, run, bike, drive or fly through downtown, East Village, Kensington and Sunnyside, and Mission, with the Peace Bridge over the Bow.",
+     "flags": [],
+     "screenshot": "screenshots/calgary.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
   },
   {
    "id": "ciudad-obregon",
@@ -1839,6 +1920,23 @@
      "pick": false,
      "added": "2026-10-26",
      "tag": "Sweep SF"
+    },
+    {
+     "title": "San Francisco, USA (EUC Thrills)",
+     "links": {
+      "play": "https://vibezzzcoder.github.io/euc-sanfrancisco/",
+      "source": "https://github.com/VibezZzCoder/euc-sanfrancisco"
+     },
+     "author": "VibezZzCoder",
+     "authorUrl": "https://github.com/VibezZzCoder",
+     "desc": "SF Spin-off: EUC Thrills: ride an electric unicycle across San Francisco, over the Golden Gate Bridge, with the riding physics of EUC Thrills. Early access.",
+     "flags": [
+      "WIP"
+     ],
+     "screenshot": "screenshots/san-francisco-euc-thrills.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "EUC Thrills"
     }
    ],
    "remixes": [],
@@ -2050,6 +2148,24 @@
      "pick": false,
      "added": "2026-11-05",
      "tag": null
+    },
+    {
+     "title": "Vancouver, Canada (Vancouver in code)",
+     "links": {
+      "play": "https://vancouver.borodutch.com",
+      "source": "https://github.com/backmeupplz/vancouver"
+     },
+     "author": "backmeupplz",
+     "authorUrl": "https://github.com/backmeupplz",
+     "desc": "The whole Lower Mainland, from the Strait of Georgia to Port Coquitlam and from White Rock to the North Shore mountains, drawn in code from open data at real elevations. Inspired by Isometric Vancouver.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/vancouver-vancouver-in-code.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "Vancouver in code"
     }
    ],
    "remixes": [],

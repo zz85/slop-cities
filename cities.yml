@@ -46,6 +46,18 @@ cities:
             desc: "Kaduna Need for Speed: a Cybertruck around a low-poly Kaduna circuit, borrowing Slop New York's car physics and chase camera."
             flags: [own engine]
 
+      - city: Harare
+        country: Zimbabwe
+        coords: [-17.8292, 31.0522]
+        takes:
+          - play: https://simandebvu.github.io/harare/
+            added: 2026-11-10
+            source: https://github.com/simandebvu/harare
+            by: simandebvu
+            desc: "Slop Harare: the city centre from OpenStreetMap. Walk past vendors and touts, drive a kombi (on the left) and pick up fares, or fly a supply drop over the rooftops. Inspired by Slop New York, with no code reused."
+            flags: [own engine]
+            screenshot: screenshots/harare.jpg
+
       - city: Nairobi
         country: Kenya
         coords: [-1.2864, 36.8172]
@@ -202,6 +214,14 @@ cities:
             desc: "HypeSeoul: all of Seoul (603 km²) as one isometric painting, repainted tile by tile by a fine-tuned image model from a three.js render of OSM and building-register data. A three.js layer on top runs day and night on Seoul time, and subway Lines 1–3 and Gyeongui–Jungang follow the city's live train-position feed (a few minutes behind)."
             flags: [isometric, own engine]
             screenshot: screenshots/seoul.jpg
+          - tag: Teheran-ro
+            play: https://raw.githack.com/edumgt/Slop-Seoul/main/index.html
+            added: 2026-11-10
+            source: https://github.com/edumgt/Slop-Seoul
+            by: edumgt
+            desc: "Slop Seoul: Gangnam's Teheran-ro, the city's finance and IT corridor, with more than 110,000 buildings, by Seoul taxi, Ttareungyi bike or helicopter."
+            flags: [githack]
+            screenshot: screenshots/seoul-teheran-ro.jpg
 
       - city: Shanghai
         country: China
@@ -553,6 +573,18 @@ cities:
             screenshot: screenshots/zirndorf.jpg
 
     North America:
+      - city: Calgary
+        country: Canada
+        coords: [51.0447, -114.0719]
+        takes:
+          - play: https://slop-calgary.edwinzhang.com
+            added: 2026-11-10
+            source: https://github.com/edwinzhng/slop-calgary
+            tweet: https://x.com/edwinzhng/status/2119695745465085952
+            by: "@edwinzhng"
+            desc: "Slop Calgary: walk, run, bike, drive or fly through downtown, East Village, Kensington and Sunnyside, and Mission, with the Peace Bridge over the Bow."
+            screenshot: screenshots/calgary.jpg
+
       - city: Ciudad Obregón
         country: Mexico
         coords: [27.4828, -109.9304]
@@ -571,8 +603,10 @@ cities:
           - play: https://mrubens.github.io/go-to-ann-arbor/
             added: 2026-11-01
             source: https://github.com/mrubens/go-to-ann-arbor
+            tweet: https://x.com/mattrubens/status/2118905256759513332
             by: mrubens
-            desc: "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter."
+            desc: "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter. \"Grand Theft Ann Arbor before GTA 6.\""
+            screenshot: screenshots/ann-arbor.jpg
 
       - city: Boston
         country: USA
@@ -613,6 +647,14 @@ cities:
             play: https://sweepsf.nicolas.dev/
             added: 2026-10-26
             screenshot: screenshots/san-francisco-sweep-sf.jpg
+          - tag: EUC Thrills
+            play: https://vibezzzcoder.github.io/euc-sanfrancisco/
+            added: 2026-11-10
+            source: https://github.com/VibezZzCoder/euc-sanfrancisco
+            by: VibezZzCoder
+            desc: "SF Spin-off: EUC Thrills: ride an electric unicycle across San Francisco, over the Golden Gate Bridge, with the riding physics of EUC Thrills. Early access."
+            flags: [WIP]
+            screenshot: screenshots/san-francisco-euc-thrills.jpg
 
       - city: Seattle
         country: USA
@@ -657,6 +699,14 @@ cities:
             by_url: https://github.com/slopcouver
             desc: "Slopcouver: explore downtown Vancouver, Stanley Park and False Creek on foot, by bike, by car, by kayak or from the air."
             screenshot: screenshots/vancouver.jpg
+          - tag: Vancouver in code
+            play: https://vancouver.borodutch.com
+            added: 2026-11-10
+            source: https://github.com/backmeupplz/vancouver
+            by: backmeupplz
+            desc: "The whole Lower Mainland, from the Strait of Georgia to Port Coquitlam and from White Rock to the North Shore mountains, drawn in code from open data at real elevations. Inspired by Isometric Vancouver."
+            flags: [isometric, own engine]
+            screenshot: screenshots/vancouver-vancouver-in-code.jpg
 
       - city: Toronto
         country: Canada
