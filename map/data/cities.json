@@ -1457,6 +1457,37 @@
    ]
   },
   {
+   "id": "paris",
+   "city": "Paris",
+   "country": "France",
+   "region": "Europe",
+   "lat": 48.8566,
+   "lon": 2.3522,
+   "original": false,
+   "entries": [
+    {
+     "title": "Paris, France",
+     "links": {
+      "play": "https://postcardroads.com/paris",
+      "tweet": "https://x.com/remivalade/status/2119889156817952803"
+     },
+     "author": "@remivalade",
+     "authorUrl": "https://x.com/remivalade",
+     "desc": "Isometric Paris: everything inside the A86 (382 km²) as one zoomable 3D picture, with dozens of hand-modelled landmarks, from OpenStreetMap, IGN and Mapterhorn. Zoom in and the streets come alive with live traffic and people.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/paris.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
    "id": "seville",
    "city": "Seville",
    "country": "Spain",

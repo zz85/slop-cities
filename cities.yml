@@ -442,6 +442,18 @@ cities:
             desc: "Slop Pardubice: start on foot at Zelená brána, then walk, cycle, drive or fly through the old town, the castle grounds and along třída Míru."
             screenshot: screenshots/pardubice.jpg
 
+      - city: Paris
+        country: France
+        coords: [48.8566, 2.3522]
+        takes:
+          - play: https://postcardroads.com/paris
+            added: 2026-11-10
+            tweet: https://x.com/remivalade/status/2119889156817952803
+            by: "@remivalade"
+            desc: "Isometric Paris: everything inside the A86 (382 km²) as one zoomable 3D picture, with dozens of hand-modelled landmarks, from OpenStreetMap, IGN and Mapterhorn. Zoom in and the streets come alive with live traffic and people."
+            flags: [isometric, own engine]
+            screenshot: screenshots/paris.jpg
+
       - city: Oslo
         country: Norway
         coords: [59.9139, 10.7522]
