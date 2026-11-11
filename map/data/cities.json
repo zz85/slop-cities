@@ -22,6 +22,7 @@
      "flags": [],
      "screenshot": "screenshots/newyork.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -39,7 +40,8 @@
       "githack"
      ],
      "screenshot": "screenshots/new-york-city-life-simulator.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "Extinction Avenue",
@@ -52,7 +54,8 @@
      "desc": "Arcade dino-outbreak car shooter in Midtown.",
      "flags": [],
      "screenshot": "screenshots/new-york-extinction-avenue.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Film-set studio",
@@ -67,7 +70,8 @@
       "githack"
      ],
      "screenshot": "screenshots/new-york-film-set-studio.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "Flying Car Simulator",
@@ -80,7 +84,8 @@
      "desc": "Fly a Roadster over 1:1 Manhattan with live traffic.",
      "flags": [],
      "screenshot": "screenshots/new-york-flying-car-simulator.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "GEN Z QUANT: Unfinished Business",
@@ -93,7 +98,8 @@
      "desc": "Open-world mission game: drive a rocket-boosted supercar through Manhattan, fight the Degens and get the dog Moon home.",
      "flags": [],
      "screenshot": "screenshots/new-york-gen-z-quant-unfinished-business.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Handbrake drift",
@@ -108,7 +114,8 @@
       "githack"
      ],
      "screenshot": null,
-     "pick": false
+     "pick": false,
+     "added": "2026-10-30"
     },
     {
      "title": "LLM residents",
@@ -122,7 +129,8 @@
       "source only"
      ],
      "screenshot": null,
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Low-end GPU fork",
@@ -135,7 +143,8 @@
      "desc": "Performance rewrite for weak GPUs and browsers without WebGPU.",
      "flags": [],
      "screenshot": "screenshots/new-york-low-end-gpu-fork.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Make it anywhere",
@@ -147,7 +156,8 @@
      "desc": "A live Times Square where you can take over a billboard screen with your own ad (paid, from 1 EUR). Built on the phone mode from Slop New York Mini.",
      "flags": [],
      "screenshot": "screenshots/new-york-make-it-anywhere.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "NYC Spin-off: EUC Thrills",
@@ -160,7 +170,8 @@
      "desc": "Ride an electric unicycle through Manhattan with EUC Thrills riding physics while dodging a paddle-wielding cop.",
      "flags": [],
      "screenshot": "screenshots/new-york-nyc-spin-off-euc-thrills.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "Pocket New York",
@@ -175,7 +186,8 @@
       "WIP"
      ],
      "screenshot": "screenshots/new-york-pocket-new-york.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Real terrain",
@@ -188,7 +200,8 @@
      "desc": "Drives the city over Manhattan's real ground.",
      "flags": [],
      "screenshot": "screenshots/new-york-real-terrain.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Slop New York Mini",
@@ -201,7 +214,8 @@
      "desc": "Runs on an iPhone: Midtown at 60 fps. Desktop gets the original; ?phone forces phone mode.",
      "flags": [],
      "screenshot": "screenshots/new-york-slop-new-york-mini.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Slop Cockroach",
@@ -215,7 +229,8 @@
      "desc": "You're a 4 cm cockroach in a full-size Manhattan. Climb walls, poles and people, ride car roofs, and after a red crumb grow to the size of a car for 30 seconds.",
      "flags": [],
      "screenshot": "screenshots/new-york-slop-cockroach.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-11-01"
     },
     {
      "title": "Spider-Man · Slop New York",
@@ -228,7 +243,8 @@
      "desc": "Web-swing through Manhattan on your phone with a one-thumb swinging controller.",
      "flags": [],
      "screenshot": "screenshots/new-york-spider-man-slop-new-york.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     },
     {
      "title": "Taxi fares",
@@ -241,7 +257,8 @@
      "desc": "Drive taxi fares against the clock.",
      "flags": [],
      "screenshot": "screenshots/new-york-taxi-fares.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-27"
     },
     {
      "title": "Unity port",
@@ -253,7 +270,8 @@
      "desc": "1:1 port to Unity 6 / URP 17.",
      "flags": [],
      "screenshot": "screenshots/new-york-unity-port.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-26"
     },
     {
      "title": "Valdrada",
@@ -267,7 +285,8 @@
      "desc": "A real-time New York digital twin from public records, with Unreal Engine 5 and three.js renderers, lane-level traffic and pedestrians, and a CARLA-style API for simulation and synthetic data. Predates Slop New York.",
      "flags": [],
      "screenshot": "screenshots/new-york-valdrada.jpg",
-     "pick": false
+     "pick": false,
+     "added": "2026-10-29"
     }
    ],
    "parents": []
@@ -293,6 +312,7 @@
      "flags": [],
      "screenshot": "screenshots/abuja.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -300,6 +320,36 @@
    "parents": [
     "new-york"
    ]
+  },
+  {
+   "id": "harare",
+   "city": "Harare",
+   "country": "Zimbabwe",
+   "region": "Africa",
+   "lat": -17.8292,
+   "lon": 31.0522,
+   "original": false,
+   "entries": [
+    {
+     "title": "Harare, Zimbabwe",
+     "links": {
+      "play": "https://simandebvu.github.io/harare/",
+      "source": "https://github.com/simandebvu/harare"
+     },
+     "author": "simandebvu",
+     "authorUrl": "https://github.com/simandebvu",
+     "desc": "Slop Harare: the city centre from OpenStreetMap. Walk past vendors and touts, drive a kombi (on the left) and pick up fares, or fly a supply drop over the rooftops. Inspired by Slop New York, with no code reused.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/harare.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": []
   },
   {
    "id": "kaduna",
@@ -324,6 +374,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -352,6 +403,7 @@
      "flags": [],
      "screenshot": "screenshots/nairobi.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -383,6 +435,7 @@
      ],
      "screenshot": "screenshots/bangkok.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -414,6 +467,7 @@
      ],
      "screenshot": "screenshots/daejeon.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -441,6 +495,7 @@
      "flags": [],
      "screenshot": "screenshots/dubai.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -470,6 +525,7 @@
      "flags": [],
      "screenshot": "screenshots/guangzhou.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -501,6 +557,7 @@
      ],
      "screenshot": "screenshots/hong-kong.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     },
     {
@@ -517,6 +574,7 @@
      ],
      "screenshot": "screenshots/hong-kong-night-patrol.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Night Patrol"
     }
    ],
@@ -548,6 +606,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -577,6 +636,7 @@
      ],
      "screenshot": "screenshots/niseko.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -606,6 +666,7 @@
      ],
      "screenshot": "screenshots/riyadh.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -635,11 +696,31 @@
      ],
      "screenshot": "screenshots/seoul.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
+    },
+    {
+     "title": "Seoul, South Korea (Teheran-ro)",
+     "links": {
+      "play": "https://raw.githack.com/edumgt/Slop-Seoul/main/index.html",
+      "source": "https://github.com/edumgt/Slop-Seoul"
+     },
+     "author": "edumgt",
+     "authorUrl": "https://github.com/edumgt",
+     "desc": "Slop Seoul: Gangnam's Teheran-ro, the city's finance and IT corridor, with more than 110,000 buildings, by Seoul taxi, Ttareungyi bike or helicopter.",
+     "flags": [
+      "githack"
+     ],
+     "screenshot": "screenshots/seoul-teheran-ro.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "Teheran-ro"
     }
    ],
    "remixes": [],
-   "parents": []
+   "parents": [
+    "new-york"
+   ]
   },
   {
    "id": "shanghai",
@@ -662,6 +743,7 @@
      "flags": [],
      "screenshot": "screenshots/shanghai.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -692,6 +774,7 @@
      "flags": [],
      "screenshot": "screenshots/singapore.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -721,6 +804,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -735,6 +819,7 @@
      "flags": [],
      "screenshot": "screenshots/taipei-hebe13579.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "hebe13579"
     },
     {
@@ -749,6 +834,7 @@
      "flags": [],
      "screenshot": "screenshots/taipei-sc0vu.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "sc0Vu"
     }
    ],
@@ -778,6 +864,7 @@
      "flags": [],
      "screenshot": "screenshots/tehran.jpg",
      "pick": false,
+     "added": "2026-11-09",
      "tag": null
     }
    ],
@@ -807,6 +894,7 @@
      "flags": [],
      "screenshot": "screenshots/tokyo-shibuya.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": "Shibuya"
     }
    ],
@@ -836,6 +924,7 @@
      "flags": [],
      "screenshot": "screenshots/wuhan.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -865,6 +954,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -894,6 +984,7 @@
      "flags": [],
      "screenshot": "screenshots/berlin.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -910,6 +1001,7 @@
      ],
      "screenshot": "screenshots/berlin-nk-gta.jpg",
      "pick": false,
+     "added": "2026-11-08",
      "tag": "NK GTA"
     }
    ],
@@ -939,6 +1031,7 @@
      "flags": [],
      "screenshot": "screenshots/copenhagen.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -968,6 +1061,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -997,6 +1091,7 @@
      "flags": [],
      "screenshot": "screenshots/geneva.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
     }
    ],
@@ -1029,6 +1124,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1058,6 +1154,7 @@
      "flags": [],
      "screenshot": "screenshots/helsinki.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1088,6 +1185,7 @@
      "flags": [],
      "screenshot": "screenshots/kahramanmaras.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1118,6 +1216,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1149,6 +1248,7 @@
      ],
      "screenshot": "screenshots/las-palmas-de-gran-canaria.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1179,6 +1279,7 @@
      ],
      "screenshot": "screenshots/leuven.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1207,6 +1308,7 @@
      "flags": [],
      "screenshot": "screenshots/london.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1223,6 +1325,7 @@
      ],
      "screenshot": "screenshots/london-tiny-london.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": "tiny.london"
     }
    ],
@@ -1252,6 +1355,7 @@
      "flags": [],
      "screenshot": "screenshots/madrid.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1281,6 +1385,7 @@
      "flags": [],
      "screenshot": "screenshots/montreux.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1312,6 +1417,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1341,6 +1447,7 @@
      "flags": [],
      "screenshot": "screenshots/pardubice.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
     }
    ],
@@ -1372,6 +1479,7 @@
      ],
      "screenshot": "screenshots/seville.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1401,6 +1509,7 @@
      ],
      "screenshot": "screenshots/terrassa.jpg",
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1431,6 +1540,7 @@
      "flags": [],
      "screenshot": "screenshots/utrecht.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1460,7 +1570,8 @@
      "desc": "Slop València: Ciutat Vella, the Eixample and Russafa, the Túria gardens, the City of Arts and Sciences and the beaches at 1:1, with every Catastro building at its LiDAR-measured height and the city's 86,000 inventoried trees. On foot, by taxi, bike, scooter or helicopter. Adapted from Slop Barcelona.",
      "flags": [],
      "screenshot": "screenshots/valencia.jpg",
-     "pick": false,
+     "pick": true,
+     "added": "2026-11-09",
      "tag": null
     }
    ],
@@ -1493,6 +1604,7 @@
      ],
      "screenshot": "screenshots/warsaw.jpg",
      "pick": true,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1510,6 +1622,7 @@
      ],
      "screenshot": "screenshots/warsaw-isometric-warsaw.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Isometric Warsaw"
     },
     {
@@ -1526,6 +1639,7 @@
      ],
      "screenshot": "screenshots/warsaw-around-warsaw.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": "Around Warsaw"
     },
     {
@@ -1542,6 +1656,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": "Szczęśliwe Bielany"
     }
    ],
@@ -1570,6 +1685,7 @@
      "flags": [],
      "screenshot": "screenshots/zirndorf.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],
@@ -1600,6 +1716,7 @@
      "flags": [],
      "screenshot": "screenshots/zurich.jpg",
      "pick": false,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -1621,14 +1738,16 @@
      "title": "Ann Arbor, USA",
      "links": {
       "play": "https://mrubens.github.io/go-to-ann-arbor/",
-      "source": "https://github.com/mrubens/go-to-ann-arbor"
+      "source": "https://github.com/mrubens/go-to-ann-arbor",
+      "tweet": "https://x.com/mattrubens/status/2118905256759513332"
      },
      "author": "mrubens",
      "authorUrl": "https://github.com/mrubens",
-     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter.",
+     "desc": "Go To Ann Arbor: explore Ann Arbor, Michigan in 3D on foot, by car, by bike or by helicopter. \"Grand Theft Ann Arbor before GTA 6.\"",
      "flags": [],
-     "screenshot": null,
+     "screenshot": "screenshots/ann-arbor.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1660,11 +1779,43 @@
      ],
      "screenshot": "screenshots/boston.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
    "remixes": [],
    "parents": []
+  },
+  {
+   "id": "calgary",
+   "city": "Calgary",
+   "country": "Canada",
+   "region": "North America",
+   "lat": 51.0447,
+   "lon": -114.0719,
+   "original": false,
+   "entries": [
+    {
+     "title": "Calgary, Canada",
+     "links": {
+      "play": "https://slop-calgary.edwinzhang.com",
+      "source": "https://github.com/edwinzhng/slop-calgary",
+      "tweet": "https://x.com/edwinzhng/status/2119695745465085952"
+     },
+     "author": "@edwinzhng",
+     "authorUrl": "https://x.com/edwinzhng",
+     "desc": "Slop Calgary: walk, run, bike, drive or fly through downtown, East Village, Kensington and Sunnyside, and Mission, with the Peace Bridge over the Bow.",
+     "flags": [],
+     "screenshot": "screenshots/calgary.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
   },
   {
    "id": "ciudad-obregon",
@@ -1689,6 +1840,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-30",
      "tag": null
     }
    ],
@@ -1718,6 +1870,7 @@
      "flags": [],
      "screenshot": "screenshots/glens-falls.jpg",
      "pick": false,
+     "added": "2026-11-01",
      "tag": null
     }
    ],
@@ -1748,6 +1901,7 @@
      "flags": [],
      "screenshot": "screenshots/san-francisco.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     },
     {
@@ -1761,7 +1915,25 @@
      "flags": [],
      "screenshot": "screenshots/san-francisco-sweep-sf.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": "Sweep SF"
+    },
+    {
+     "title": "San Francisco, USA (EUC Thrills)",
+     "links": {
+      "play": "https://vibezzzcoder.github.io/euc-sanfrancisco/",
+      "source": "https://github.com/VibezZzCoder/euc-sanfrancisco"
+     },
+     "author": "VibezZzCoder",
+     "authorUrl": "https://github.com/VibezZzCoder",
+     "desc": "SF Spin-off: EUC Thrills: ride an electric unicycle across San Francisco, over the Golden Gate Bridge, with the riding physics of EUC Thrills. Early access.",
+     "flags": [
+      "WIP"
+     ],
+     "screenshot": "screenshots/san-francisco-euc-thrills.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "EUC Thrills"
     }
    ],
    "remixes": [],
@@ -1790,6 +1962,7 @@
      "flags": [],
      "screenshot": "screenshots/seattle.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -1820,6 +1993,7 @@
      ],
      "screenshot": "screenshots/st-louis.jpg",
      "pick": false,
+     "added": "2026-11-07",
      "tag": null
     }
    ],
@@ -1848,6 +2022,7 @@
      ],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1878,6 +2053,7 @@
      "flags": [],
      "screenshot": "screenshots/toronto.jpg",
      "pick": true,
+     "added": "2026-11-03",
      "tag": null
     },
     {
@@ -1892,6 +2068,7 @@
      "flags": [],
      "screenshot": null,
      "pick": false,
+     "added": "2026-10-26",
      "tag": "aalghooneh"
     },
     {
@@ -1907,6 +2084,7 @@
      "flags": [],
      "screenshot": "screenshots/toronto-gta-the-6.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": "GTA The 6"
     }
    ],
@@ -1936,6 +2114,7 @@
      "flags": [],
      "screenshot": "screenshots/uruapan.jpg",
      "pick": false,
+     "added": "2026-10-26",
      "tag": null
     }
    ],
@@ -1964,7 +2143,26 @@
      "flags": [],
      "screenshot": "screenshots/vancouver.jpg",
      "pick": false,
+     "added": "2026-11-05",
      "tag": null
+    },
+    {
+     "title": "Vancouver, Canada (Vancouver in code)",
+     "links": {
+      "play": "https://vancouver.borodutch.com",
+      "source": "https://github.com/backmeupplz/vancouver"
+     },
+     "author": "backmeupplz",
+     "authorUrl": "https://github.com/backmeupplz",
+     "desc": "The whole Lower Mainland, from the Strait of Georgia to Port Coquitlam and from White Rock to the North Shore mountains, drawn in code from open data at real elevations. Inspired by Isometric Vancouver.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/vancouver-vancouver-in-code.jpg",
+     "pick": false,
+     "added": "2026-11-10",
+     "tag": "Vancouver in code"
     }
    ],
    "remixes": [],
@@ -1993,6 +2191,7 @@
      "flags": [],
      "screenshot": "screenshots/sydney.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],
@@ -2022,6 +2221,7 @@
      "flags": [],
      "screenshot": "screenshots/buenosaires.jpg",
      "pick": true,
+     "added": "2026-10-27",
      "tag": null
     }
    ],
@@ -2055,6 +2255,7 @@
      ],
      "screenshot": "screenshots/goiania.jpg",
      "pick": false,
+     "added": "2026-10-29",
      "tag": null
     }
    ],
@@ -2084,6 +2285,7 @@
      ],
      "screenshot": "screenshots/santa-fe.jpg",
      "pick": false,
+     "added": "2026-11-03",
      "tag": null
     }
    ],
