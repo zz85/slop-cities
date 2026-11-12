@@ -271,6 +271,17 @@ cities:
 
 
     Europe:
+      - city: Paris
+        country: France
+        coords: [48.8566, 2.3522]
+        takes:
+          - play: https://petitparis.app/
+            added: 2026-11-12
+            by: "@pierbapt"
+            desc: "Petit Paris: explore a detailed 3D miniature of Paris by car or plane, with day/night lighting and multiplayer. Built with Three.js and real geographic data, inspired by Pixel Singapore."
+            flags: [own engine]
+            screenshot: screenshots/paris-petit-paris.jpg
+
       - city: Barcelona
         country: Spain
         coords: [41.3874, 2.1686]

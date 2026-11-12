@@ -6,5 +6,9 @@
  {
   "url": "https://huggingface.co/spaces/mehmetkeremturkcan/valdrada",
   "why": "X-Frame-Options: deny"
+ },
+ {
+  "url": "https://slop-calgary.edwinzhang.com",
+  "why": "X-Frame-Options: deny"
  }
 ]
