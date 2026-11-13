@@ -745,6 +745,17 @@ cities:
             screenshot: screenshots/uruapan.jpg
 
     Oceania:
+      - city: Auckland
+        country: New Zealand
+        coords: [-36.8485, 174.7622]
+        takes:
+          - play: https://pengqianhan.github.io/slop-auckland/
+            added: 2026-11-13
+            source: https://github.com/pengqianhan/slop-auckland
+            by: pengqianhan
+            desc: "Slop Auckland: the central city from Ponsonby to Parnell and Newmarket on its real LiDAR relief, with the motorways in their cuttings and on their viaducts. Walk, drive (on the left), cycle or fly from the Sky Tower over the Harbour Bridge, or take to the air as a kiwi."
+            screenshot: screenshots/auckland.jpg
+
       - city: Sydney
         country: Australia
         coords: [-33.8688, 151.2093]
