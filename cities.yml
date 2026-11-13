@@ -624,12 +624,11 @@ cities:
         country: USA
         coords: [43.3095, -73.6440]
         takes:
-          - play: https://raw.githack.com/strapcat/slop-glens-falls/main/index.html?city=glensfalls
+          - play: https://strapcat.github.io/slop-glens-falls/?city=glensfalls
             added: 2026-11-01
             source: https://github.com/strapcat/slop-glens-falls
             by: strapcat
-            desc: "Slop Glens Falls: downtown Glens Falls, New York, from OSM footprints, with cars, pedestrians on the sidewalks and working traffic signals."
-            flags: [githack, WIP]
+            desc: "Slop Glens Falls: Glens Falls and South Glens Falls, New York, inspired by 1993. Real USGS terrain, about 78,000 trees placed from LiDAR, landmark buildings at measured heights, and Crandall Park trails with a Thrill Hill bonfire party at night. Drive, cycle, walk or fly a helicopter."
             screenshot: screenshots/glens-falls.jpg
 
       - city: San Francisco
