@@ -168,6 +168,7 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 
 ### Oceania
 
+- **Auckland, New Zealand** - [Play](https://pengqianhan.github.io/slop-auckland/) · [Source](https://github.com/pengqianhan/slop-auckland) - by [pengqianhan](https://github.com/pengqianhan). Slop Auckland: the central city from Ponsonby to Parnell and Newmarket on its real LiDAR relief, with the motorways in their cuttings and on their viaducts. Walk, drive (on the left), cycle or fly from the Sky Tower over the Harbour Bridge, or take to the air as a kiwi.
 - **Sydney, Australia** - [Play](https://syd.maize.live) · [Source](https://github.com/doublependu/m-sydney) - by [@RadWebGame](https://x.com/RadWebGame). Slop Sydney: drive over the Harbour Bridge, walk the CBD, cycle the foreshore or fly around the Opera House, with the city loaded in tiles so more of it fits in less memory.
 
 ### South America
