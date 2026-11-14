@@ -234,6 +234,18 @@ cities:
             desc: "Shanghai Roam: the Huangpu, the Bund and Lujiazui."
             screenshot: screenshots/shanghai.jpg
 
+      - city: Shenzhen
+        country: China
+        coords: [22.5463, 114.0545]
+        takes:
+          - play: https://slop.sztechsafari.com/
+            added: 2026-11-14
+            source: https://github.com/skyh24/slop-shenzhen
+            by: skyh24
+            desc: "Slop Shenzhen: a 1:1, geographically grounded WebGPU city centered on Nanshan and Futian, exploring Shenzhen's technology skyline from DJI Sky City and Tencent Seafront Towers to Ping An Finance Center and China Resources Tower. Walk, cycle the Shenzhen Bay waterfront, drive with route planning and cruise control, or fly a quadrotor. Orbit landmarks in 360°, take aerial tours along Shennan, Beihuan and Binhai, follow simulated delivery drones, explore connected sections of Nanping Expressway and the Yanjiang–Dongbin Tunnel route, and view Shenzhen Bay Bridge. Includes elevated roads and interchanges, metro map layers, Shenzhen North Station's simulated high-speed trains, parks, Nantou Ancient City, University Town and Window of the World, plus APEC-themed streets and venues, original building-light and drone shows, and simulated fireworks. [Full feature guide and screenshots](https://github.com/skyh24/slop-shenzhen#readme)."
+            flags: [WIP]
+            screenshot: screenshots/shenzhen.jpg
+
       - city: Singapore
         coords: [1.2834, 103.8607]
         takes:

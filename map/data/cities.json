@@ -753,6 +753,38 @@
    ]
   },
   {
+   "id": "shenzhen",
+   "city": "Shenzhen",
+   "country": "China",
+   "region": "Asia",
+   "lat": 22.5463,
+   "lon": 114.0545,
+   "original": false,
+   "entries": [
+    {
+     "title": "Shenzhen, China",
+     "links": {
+      "play": "https://slop.sztechsafari.com/",
+      "source": "https://github.com/skyh24/slop-shenzhen"
+     },
+     "author": "skyh24",
+     "authorUrl": "https://github.com/skyh24",
+     "desc": "Slop Shenzhen: a 1:1, geographically grounded WebGPU city centered on Nanshan and Futian, exploring Shenzhen's technology skyline from DJI Sky City and Tencent Seafront Towers to Ping An Finance Center and China Resources Tower. Walk, cycle the Shenzhen Bay waterfront, drive with route planning and cruise control, or fly a quadrotor. Orbit landmarks in 360°, take aerial tours along Shennan, Beihuan and Binhai, follow simulated delivery drones, explore connected sections of Nanping Expressway and the Yanjiang–Dongbin Tunnel route, and view Shenzhen Bay Bridge. Includes elevated roads and interchanges, metro map layers, Shenzhen North Station's simulated high-speed trains, parks, Nantou Ancient City, University Town and Window of the World, plus APEC-themed streets and venues, original building-light and drone shows, and simulated fireworks. Full feature guide and screenshots.",
+     "flags": [
+      "WIP"
+     ],
+     "screenshot": "screenshots/shenzhen.jpg",
+     "pick": false,
+     "added": "2026-11-14",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "singapore",
    "city": "Singapore",
    "country": null,
