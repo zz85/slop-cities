@@ -146,6 +146,16 @@ cities:
             desc: "Slop Indore: an open-world driving game of Indore, Madhya Pradesh, set up as a template (swap the city data, keep the engine). Next.js and three.js WebGPU, its engine adapted from Slop New York's design."
             flags: [own engine, source only]
 
+      - city: Xining
+        country: China
+        coords: [36.6171, 101.7782]
+        takes:
+          - play: https://liuzr-523.github.io/slop-xining/
+            added: 2026-11-20
+            source: https://github.com/Liuzr-523/slop-xining
+            by: Liuzr-523
+            desc: "Slop 西宁: Xining's Haihu New District to Qilin Bay, with the Qinghai Grand Theatre, Haihu Square, Tangdao 637 and Xinning Square, on foot, by car, bicycle or helicopter."
+
       - city: Wuhan
         country: China
         coords: [30.5803, 114.2913]
@@ -312,6 +322,30 @@ cities:
             desc: A GTA 1-style game in the real streets of Neukölln, from OpenStreetMap and Berlin's elevation model. On foot, by bike or in a stolen car, with a Polizei Wanne on your tail, shops to walk into, and radio.
             flags: [own engine]
             screenshot: screenshots/berlin-nk-gta.jpg
+
+      - city: Aalborg
+        country: Denmark
+        coords: [57.0488, 9.9217]
+        remix_of: [copenhagen]
+        takes:
+          - play: https://askonring.github.io/aalborg-twin/
+            added: 2026-11-20
+            source: https://github.com/askonring/aalborg-twin
+            by: askonring
+            desc: "Aalborg Twin: central Aalborg on the Limfjord (Budolfi, Jomfru Ane Gade, Aalborghus, the harbour front, Utzon Center) with 3,340 GeoDanmark buildings at measured heights. Walk, cycle, drive, fly or ride the Plusbus on line 2's real route. Adapted from Copenhagen Twin."
+            screenshot: screenshots/aalborg.jpg
+
+      - city: Ede
+        country: Netherlands
+        coords: [52.0402, 5.6649]
+        remix_of: [utrecht]
+        takes:
+          - play: https://rolandsmeenk.github.io/slop-ede/
+            added: 2026-11-20
+            source: https://github.com/rolandsmeenk/slop-ede
+            by: rolandsmeenk
+            desc: "Slop Ede: from the Oude Kerk and Marktplein to Kernhem, Rietkampen, Maandereng, Veluwse Poort and the western business parks, on foot, by car, bicycle or helicopter. Forked from Slop Utrecht."
+            screenshot: screenshots/ede.jpg
 
       - city: Copenhagen
         country: Denmark
@@ -709,6 +743,30 @@ cities:
             flags: [own engine]
             screenshot: screenshots/st-louis.jpg
 
+      - city: Minneapolis
+        country: USA
+        coords: [44.9778, -93.265]
+        takes:
+          - tag: Mpls Drive
+            play: https://sometimesfunctional.com/mpls-drive/
+            added: 2026-11-20
+            source: https://github.com/amaryland87/mpls-drive
+            by: amaryland87
+            desc: "Mpls Drive: Minneapolis on Slop New York's engine, with its main loop, car physics, cameras, traffic and sound carried over and the city rebuilt."
+
+      - city: Mississauga
+        country: Canada
+        coords: [43.589, -79.6441]
+        takes:
+          - tag: Little Mississauga
+            play: https://sauga.mohameda.li
+            added: 2026-11-20
+            source: https://github.com/moeealii/little-mississauga
+            by: moeealii
+            desc: "Little Mississauga: a RollerCoaster Tycoon 3-style isometric map of the whole city from open data and a small fine-tuned image model, with headlights, lit windows and simulated traffic at night. Inspired by John Fewell's isometric Toronto."
+            flags: [isometric, own engine]
+            screenshot: screenshots/mississauga.jpg
+
       - city: Tepic
         country: Mexico
         coords: [21.5042, -104.8946]
@@ -762,6 +820,14 @@ cities:
             by: "@seifos"
             desc: "Larp Theft Auto: The 6, by @seifos and @ElkhoulyYouseph: a GTA-style game on Slop Toronto, with vehicles, helicopters, an in-game phone for teleporting and 7 parody characters. Built in 6 hours at LarpHacks, where it won Best Use of Render."
             screenshot: screenshots/toronto-gta-the-6.jpg
+          - tag: Isometric Toronto
+            play: https://iso.sloptoronto.ca/
+            added: 2026-11-20
+            tweet: https://x.com/johnfewell/status/2117390647904612526
+            by: "@johnfewell"
+            desc: "Isometric Toronto: an illustrated isometric map of the whole City of Toronto that you can zoom into block by block."
+            flags: [isometric, own engine]
+            screenshot: screenshots/toronto-isometric-toronto.jpg
 
       - city: Uruapan
         country: Mexico
@@ -882,6 +948,14 @@ remixes:
       by: tiborsaas
       desc: Adds a handbrake to the car, with rear-wheel drift.
       flags: [githack]
+    - name: Zombies Everywhere
+      play: https://raw.githack.com/reyrojo2/zombies-everywhere/main/index.html
+      added: 2026-11-20
+      source: https://github.com/reyrojo2/zombies-everywhere
+      by: reyrojo2
+      desc: "A survival prototype in Manhattan: in a fictional 2020, you go out shopping as an infection breaks out and have to get home unarmed. First chapter, \"Antes del silencio\", in Spanish or English."
+      flags: [githack]
+      screenshot: screenshots/new-york-zombies-everywhere.jpg
     - name: LLM residents
       source: https://github.com/trippuroskie/slop-newyork
       added: 2026-10-29

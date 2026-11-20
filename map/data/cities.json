@@ -118,6 +118,22 @@
      "added": "2026-10-30"
     },
     {
+     "title": "Zombies Everywhere",
+     "links": {
+      "play": "https://raw.githack.com/reyrojo2/zombies-everywhere/main/index.html",
+      "source": "https://github.com/reyrojo2/zombies-everywhere"
+     },
+     "author": "reyrojo2",
+     "authorUrl": "https://github.com/reyrojo2",
+     "desc": "A survival prototype in Manhattan: in a fictional 2020, you go out shopping as an infection breaks out and have to get home unarmed. First chapter, \"Antes del silencio\", in Spanish or English.",
+     "flags": [
+      "githack"
+     ],
+     "screenshot": "screenshots/new-york-zombies-everywhere.jpg",
+     "pick": false,
+     "added": "2026-11-20"
+    },
+    {
      "title": "LLM residents",
      "links": {
       "source": "https://github.com/trippuroskie/slop-newyork"
@@ -966,6 +982,67 @@
    ]
   },
   {
+   "id": "xining",
+   "city": "Xining",
+   "country": "China",
+   "region": "Asia",
+   "lat": 36.6171,
+   "lon": 101.7782,
+   "original": false,
+   "entries": [
+    {
+     "title": "Xining, China",
+     "links": {
+      "play": "https://liuzr-523.github.io/slop-xining/",
+      "source": "https://github.com/Liuzr-523/slop-xining"
+     },
+     "author": "Liuzr-523",
+     "authorUrl": "https://github.com/Liuzr-523",
+     "desc": "Slop 西宁: Xining's Haihu New District to Qilin Bay, with the Qinghai Grand Theatre, Haihu Square, Tangdao 637 and Xinning Square, on foot, by car, bicycle or helicopter.",
+     "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "aalborg",
+   "city": "Aalborg",
+   "country": "Denmark",
+   "region": "Europe",
+   "lat": 57.0488,
+   "lon": 9.9217,
+   "original": false,
+   "entries": [
+    {
+     "title": "Aalborg, Denmark",
+     "links": {
+      "play": "https://askonring.github.io/aalborg-twin/",
+      "source": "https://github.com/askonring/aalborg-twin"
+     },
+     "author": "askonring",
+     "authorUrl": "https://github.com/askonring",
+     "desc": "Aalborg Twin: central Aalborg on the Limfjord (Budolfi, Jomfru Ane Gade, Aalborghus, the harbour front, Utzon Center) with 3,340 GeoDanmark buildings at measured heights. Walk, cycle, drive, fly or ride the Plusbus on line 2's real route. Adapted from Copenhagen Twin.",
+     "flags": [],
+     "screenshot": "screenshots/aalborg.jpg",
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "copenhagen"
+   ]
+  },
+  {
    "id": "barcelona",
    "city": "Barcelona",
    "country": "Spain",
@@ -1100,6 +1177,37 @@
    "remixes": [],
    "parents": [
     "new-york"
+   ]
+  },
+  {
+   "id": "ede",
+   "city": "Ede",
+   "country": "Netherlands",
+   "region": "Europe",
+   "lat": 52.0402,
+   "lon": 5.6649,
+   "original": false,
+   "entries": [
+    {
+     "title": "Ede, Netherlands",
+     "links": {
+      "play": "https://rolandsmeenk.github.io/slop-ede/",
+      "source": "https://github.com/rolandsmeenk/slop-ede"
+     },
+     "author": "rolandsmeenk",
+     "authorUrl": "https://github.com/rolandsmeenk",
+     "desc": "Slop Ede: from the Oude Kerk and Marktplein to Kernhem, Rietkampen, Maandereng, Veluwse Poort and the western business parks, on foot, by car, bicycle or helicopter. Forked from Slop Utrecht.",
+     "flags": [],
+     "screenshot": "screenshots/ede.jpg",
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york",
+    "utrecht"
    ]
   },
   {
@@ -1959,6 +2067,67 @@
    ]
   },
   {
+   "id": "minneapolis",
+   "city": "Minneapolis",
+   "country": "USA",
+   "region": "North America",
+   "lat": 44.9778,
+   "lon": -93.265,
+   "original": false,
+   "entries": [
+    {
+     "title": "Minneapolis, USA (Mpls Drive)",
+     "links": {
+      "play": "https://sometimesfunctional.com/mpls-drive/",
+      "source": "https://github.com/amaryland87/mpls-drive"
+     },
+     "author": "amaryland87",
+     "authorUrl": "https://github.com/amaryland87",
+     "desc": "Mpls Drive: Minneapolis on Slop New York's engine, with its main loop, car physics, cameras, traffic and sound carried over and the city rebuilt.",
+     "flags": [],
+     "screenshot": null,
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": "Mpls Drive"
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
+   "id": "mississauga",
+   "city": "Mississauga",
+   "country": "Canada",
+   "region": "North America",
+   "lat": 43.589,
+   "lon": -79.6441,
+   "original": false,
+   "entries": [
+    {
+     "title": "Mississauga, Canada (Little Mississauga)",
+     "links": {
+      "play": "https://sauga.mohameda.li",
+      "source": "https://github.com/moeealii/little-mississauga"
+     },
+     "author": "moeealii",
+     "authorUrl": "https://github.com/moeealii",
+     "desc": "Little Mississauga: a RollerCoaster Tycoon 3-style isometric map of the whole city from open data and a small fine-tuned image model, with headlights, lit windows and simulated traffic at night. Inspired by John Fewell's isometric Toronto.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/mississauga.jpg",
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": "Little Mississauga"
+    }
+   ],
+   "remixes": [],
+   "parents": []
+  },
+  {
    "id": "san-francisco",
    "city": "San Francisco",
    "country": "USA",
@@ -2165,6 +2334,24 @@
      "pick": false,
      "added": "2026-11-03",
      "tag": "GTA The 6"
+    },
+    {
+     "title": "Toronto, Canada (Isometric Toronto)",
+     "links": {
+      "play": "https://iso.sloptoronto.ca/",
+      "tweet": "https://x.com/johnfewell/status/2117390647904612526"
+     },
+     "author": "@johnfewell",
+     "authorUrl": "https://x.com/johnfewell",
+     "desc": "Isometric Toronto: an illustrated isometric map of the whole City of Toronto that you can zoom into block by block.",
+     "flags": [
+      "isometric",
+      "own engine"
+     ],
+     "screenshot": "screenshots/toronto-isometric-toronto.jpg",
+     "pick": false,
+     "added": "2026-11-20",
+     "tag": "Isometric Toronto"
     }
    ],
    "remixes": [],
