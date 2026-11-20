@@ -1514,6 +1514,22 @@
      "pick": false,
      "added": "2026-11-10",
      "tag": null
+    },
+    {
+     "title": "Paris, France (Petit Paris)",
+     "links": {
+      "play": "https://petitparis.app/"
+     },
+     "author": "@pierbapt",
+     "authorUrl": "https://x.com/pierbapt",
+     "desc": "Petit Paris: explore a detailed 3D miniature of Paris by car or plane, with day/night lighting and multiplayer. Built with Three.js and real geographic data, inspired by Pixel Singapore.",
+     "flags": [
+      "own engine"
+     ],
+     "screenshot": "screenshots/paris-petit-paris.jpg",
+     "pick": false,
+     "added": "2026-11-12",
+     "tag": "Petit Paris"
     }
    ],
    "remixes": [],
