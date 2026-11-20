@@ -28,22 +28,6 @@
    ],
    "remixes": [
     {
-     "title": "City Life Simulator",
-     "links": {
-      "play": "https://raw.githack.com/desurfofficial-ship-it/slop-newyork/main/index.html",
-      "source": "https://github.com/desurfofficial-ship-it/slop-newyork"
-     },
-     "author": "desurfofficial-ship-it",
-     "authorUrl": "https://github.com/desurfofficial-ship-it",
-     "desc": "Subway, money, apartments, jobs and New Yorkers on top of the original.",
-     "flags": [
-      "githack"
-     ],
-     "screenshot": "screenshots/new-york-city-life-simulator.jpg",
-     "pick": false,
-     "added": "2026-10-30"
-    },
-    {
      "title": "Extinction Avenue",
      "links": {
       "play": "https://midagedev.github.io/extinction-avenue/",

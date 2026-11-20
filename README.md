@@ -190,7 +190,6 @@ Entries marked *(source only)* have no live demo yet; clone and serve locally. *
 
 Same Manhattan, new game, platform or engine.
 
-- **City Life Simulator** - [Play](https://raw.githack.com/desurfofficial-ship-it/slop-newyork/main/index.html) · [Source](https://github.com/desurfofficial-ship-it/slop-newyork) - by [desurfofficial-ship-it](https://github.com/desurfofficial-ship-it). Subway, money, apartments, jobs and New Yorkers on top of the original. *(githack)*
 - **Extinction Avenue** - [Play](https://midagedev.github.io/extinction-avenue/) · [Source](https://github.com/midagedev/extinction-avenue) - by [midagedev](https://github.com/midagedev). Arcade dino-outbreak car shooter in Midtown.
 - **Film-set studio** - [Play](https://raw.githack.com/pulsybkr/slop-newyork/main/index.html) · [Source](https://github.com/pulsybkr/slop-newyork) - by [pulsybkr](https://github.com/pulsybkr). Two fictional neighbourhoods built as film sets inside Manhattan parks, with houses you can walk into, a school, a medical centre and a police station; pick one to load, or the whole city. In French. *(githack)*
 - **Flying Car Simulator** - [Play](https://flyingcarsimulator.io) · [Tweet](https://x.com/josephzhangai/status/2114743491196850426) - by [@josephzhangai](https://x.com/josephzhangai). Fly a Roadster over 1:1 Manhattan with live traffic.
