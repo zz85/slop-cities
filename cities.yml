@@ -340,9 +340,9 @@ cities:
         coords: [52.0402, 5.6649]
         remix_of: [utrecht]
         takes:
-          - play: https://rolandsmeenk.github.io/slop-ede/
+          - play: https://rolandsmeenk.github.io/ede-in-3d/
             added: 2026-11-20
-            source: https://github.com/rolandsmeenk/slop-ede
+            source: https://github.com/rolandsmeenk/ede-in-3d
             by: rolandsmeenk
             desc: "Slop Ede: from the Oude Kerk and Marktplein to Kernhem, Rietkampen, Maandereng, Veluwse Poort and the western business parks, on foot, by car, bicycle or helicopter. Forked from Slop Utrecht."
             screenshot: screenshots/ede.jpg
