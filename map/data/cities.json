@@ -2174,6 +2174,36 @@
    ]
   },
   {
+   "id": "san-juan",
+   "city": "San Juan",
+   "country": "Puerto Rico",
+   "region": "North America",
+   "lat": 18.4661,
+   "lon": -66.1179,
+   "original": false,
+   "entries": [
+    {
+     "title": "San Juan, Puerto Rico",
+     "links": {
+      "play": "https://vibezzzcoder.github.io/euc-sanjuan/",
+      "source": "https://github.com/VibezZzCoder/euc-sanjuan"
+     },
+     "author": "VibezZzCoder",
+     "authorUrl": "https://github.com/VibezZzCoder",
+     "desc": "An original 3D recreation of Old San Juan. Ride an electric unicycle from El Morro’s fortifications to the colorful streets of La Perla in San Juan Spin-off: EUC Thrills.",
+     "flags": [],
+     "screenshot": "screenshots/san-juan.jpg",
+     "pick": false,
+     "added": "2026-11-24",
+     "tag": null
+    }
+   ],
+   "remixes": [],
+   "parents": [
+    "new-york"
+   ]
+  },
+  {
    "id": "seattle",
    "city": "Seattle",
    "country": "USA",

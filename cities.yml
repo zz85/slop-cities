@@ -720,6 +720,17 @@ cities:
             flags: [WIP]
             screenshot: screenshots/san-francisco-euc-thrills.jpg
 
+      - city: San Juan
+        country: Puerto Rico
+        coords: [18.4661, -66.1179]
+        takes:
+          - play: https://vibezzzcoder.github.io/euc-sanjuan/
+            added: 2026-11-24
+            source: https://github.com/VibezZzCoder/euc-sanjuan
+            by: VibezZzCoder
+            desc: "An original 3D recreation of Old San Juan. Ride an electric unicycle from El Morro’s fortifications to the colorful streets of La Perla in San Juan Spin-off: EUC Thrills."
+            screenshot: screenshots/san-juan.jpg
+
       - city: Seattle
         country: USA
         coords: [47.6062, -122.3321]
